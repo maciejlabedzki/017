@@ -2,10 +2,17 @@ import React from "react";
 
 const MovieStatic = props => {
   const info = props.dataJson;
+
+  // validateLabel = () =>{
+  //   return(
+
+  //   )
+  // }
+
   return (
     <>
       <label className="label_movie lm_Poster">
-        <img src={info.Poster} />
+        <img src={info.Poster} alt="Movie Poster" />
       </label>
       <label className="label_movie lm_title">Movie: {info.Title}</label>
       <label className="label_movie lm_Year ">Year: {info.Year}</label>

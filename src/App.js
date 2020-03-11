@@ -3,7 +3,7 @@ import axios from "axios";
 import "./css/App.css";
 import "./css/App_theme.css";
 import jsonOffline from "./data/movieData.js";
-import MovieStatic from "./MovieStatic";
+import MovieStatic from "./js/MovieStatic";
 
 //http://www.omdbapi.com/?t=anita&y=2020&apikey=46409146
 
