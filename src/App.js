@@ -2,14 +2,14 @@ import React from "react";
 import axios from "axios";
 import "./css/App.css";
 import "./css/App_theme.css";
-import jsonMovie from "./data/jsonData";
+import movieLocalJsonData from "./data/movieLocalJsonData";
 import MovieStatic from "./js/MovieStatic";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      json: jsonMovie,
+      json: movieLocalJsonData,
       jsonValid: true,
       input: "Thor",
       movieFound: true // True or false
