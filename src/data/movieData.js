@@ -1,4 +1,4 @@
-const jsonOffline = {
+const jsonMovieDataLocal = {
   Title: "Thor",
   Year: "2011",
   Rated: "PG-13",
@@ -33,4 +33,4 @@ const jsonOffline = {
   Response: "True"
 };
 
-export default jsonOffline;
+export default jsonMovieDataLocal;
