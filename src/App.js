@@ -4,8 +4,9 @@ import "./css/App.css";
 import "./css/App_theme.css";
 import jsonOffline from "./data/movieData.js";
 import MovieStatic from "./js/MovieStatic";
+import dotenv from "dotenv";
 
-//http://www.omdbapi.com/?t=anita&y=2020&apikey=46409146
+const myEnv = dotenv.config({ path: "/123123.env" });
 
 class App extends React.Component {
   constructor() {
@@ -16,6 +17,7 @@ class App extends React.Component {
       input: "Thor",
       movieFound: true // True or false
     };
+    console.log("PROCESS TEST", myEnv, dotenv, process, process.env);
   }
 
   validJson = () => {
