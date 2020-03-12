@@ -3,8 +3,10 @@ import axios from "axios";
 import "./css/App.css";
 import "./css/App_theme.css";
 import movieLocalJsonData from "./data/movieLocalJsonData";
+import stateLocalJsonData from "./data/movieLocalJsonData";
 import MovieStatic from "./js/MovieStatic";
 import ValidJson from "./js/util/validJson";
+import DevTool from "./js/util/devTool";
 
 class App extends React.Component {
   constructor() {
@@ -14,23 +16,20 @@ class App extends React.Component {
       jsonValid: true,
       input: "Thor",
       inputID: "tt0800369",
-      movieFound: true // True or false
+      movieFound: true
     };
     this.form = React.createRef();
   }
 
-  // validJson = () => {
-  //   const jsonToValidate = this.state.json;
-  //   let jsonValid = false;
+  updateLocalJsonData = () => {
+    console.log("a");
+    this.setState(stateLocalJsonData);
+  };
 
-  //   // Validate empty json files
-  //   for (var key in jsonToValidate) {
-  //     if (jsonToValidate.hasOwnProperty(key)) {
-  //       jsonValid = true;
-  //     }
-  //   }
-  //   this.setState({ jsonValid });
-  // };
+  componentDidMount = () => {
+    console.log("b", this.state);
+    this.updateLocalJsonData();
+  };
 
   jsonApi = async () => {
     let searchTitle = "",
@@ -105,20 +104,26 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>
-          <label>Movie Title:</label>
-          <input defaultValue={this.state.input} onChange={this.updateInput} />
-        </p>
+        <p>{DevTool(this.state)}</p>
+        <form className="header">
+          <p>
+            <label>Movie Title:</label>
+            <input
+              defaultValue={this.state.input}
+              onChange={this.updateInput}
+            />
+          </p>
 
-        <p>
-          <label>Movie ID [tt0******]:</label>
-          <input
-            defaultValue={this.state.inputID}
-            onChange={this.updateInputID}
-          />
-        </p>
+          <p>
+            <label>Movie ID [tt0******]:</label>
+            <input
+              defaultValue={this.state.inputID}
+              onChange={this.updateInputID}
+            />
+          </p>
 
-        <button onClick={this.jsonApi}>OMDB Api</button>
+          <button onClick={this.jsonApi}>OMDB Api</button>
+        </form>
 
         {this.state.movieFound === false && (
           <div className="error">Movie: "{this.state.input}" was not found</div>

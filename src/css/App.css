@@ -156,3 +156,11 @@ label.lm_title {
 label.lm_desc {
   width: 100%;
 }
+
+form.header {
+  display: block;
+  background: #eaeaea;
+  padding: 10px 10px;
+  margin: 10px 10px;
+  border: 1px solid black;
+}
