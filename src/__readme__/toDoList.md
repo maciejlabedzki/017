@@ -1,0 +1,12 @@
+- search ?s=aaaa
+- page ?page=1
+- login,guest
+- user page
+- homepage
+- buy sell
+- favourite
+- watch list
+- comments
+- last search
+- select
+- CRUD pattern [create, read, update and delete ]
