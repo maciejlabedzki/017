@@ -18,24 +18,15 @@ class App extends React.Component {
       inputID: "tt0800369",
       movieFound: true
     };
-    this.form = React.createRef();
   }
 
-  updateLocalJsonData = () => {
-    console.log("a");
-    this.setState(stateLocalJsonData);
-  };
-
-  componentDidMount = () => {
-    console.log("b", this.state);
-    this.updateLocalJsonData();
-  };
-
-  jsonApi = async () => {
+  jsonApi = async e => {
+    e.preventDefault();
     let searchTitle = "",
       searchId = "";
     const domain = process.env.REACT_APP_DOMAIN;
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
+
     if (this.state.input !== "") {
       searchTitle = "/?t=" + this.state.input;
     }
@@ -43,25 +34,25 @@ class App extends React.Component {
     if (this.state.inputID !== "") {
       searchId = "/?i=" + this.state.inputID;
     }
+    console.log(
+      "domain + searchTitle + searchId + apikey",
+      domain + searchTitle + searchId + apikey
+    );
 
     const response = await axios.get(domain + searchTitle + searchId + apikey);
+
     if (response.data.Response) {
-      this.setState(
-        {
+      this.setState({ jsonValid: ValidJson(response.data) });
+
+      if (this.state.jsonValid === true) {
+        this.setState({
           json: response.data,
           movieFound: true
-        },
-        () => {}
-      );
-
-      this.setState({ jsonValid: ValidJson(response.data) });
+        });
+      }
     } else {
       this.setState({ movieFound: false });
     }
-  };
-
-  clearInput = () => {
-    this.setState({ input: "", inputId: "" });
   };
 
   updateInput = e => {
@@ -73,7 +64,6 @@ class App extends React.Component {
 
   updateInputID = e => {
     let value = e.target.value;
-    console.log("value", value.length);
     if (value.length === 6) {
       value = "tt0" + value;
     }
@@ -101,6 +91,16 @@ class App extends React.Component {
     });
   };
 
+  clearInputs = e => {
+    console.log(e.currentTarget.tag, e);
+    // if (value !== "movie") {
+    //   this.setState({ input: "" });
+    // }
+    // if (value !== "id") {
+    //   this.setState({ inputID: "" });
+    // }
+  };
+
   render() {
     return (
       <div>
@@ -109,7 +109,9 @@ class App extends React.Component {
           <p>
             <label>Movie Title:</label>
             <input
-              defaultValue={this.state.input}
+              dataid="movie"
+              placeholder={this.state.input}
+              onFocus={this.clearInputs}
               onChange={this.updateInput}
             />
           </p>
@@ -117,7 +119,7 @@ class App extends React.Component {
           <p>
             <label>Movie ID [tt0******]:</label>
             <input
-              defaultValue={this.state.inputID}
+              placeholder={this.state.inputID}
               onChange={this.updateInputID}
             />
           </p>
