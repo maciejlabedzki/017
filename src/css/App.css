@@ -106,3 +106,53 @@ label {
   font-weight: normal;
   padding: 5px 10px 5px 10px;
 }
+
+/* Movie Inspection */
+label.lm_desc {
+  background: #f7f7f7;
+  border: none;
+  border-left: 1px solid #d0d0d0;
+  border-right: 1px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+  margin: 0;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  padding: 2px 5px;
+  color: #737373;
+}
+
+label.lm_title {
+  margin-bottom: 0px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1px 5px;
+  text-shadow: 1px 1px 1px white;
+  font-weight: bold;
+}
+
+.label_movie {
+  display: block;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+}
+
+.label_movie:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+label.lm_title {
+  float: left;
+  width: 100%;
+}
+
+.Poster label.lm_desc {
+  text-align: center;
+  overflow: hidden;
+}
+
+label.lm_desc {
+  width: 100%;
+}
