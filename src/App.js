@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
-import "./css/store.css";
+import "./css/style.css";
 import MovieStatic from "./js/MovieStatic";
 import ValidJson from "./js/util/json/validJson";
+
 import stateSetting from "./data/state";
 
 import StructureHeader from "./js/component/StructureHeader";
@@ -33,7 +34,7 @@ class App extends React.Component {
 
     const response = await axios.get(domain + matchTitle + matchId + apikey);
 
-    if (response.data.Response) {
+    if (response.data.Response === true) {
       this.setState({ jsonValid: ValidJson(response.data) });
 
       if (this.state.jsonValid === true) {
@@ -43,7 +44,7 @@ class App extends React.Component {
         });
       }
     } else {
-      this.setState({ movieFound: false });
+      this.setState({ json: response.data, movieFound: false });
     }
   };
 
@@ -95,36 +96,11 @@ class App extends React.Component {
           jsonApi={this.jsonApi}
         />
 
-        <form className="header">
-          <p>
-            <label>Match Title:</label>
-            <input
-              dataid="movie"
-              placeholder={this.state.input}
-              onFocus={this.clearInputs}
-              onChange={this.updateInput}
-            />
-          </p>
-
-          <p>
-            <label>Match ID:</label>
-            <input
-              placeholder={this.state.inputID}
-              onChange={this.updateInputID}
-            />
-          </p>
-
-          <button onClick={this.jsonApi}>OMDB Api</button>
-        </form>
-
-        {this.alertMessageShow}
-        {this.state.movieFound === false && (
-          <div className="error">Movie: "{this.state.input}" was not found</div>
-        )}
-
-        {this.state.movieFound === true && this.state.jsonValid === true && (
-          <MovieStatic dataJson={this.state.json} />
-        )}
+        <MovieStatic
+          movieDb={this.state.json}
+          movieFound={this.state.movieFound}
+          jsonValid={this.state.jsonValid}
+        />
       </div>
     );
   }

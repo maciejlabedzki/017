@@ -29,8 +29,14 @@ const BlockDescription = props => {
   }
 };
 
-const MovieStatic = props => {
-  const movieDb = props.dataJson;
+const MovieStatic = ({ movieDb, movieFound, jsonValid }) => {
+  console.log("movieDb, movieFound, jsonValid", movieDb, movieFound, jsonValid);
+  if (movieFound !== true) {
+    return "No movie found";
+  }
+  if (jsonValid !== true) {
+    return "No valid JSON";
+  }
 
   return (
     <React.Fragment>
