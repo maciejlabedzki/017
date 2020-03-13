@@ -16,6 +16,7 @@ class App extends React.Component {
       jsonValid: true,
       input: "Thor",
       inputID: "tt0800369",
+      inputSearch: "",
       movieFound: true
     };
   }
@@ -26,6 +27,7 @@ class App extends React.Component {
       searchId = "";
     const domain = process.env.REACT_APP_DOMAIN;
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
+    const response = await axios.get(domain + searchTitle + searchId + apikey);
 
     if (this.state.input !== "") {
       searchTitle = "/?t=" + this.state.input;
@@ -34,12 +36,6 @@ class App extends React.Component {
     if (this.state.inputID !== "") {
       searchId = "/?i=" + this.state.inputID;
     }
-    console.log(
-      "domain + searchTitle + searchId + apikey",
-      domain + searchTitle + searchId + apikey
-    );
-
-    const response = await axios.get(domain + searchTitle + searchId + apikey);
 
     if (response.data.Response) {
       this.setState({ jsonValid: ValidJson(response.data) });
