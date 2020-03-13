@@ -4,7 +4,6 @@ form.header {
   padding: 10px 10px;
   margin: 10px 10px;
   border: 1px solid black;
-
   float: left;
   width: calc(100% - 40px);
   label {
@@ -56,13 +55,6 @@ form.header {
       rgba(237, 237, 237, 1) 100%
     );
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
-
-    width: calc(50% - 1px);
-    min-width: 320px;
-    min-height: 20px;
-    margin: 0px 0px 2px 1px;
-    padding: 4px 10px 0px 10px;
-
     width: calc(50% - 1px);
     min-width: 320px;
     min-height: 20px;
@@ -75,50 +67,6 @@ form.header {
 }
 
 /* Movie Inspection */
-label.lm_desc {
-  background: #f7f7f7;
-  border: none;
-  border-left: 1px solid #d0d0d0;
-  border-right: 1px solid #d0d0d0;
-  border-bottom: 1px solid #d0d0d0;
-  margin: 0;
-  box-sizing: border-box;
-  margin-bottom: 5px;
-  padding: 2px 5px;
-  color: #737373;
-}
-
-label.lm_title {
-  margin-bottom: 0px;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 1px 5px;
-  text-shadow: 1px 1px 1px white;
-  font-weight: bold;
-}
-
-.label_movie {
-  display: block;
-  width: 100%;
-  float: left;
-  overflow: hidden;
-  &:after {
-    clear: both;
-    display: block;
-    content: "";
-  }
-}
-
-label.lm_title {
-  float: left;
-  width: 100%;
-}
-
-.Poster label.lm_desc {
-  text-align: center;
-  overflow: hidden;
-  width: 100%;
-}
 
 .app_header_wrapper {
   float: left;
@@ -135,9 +83,58 @@ label.lm_title {
     content: "";
     width: 100%;
   }
-
   div {
     float: left;
     padding: 5px 5px;
+  }
+}
+
+.label_movie {
+  display: block;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  &:after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+  .lm_title {
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1px 5px;
+    text-shadow: 1px 1px 1px white;
+    font-weight: bold;
+    min-width: 320px;
+    float: left;
+    box-sizing: border-box;
+    text-align: justify;
+    background: white;
+    background: -webkit-gradient(
+      left top,
+      left bottom,
+      color-stop(0%, white),
+      color-stop(47%, #f6f6f6),
+      color-stop(100%, #ededed)
+    );
+    background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+    width: 100%;
+    min-width: 320px;
+    min-height: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+  }
+  .lm_desc {
+    float: left;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+    padding: 5px 10px;
   }
 }

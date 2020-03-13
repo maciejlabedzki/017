@@ -40,28 +40,29 @@ const MovieStatic = ({ movieDb, movieFound, jsonValid }) => {
 
   return (
     <React.Fragment>
-      <BlockDescription movieDb={movieDb} category="Poster" type="img" />
-      <BlockDescription movieDb={movieDb} category="Title" type="text" />
-      <BlockDescription movieDb={movieDb} category="Year" type="text" />
-      <BlockDescription movieDb={movieDb} category="Rated" type="text" />
-      <BlockDescription movieDb={movieDb} category="Released" type="text" />
-      <BlockDescription movieDb={movieDb} category="Runtime" type="text" />
-      <BlockDescription movieDb={movieDb} category="Genre" type="text" />
-      <BlockDescription movieDb={movieDb} category="Director" type="text" />
-      <BlockDescription movieDb={movieDb} category="Writer" type="text" />
-      <BlockDescription movieDb={movieDb} category="Actors" type="text" />
-      <BlockDescription movieDb={movieDb} category="Plot" type="text" />
-      <BlockDescription movieDb={movieDb} category="Language" type="text" />
-      <BlockDescription movieDb={movieDb} category="Country" type="text" />
-      <BlockDescription movieDb={movieDb} category="Awards" type="text" />
-      <BlockDescription movieDb={movieDb} category="Metascore" type="text" />
-      <BlockDescription movieDb={movieDb} category="imdbRating" type="text" />
-      <BlockDescription movieDb={movieDb} category="Type" type="text" />
-      <BlockDescription movieDb={movieDb} category="DVD" type="text" />
-      <BlockDescription movieDb={movieDb} category="BoxOffice" type="text" />
-      <BlockDescription movieDb={movieDb} category="Production" type="text" />
-      <BlockDescription movieDb={movieDb} category="Website" type="text" />
-      <BlockDescription movieDb={123123} category="Website" type="text" />
+      <div className="app_container">
+        <BlockDescription movieDb={movieDb} category="Poster" type="img" />
+        <BlockDescription movieDb={movieDb} category="Title" type="text" />
+        <BlockDescription movieDb={movieDb} category="Year" type="text" />
+        <BlockDescription movieDb={movieDb} category="Rated" type="text" />
+        <BlockDescription movieDb={movieDb} category="Released" type="text" />
+        <BlockDescription movieDb={movieDb} category="Runtime" type="text" />
+        <BlockDescription movieDb={movieDb} category="Genre" type="text" />
+        <BlockDescription movieDb={movieDb} category="Director" type="text" />
+        <BlockDescription movieDb={movieDb} category="Writer" type="text" />
+        <BlockDescription movieDb={movieDb} category="Actors" type="text" />
+        <BlockDescription movieDb={movieDb} category="Plot" type="text" />
+        <BlockDescription movieDb={movieDb} category="Language" type="text" />
+        <BlockDescription movieDb={movieDb} category="Country" type="text" />
+        <BlockDescription movieDb={movieDb} category="Awards" type="text" />
+        <BlockDescription movieDb={movieDb} category="Metascore" type="text" />
+        <BlockDescription movieDb={movieDb} category="imdbRating" type="text" />
+        <BlockDescription movieDb={movieDb} category="Type" type="text" />
+        <BlockDescription movieDb={movieDb} category="DVD" type="text" />
+        <BlockDescription movieDb={movieDb} category="BoxOffice" type="text" />
+        <BlockDescription movieDb={movieDb} category="Production" type="text" />
+        <BlockDescription movieDb={movieDb} category="Website" type="text" />
+      </div>
     </React.Fragment>
   );
 };

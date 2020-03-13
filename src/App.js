@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./css/style.css";
+import "./css/style.scss";
 import MovieStatic from "./js/MovieStatic";
 import ValidJson from "./js/util/json/validJson";
 
