@@ -1,6 +1,12 @@
 import React from "react";
 
-const StructureSearch = ({ state, updateInput, updateInputID, jsonApi }) => {
+const StructureSearch = ({
+  state,
+  updateInput,
+  updateInputID,
+  updateInputYear,
+  jsonApi
+}) => {
   return (
     <div className="app_container">
       <form className="header">
@@ -11,11 +17,19 @@ const StructureSearch = ({ state, updateInput, updateInputID, jsonApi }) => {
             placeholder={state.input}
             onChange={updateInput}
           />
+          <input type="checkbox" />
         </p>
 
         <p>
           <label>Match ID:</label>
           <input placeholder={state.inputID} onChange={updateInputID} />
+          <input type="checkbox" />
+        </p>
+
+        <p>
+          <label>Match Year:</label>
+          <input placeholder={state.inputYear} onChange={updateInputYear} />
+          <input type="checkbox" />
         </p>
 
         <button onClick={jsonApi}>OMDB Api</button>

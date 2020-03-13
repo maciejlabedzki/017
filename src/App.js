@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./css/style.scss";
-import MovieStatic from "./js/MovieStatic";
+import ShowMovieInformation from "./js/component/ShowMovieInformation";
 import ValidJson from "./js/util/json/validJson";
 
 import stateSetting from "./data/state";
@@ -25,16 +25,18 @@ class App extends React.Component {
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
 
     if (this.state.input !== "") {
-      matchTitle = "/?t=" + this.state.input;
+      matchTitle = "?t=" + this.state.input;
     }
 
     if (this.state.inputID !== "") {
-      matchId = "/?i=" + this.state.inputID;
+      matchId = "?i=" + this.state.inputID;
     }
 
-    const response = await axios.get(domain + matchTitle + matchId + apikey);
+    const response = await axios.get(
+      domain + "/" + matchTitle + matchId + apikey
+    );
 
-    if (response.data.Response === true) {
+    if (response.data.Response === "True" || response.data.Response === true) {
       this.setState({ jsonValid: ValidJson(response.data) });
 
       if (this.state.jsonValid === true) {
@@ -48,14 +50,40 @@ class App extends React.Component {
     }
   };
 
-  updateInput = e => {
+  updateInputTitle = e => {
+    if (
+      e.target.value === null ||
+      e.target.value === "" ||
+      e.target.value === undefined
+    ) {
+      return;
+    }
     this.setState({
-      input: e.target.value,
-      inputID: ""
+      input: e.target.value
+    });
+  };
+
+  updateInputYear = e => {
+    if (
+      e.target.value === null ||
+      e.target.value === "" ||
+      e.target.value === undefined
+    ) {
+      return;
+    }
+    this.setState({
+      inputYear: e.target.value
     });
   };
 
   updateInputID = e => {
+    if (
+      e.target.value === null ||
+      e.target.value === "" ||
+      e.target.value === undefined
+    ) {
+      return;
+    }
     let value = e.target.value;
     if (value.length === 6) {
       value = "tt0" + value;
@@ -79,24 +107,24 @@ class App extends React.Component {
       value = "";
     }
     this.setState({
-      inputID: value,
-      input: ""
+      inputID: value
     });
   };
 
   render() {
     return (
       <div>
-        <ToolDeveloper data={this.state} />
+        <ToolDeveloper state={this.state} />
         <StructureHeader />
         <StructureSearch
           state={this.state}
-          updateInput={this.updateInput}
+          updateInput={this.updateInputTitle}
           updateInputID={this.updateInputID}
+          updateInputYear={this.updateInputYear}
           jsonApi={this.jsonApi}
         />
 
-        <MovieStatic
+        <ShowMovieInformation
           movieDb={this.state.json}
           movieFound={this.state.movieFound}
           jsonValid={this.state.jsonValid}

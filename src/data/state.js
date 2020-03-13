@@ -3,10 +3,23 @@ import movieLocalJsonData from "../data/movieLocalJsonData";
 const stateSetting = {
   json: movieLocalJsonData,
   jsonValid: true,
-  input: "a",
-  inputID: "800369",
+  movieFound: true,
+  inputs: {
+    matchBy: {
+      title: { value: "", option: false },
+      id: "",
+      year: ""
+    },
+    searchBy: {
+      title: "",
+      id: "",
+      year: ""
+    }
+  },
+  input: "",
+  inputID: "",
   inputSearch: "",
-  movieFound: true
+  inputYear: ""
 };
 
 export default stateSetting;

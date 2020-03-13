@@ -29,7 +29,7 @@ const BlockDescription = props => {
   }
 };
 
-const MovieStatic = ({ movieDb, movieFound, jsonValid }) => {
+const ShowMovieInformation = ({ movieDb, movieFound, jsonValid }) => {
   console.log("movieDb, movieFound, jsonValid", movieDb, movieFound, jsonValid);
   if (movieFound !== true) {
     return "No movie found";
@@ -67,4 +67,4 @@ const MovieStatic = ({ movieDb, movieFound, jsonValid }) => {
   );
 };
 
-export default MovieStatic;
+export default ShowMovieInformation;
