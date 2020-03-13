@@ -1,41 +1,37 @@
 import React from "react";
 import axios from "axios";
-import "./css/App.css";
-import "./css/App_theme.css";
-import movieLocalJsonData from "./data/movieLocalJsonData";
-import stateLocalJsonData from "./data/movieLocalJsonData";
+import "./css/store.css";
 import MovieStatic from "./js/MovieStatic";
-import ValidJson from "./js/util/validJson";
-import DevTool from "./js/util/devTool";
+import ValidJson from "./js/util/json/validJson";
+import stateSetting from "./data/state";
+
+import StructureHeader from "./js/component/StructureHeader";
+import StructureSearch from "./js/component/StructureSearch";
+
+import ToolDeveloper from "./js/component/ToolDeveloper";
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      json: movieLocalJsonData,
-      jsonValid: true,
-      input: "Thor",
-      inputID: "tt0800369",
-      inputSearch: "",
-      movieFound: true
-    };
+    this.state = stateSetting;
   }
 
   jsonApi = async e => {
     e.preventDefault();
-    let searchTitle = "",
-      searchId = "";
+    let matchTitle = "",
+      matchId = "";
     const domain = process.env.REACT_APP_DOMAIN;
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
-    const response = await axios.get(domain + searchTitle + searchId + apikey);
 
     if (this.state.input !== "") {
-      searchTitle = "/?t=" + this.state.input;
+      matchTitle = "/?t=" + this.state.input;
     }
 
     if (this.state.inputID !== "") {
-      searchId = "/?i=" + this.state.inputID;
+      matchId = "/?i=" + this.state.inputID;
     }
+
+    const response = await axios.get(domain + matchTitle + matchId + apikey);
 
     if (response.data.Response) {
       this.setState({ jsonValid: ValidJson(response.data) });
@@ -87,23 +83,21 @@ class App extends React.Component {
     });
   };
 
-  clearInputs = e => {
-    console.log(e.currentTarget.tag, e);
-    // if (value !== "movie") {
-    //   this.setState({ input: "" });
-    // }
-    // if (value !== "id") {
-    //   this.setState({ inputID: "" });
-    // }
-  };
-
   render() {
     return (
       <div>
-        <p>{DevTool(this.state)}</p>
+        <ToolDeveloper data={this.state} />
+        <StructureHeader />
+        <StructureSearch
+          state={this.state}
+          updateInput={this.updateInput}
+          updateInputID={this.updateInputID}
+          jsonApi={this.jsonApi}
+        />
+
         <form className="header">
           <p>
-            <label>Movie Title:</label>
+            <label>Match Title:</label>
             <input
               dataid="movie"
               placeholder={this.state.input}
@@ -113,7 +107,7 @@ class App extends React.Component {
           </p>
 
           <p>
-            <label>Movie ID [tt0******]:</label>
+            <label>Match ID:</label>
             <input
               placeholder={this.state.inputID}
               onChange={this.updateInputID}
@@ -123,6 +117,7 @@ class App extends React.Component {
           <button onClick={this.jsonApi}>OMDB Api</button>
         </form>
 
+        {this.alertMessageShow}
         {this.state.movieFound === false && (
           <div className="error">Movie: "{this.state.input}" was not found</div>
         )}

@@ -1,0 +1,8 @@
+.app_container {
+  float: left;
+  width: 100%;
+  background: #c7c7c7;
+  padding: 5px 5px;
+  margin: 1px 1px;
+  box-sizing: border-box;
+}
