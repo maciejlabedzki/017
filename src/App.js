@@ -27,11 +27,11 @@ class App extends React.Component {
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
 
     if (this.state.input !== "") {
-      matchTitle = "?t=" + this.state.input;
+      matchTitle = "?t=" + this.state.searchMatchTitleInput;
     }
 
     if (this.state.inputID !== "") {
-      matchId = "?i=" + this.state.inputID;
+      matchId = "?i=" + this.state.searchMatchIdInput;
     }
 
     const response = await axios.get(
@@ -52,7 +52,7 @@ class App extends React.Component {
     }
   };
 
-  updateInputTitle = e => {
+  updateSearchMatchTitleInput = e => {
     if (
       e.target.value === null ||
       e.target.value === "" ||
@@ -61,7 +61,7 @@ class App extends React.Component {
       return;
     }
     this.setState({
-      input: e.target.value
+      searchMatchTitleInput: e.target.value
     });
   };
 
@@ -113,28 +113,62 @@ class App extends React.Component {
     });
   };
 
-  updateMatchTitle = e => {
-    this.setState(
-      prevState => ({
-        ...prevState.inputs.matchBy.title,
-        option: false
-      }),
-      () => {
-        console.log(this.state);
+  updateInputs = e => {
+    if (e.target.getAttribute("name") === "searchMatchTitleInput") {
+      this.setState({
+        searchMatchTitleInput: e.target.value
+      });
+    }
+    if (e.target.getAttribute("name") === "searchMatchIdInput") {
+      let value = e.target.value;
+      if (value.length === 6) {
+        value = "tt0" + value;
       }
-    );
+      if (value.length === 5) {
+        value = "tt00" + value;
+      }
+      if (value.length === 4) {
+        value = "tt000" + value;
+      }
+      if (value.length === 3) {
+        value = "tt0000" + value;
+      }
+      if (value.length === 2) {
+        value = "tt00000" + value;
+      }
+      if (value.length === 1) {
+        value = "tt000000" + value;
+      }
+      if (value.length === 0) {
+        value = "";
+      }
+      this.setState({
+        searchMatchIdInput: value
+      });
+    }
+    if (e.target.getAttribute("name") === "searchMatchYearInput") {
+      this.setState({
+        searchMatchYearInput: e.target.value
+      });
+    }
   };
 
-  updateMatchID = e => {
-    this.setState({
-      inputYear: e.target.value
-    });
+  updateSearchMatchTitleCheckbox = e => {
+    this.setState(prevState => ({
+      searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox
+    }));
   };
 
-  updateMatchYear = e => {
-    this.setState({
-      inputYear: e.target.value
-    });
+  updateSearchMatchIdCheckbox = e => {
+    this.setState(prevState => ({
+      searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox
+    }));
+  };
+
+  updateSearchMatchYearCheckbox = e => {
+    this.setState(prevState => ({
+      searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox
+    }));
   };
 
   render() {
@@ -144,12 +178,10 @@ class App extends React.Component {
         <StructureHeader />
         <StructureSearch
           state={this.state}
-          updateInput={this.updateInputTitle}
-          updateInputID={this.updateInputID}
-          updateInputYear={this.updateInputYear}
-          updateMatchTitle={this.updateMatchTitle}
-          updateMatchYear={this.updateMatchYear}
-          updateMatchID={this.updateMatchID}
+          updateInputs={this.updateInputs}
+          updateSearchMatchTitleCheckbox={this.updateSearchMatchTitleCheckbox}
+          updateSearchMatchYearCheckbox={this.updateSearchMatchYearCheckbox}
+          updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
           jsonApi={this.jsonApi}
         />
 

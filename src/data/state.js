@@ -4,22 +4,16 @@ const stateSetting = {
   json: movieLocalJsonData,
   jsonValid: true,
   movieFound: true,
-  inputs: {
-    matchBy: {
-      title: { value: "", option: false },
-      id: { value: "", option: false },
-      year: { value: "", option: false }
-    },
-    searchBy: {
-      title: "",
-      id: "",
-      year: ""
-    }
-  },
-  input: "",
+  inputTitle: "",
   inputID: "",
   inputSearch: "",
-  inputYear: ""
+  inputYear: "",
+  searchMatchTitleInput: "",
+  searchMatchTitleCheckbox: true,
+  searchMatchIdInput: "",
+  searchMatchIdCheckbox: false,
+  searchMatchYearInput: "",
+  searchMatchYearCheckbox: false
 };
 
 export default stateSetting;
