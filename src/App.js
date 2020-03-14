@@ -11,6 +11,8 @@ import StructureSearch from "./js/component/StructureSearch";
 
 import ToolDeveloper from "./js/component/ToolDeveloper";
 
+// import updateInputs from "./js/util/input/updateInputValue";
+
 // import exist from "./js/util/var/exist";
 
 class App extends React.Component {
@@ -50,67 +52,6 @@ class App extends React.Component {
     } else {
       this.setState({ json: response.data, movieFound: false });
     }
-  };
-
-  updateSearchMatchTitleInput = e => {
-    if (
-      e.target.value === null ||
-      e.target.value === "" ||
-      e.target.value === undefined
-    ) {
-      return;
-    }
-    this.setState({
-      searchMatchTitleInput: e.target.value
-    });
-  };
-
-  updateInputYear = e => {
-    if (
-      e.target.value === null ||
-      e.target.value === "" ||
-      e.target.value === undefined
-    ) {
-      return;
-    }
-    this.setState({
-      inputYear: e.target.value
-    });
-  };
-
-  updateInputID = e => {
-    if (
-      e.target.value === null ||
-      e.target.value === "" ||
-      e.target.value === undefined
-    ) {
-      return;
-    }
-    let value = e.target.value;
-    if (value.length === 6) {
-      value = "tt0" + value;
-    }
-    if (value.length === 5) {
-      value = "tt00" + value;
-    }
-    if (value.length === 4) {
-      value = "tt000" + value;
-    }
-    if (value.length === 3) {
-      value = "tt0000" + value;
-    }
-    if (value.length === 2) {
-      value = "tt00000" + value;
-    }
-    if (value.length === 1) {
-      value = "tt000000" + value;
-    }
-    if (value.length === 0) {
-      value = "";
-    }
-    this.setState({
-      inputID: value
-    });
   };
 
   updateInputs = e => {
@@ -153,22 +94,40 @@ class App extends React.Component {
     }
   };
 
-  updateSearchMatchTitleCheckbox = e => {
-    this.setState(prevState => ({
-      searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox
-    }));
+  updateCheckbox = e => {
+    if (e.target.getAttribute("name") === "searchMatchTitleCheckbox") {
+      this.setState(prevState => ({
+        searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox
+      }));
+    }
+    if (e.target.getAttribute("name") === "searchMatchIdCheckbox") {
+      this.setState(prevState => ({
+        searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox
+      }));
+    }
+    if (e.target.getAttribute("name") === "searchMatchYearCheckbox") {
+      this.setState(prevState => ({
+        searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox
+      }));
+    }
+    this.validateSearchButton();
   };
 
-  updateSearchMatchIdCheckbox = e => {
-    this.setState(prevState => ({
-      searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox
-    }));
-  };
-
-  updateSearchMatchYearCheckbox = e => {
-    this.setState(prevState => ({
-      searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox
-    }));
+  validateSearchButton = () => {
+    if (
+      this.state.searchMatchIdCheckbox ||
+      this.state.searchMatchTitleCheckbox ||
+      this.state.searchMatchYearCheckbox
+    ) {
+      this.setState({
+        searchMatchButton: true
+      });
+    } else {
+      this.setState({
+        searchMatchButton: false
+      });
+    }
+    console.log("validate");
   };
 
   render() {
@@ -179,6 +138,7 @@ class App extends React.Component {
         <StructureSearch
           state={this.state}
           updateInputs={this.updateInputs}
+          updateCheckbox={this.updateCheckbox}
           updateSearchMatchTitleCheckbox={this.updateSearchMatchTitleCheckbox}
           updateSearchMatchYearCheckbox={this.updateSearchMatchYearCheckbox}
           updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}

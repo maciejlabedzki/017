@@ -1,7 +1,6 @@
 import React from "react";
 
 const StructureSearch = props => {
-  console.log("aa", props);
   return (
     <div className="app_container">
       <form className="header">
@@ -11,13 +10,15 @@ const StructureSearch = props => {
             name="searchMatchTitleInput"
             placeholder={props.state.searchMatchTitleInput}
             onChange={props.updateInputs}
+            disabled={!props.state.searchMatchTitleCheckbox}
           />
 
-          {/* <input
-            onChange={props.searchMatchTitleInput}
+          <input
+            name="searchMatchTitleCheckbox"
+            onChange={props.updateCheckbox}
             checked={props.state.searchMatchTitleCheckbox}
             type="checkbox"
-          /> */}
+          />
         </p>
 
         <p>
@@ -26,12 +27,14 @@ const StructureSearch = props => {
             name="searchMatchIdInput"
             placeholder={props.state.searchMatchIdInput}
             onChange={props.updateInputs}
+            disabled={!props.state.searchMatchIdCheckbox}
           />
-          {/* <input
-            onChange={props.updateMatchID}
+          <input
+            name="searchMatchIdCheckbox"
+            onChange={props.updateCheckbox}
             checked={props.state.searchMatchIdCheckbox}
             type="checkbox"
-          /> */}
+          />
         </p>
 
         <p>
@@ -40,15 +43,22 @@ const StructureSearch = props => {
             name="searchMatchYearInput"
             placeholder={props.state.searchMatchYearInput}
             onChange={props.updateInputs}
+            disabled={!props.state.searchMatchYearCheckbox}
           />
-          {/* <input
-            onChange={props.updateMatchYear}
+          <input
+            name="searchMatchYearCheckbox"
+            onChange={props.updateCheckbox}
             checked={props.state.searchMatchYearCheckbox}
             type="checkbox"
-          /> */}
+          />
         </p>
 
-        <button onClick={props.jsonApi}>OMDB Api</button>
+        <button
+          onClick={props.jsonApi}
+          disabled={props.state.searchMatchButton}
+        >
+          Search First Match
+        </button>
       </form>
     </div>
   );
