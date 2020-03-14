@@ -5,6 +5,9 @@ const StructureSearch = ({
   updateInput,
   updateInputID,
   updateInputYear,
+  updateMatchTitle,
+  updateMatchID,
+  updateMatchYear,
   jsonApi
 }) => {
   return (
@@ -17,19 +20,19 @@ const StructureSearch = ({
             placeholder={state.input}
             onChange={updateInput}
           />
-          <input type="checkbox" />
+          <input onChange={updateMatchTitle} type="checkbox" />
         </p>
 
         <p>
           <label>Match ID:</label>
           <input placeholder={state.inputID} onChange={updateInputID} />
-          <input type="checkbox" />
+          <input onChange={updateMatchID} type="checkbox" />
         </p>
 
         <p>
           <label>Match Year:</label>
           <input placeholder={state.inputYear} onChange={updateInputYear} />
-          <input type="checkbox" />
+          <input onChange={updateMatchYear} type="checkbox" />
         </p>
 
         <button onClick={jsonApi}>OMDB Api</button>

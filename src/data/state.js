@@ -7,8 +7,8 @@ const stateSetting = {
   inputs: {
     matchBy: {
       title: { value: "", option: false },
-      id: "",
-      year: ""
+      id: { value: "", option: false },
+      year: { value: "", option: false }
     },
     searchBy: {
       title: "",

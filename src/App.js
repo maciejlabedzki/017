@@ -113,6 +113,30 @@ class App extends React.Component {
     });
   };
 
+  updateMatchTitle = e => {
+    this.setState(
+      prevState => ({
+        ...prevState.inputs.matchBy.title,
+        option: false
+      }),
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
+  updateMatchID = e => {
+    this.setState({
+      inputYear: e.target.value
+    });
+  };
+
+  updateMatchYear = e => {
+    this.setState({
+      inputYear: e.target.value
+    });
+  };
+
   render() {
     return (
       <div>
@@ -123,6 +147,9 @@ class App extends React.Component {
           updateInput={this.updateInputTitle}
           updateInputID={this.updateInputID}
           updateInputYear={this.updateInputYear}
+          updateMatchTitle={this.updateMatchTitle}
+          updateMatchYear={this.updateMatchYear}
+          updateMatchID={this.updateMatchID}
           jsonApi={this.jsonApi}
         />
 
