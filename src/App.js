@@ -11,6 +11,8 @@ import StructureSearch from "./js/component/StructureSearch";
 
 import ToolDeveloper from "./js/component/ToolDeveloper";
 
+// import exist from "./js/util/var/exist";
+
 class App extends React.Component {
   constructor() {
     super();
