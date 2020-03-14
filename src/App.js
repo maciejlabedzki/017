@@ -19,25 +19,66 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = stateSetting;
+    this.refForm = React.createRef();
   }
 
   jsonApi = async e => {
     e.preventDefault();
+
+    // test if there is any value to search
+    if (
+      this.state.searchMatchYearCheckbox === false &&
+      this.state.searchMatchIdCheckbox === false &&
+      this.state.searchMatchTitleCheckbox === false
+    ) {
+      return;
+    }
+
+    // test if there is any value to search
+    if (
+      this.state.searchMatchTitleInput === "" &&
+      this.state.searchMatchIdInput === "" &&
+      this.state.searchMatchYearInput === ""
+    ) {
+      return;
+    }
+
     let matchTitle = "",
+      matchYear = "",
       matchId = "";
     const domain = process.env.REACT_APP_DOMAIN;
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
 
-    if (this.state.input !== "") {
+    if (
+      this.state.searchMatchTitleInput !== "" &&
+      this.state.searchMatchTitleCheckbox === true
+    ) {
       matchTitle = "?t=" + this.state.searchMatchTitleInput;
     }
 
-    if (this.state.inputID !== "") {
+    if (
+      this.state.searchMatchIdInput !== "" &&
+      this.state.searchMatchIdCheckbox === true
+    ) {
       matchId = "?i=" + this.state.searchMatchIdInput;
     }
 
+    if (
+      this.state.searchMatchYearInput !== "" &&
+      this.state.searchMatchYearCheckbox === true &&
+      this.state.searchMatchTitleInput !== "" &&
+      this.state.searchMatchTitleCheckbox === true
+    ) {
+      matchYear = "?y=" + this.state.searchMatchYearInput;
+    }
+
     const response = await axios.get(
-      domain + "/" + matchTitle + matchId + apikey
+      domain + "/" + matchTitle + matchId + matchYear + apikey
+    );
+
+    console.log(
+      ' domain + "/" + matchTitle + matchId + matchYear + apikey',
+      domain + "/" + matchTitle + matchId + matchYear + apikey
     );
 
     if (response.data.Response === "True" || response.data.Response === true) {
@@ -94,23 +135,47 @@ class App extends React.Component {
     }
   };
 
+  clearInputs = () => {
+    this.setState({
+      searchMatchTitleInput: "",
+      searchMatchTitleCheckbox: true,
+
+      searchMatchYearInput: "",
+      searchMatchYearCheckbox: false,
+
+      searchMatchIdInput: "",
+      searchMatchIdCheckbox: false
+    });
+  };
+
   updateCheckbox = e => {
     if (e.target.getAttribute("name") === "searchMatchTitleCheckbox") {
       this.setState(prevState => ({
-        searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox
+        searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox,
+        searchMatchIdCheckbox: false,
+        searchMatchIdInput: ""
       }));
     }
-    if (e.target.getAttribute("name") === "searchMatchIdCheckbox") {
-      this.setState(prevState => ({
-        searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox
-      }));
-    }
+
     if (e.target.getAttribute("name") === "searchMatchYearCheckbox") {
       this.setState(prevState => ({
-        searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox
+        searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox,
+        searchMatchIdCheckbox: false,
+        searchMatchIdInput: ""
       }));
     }
-    this.validateSearchButton();
+
+    if (e.target.getAttribute("name") === "searchMatchIdCheckbox") {
+      this.setState(prevState => ({
+        searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox,
+        searchMatchTitleCheckbox: false,
+        searchMatchYearCheckbox: false,
+        searchMatchTitleInput: "",
+        searchMatchYearInput: ""
+      }));
+    }
+
+    //this.validateSearchButton();
   };
 
   validateSearchButton = () => {
@@ -137,6 +202,7 @@ class App extends React.Component {
         <StructureHeader />
         <StructureSearch
           state={this.state}
+          clearInputs={this.clearInputs}
           updateInputs={this.updateInputs}
           updateCheckbox={this.updateCheckbox}
           updateSearchMatchTitleCheckbox={this.updateSearchMatchTitleCheckbox}

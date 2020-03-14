@@ -8,13 +8,17 @@ const stateSetting = {
   inputID: "",
   inputSearch: "",
   inputYear: "",
+
   searchMatchTitleInput: "",
-  searchMatchTitleCheckbox: false,
-  searchMatchIdInput: "",
-  searchMatchIdCheckbox: false,
+  searchMatchTitleCheckbox: true,
+
   searchMatchYearInput: "",
   searchMatchYearCheckbox: false,
-  searchMatchButton: true
+
+  searchMatchIdInput: "",
+  searchMatchIdCheckbox: false,
+
+  searchMatchButton: false
 };
 
 export default stateSetting;

@@ -1,9 +1,15 @@
 import React from "react";
 
 const StructureSearch = props => {
+  const clearForm = e => {
+    props.clearInputs();
+    e.preventDefault();
+    document.getElementById("FormMatchSearch").reset();
+  };
+
   return (
     <div className="app_container">
-      <form className="header">
+      <form id="FormMatchSearch" className="header">
         <p>
           <label>Match Title:</label>
           <input
@@ -17,22 +23,6 @@ const StructureSearch = props => {
             name="searchMatchTitleCheckbox"
             onChange={props.updateCheckbox}
             checked={props.state.searchMatchTitleCheckbox}
-            type="checkbox"
-          />
-        </p>
-
-        <p>
-          <label>Match ID:</label>
-          <input
-            name="searchMatchIdInput"
-            placeholder={props.state.searchMatchIdInput}
-            onChange={props.updateInputs}
-            disabled={!props.state.searchMatchIdCheckbox}
-          />
-          <input
-            name="searchMatchIdCheckbox"
-            onChange={props.updateCheckbox}
-            checked={props.state.searchMatchIdCheckbox}
             type="checkbox"
           />
         </p>
@@ -53,12 +43,31 @@ const StructureSearch = props => {
           />
         </p>
 
+        <p>OR:</p>
+
+        <p>
+          <label>Match ID:</label>
+          <input
+            name="searchMatchIdInput"
+            placeholder={props.state.searchMatchIdInput}
+            onChange={props.updateInputs}
+            disabled={!props.state.searchMatchIdCheckbox}
+          />
+          <input
+            name="searchMatchIdCheckbox"
+            onChange={props.updateCheckbox}
+            checked={props.state.searchMatchIdCheckbox}
+            type="checkbox"
+          />
+        </p>
+
         <button
           onClick={props.jsonApi}
-          disabled={props.state.searchMatchButton}
+          //disabled={props.state.searchMatchButton}
         >
           Search First Match
         </button>
+        <button onClick={clearForm}>Clear Form</button>
       </form>
     </div>
   );

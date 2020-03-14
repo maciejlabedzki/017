@@ -136,5 +136,21 @@ form.header {
     background: white;
     box-sizing: border-box;
     padding: 5px 10px;
+    &.lm_ratings {
+      border-bottom: 1px solid #c7c7c7;
+      padding-left: 50px;
+    }
   }
+}
+
+// body {
+//   background-image: url(/src/img/a.png);
+// }
+
+// div {
+//   background-image: url(/static/media/img/a.png);
+// }
+
+div.app_container {
+  background: url("/a.png");
 }
