@@ -1,1 +1,23 @@
- 
+.app_header_wrapper {
+  float: left;
+  width: 100%;
+  display: block;
+  height: auto;
+  min-height: 40px;
+  background: #c7c7c7;
+  margin-bottom: 1px;
+  font-size: 12px;
+  &:after {
+    clear: both;
+    display: block;
+    content: "";
+    width: 100%;
+  }
+  div {
+    float: left;
+    padding: 5px 5px;
+  }
+  .ahw_logo img {
+    width: 70px;
+  }
+}

@@ -61,6 +61,22 @@ const StructureSearch = props => {
           />
         </p>
 
+        <p>OR:</p>
+        <p>
+          <label>Search:</label>
+          <input
+            name="searchAllTitleInput"
+            placeholder={props.state.searchAllTitleInput}
+            onChange={props.updateInputs}
+            disabled={!props.state.searchAllTitleCheckbox}
+          />
+          <input
+            name="searchAllTitleCheckbox"
+            onChange={props.updateCheckbox}
+            checked={props.state.searchAllTitleCheckbox}
+            type="checkbox"
+          />
+        </p>
         <button
           onClick={props.jsonApi}
           //disabled={props.state.searchMatchButton}

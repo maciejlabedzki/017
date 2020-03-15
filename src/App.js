@@ -9,6 +9,8 @@ import stateSetting from "./data/state";
 import StructureHeader from "./js/component/StructureHeader";
 import StructureSearch from "./js/component/StructureSearch";
 
+import ShowSearchInformation from "./js/component/ShowSearchInformation";
+
 import ToolDeveloper from "./js/component/ToolDeveloper";
 
 // import updateInputs from "./js/util/input/updateInputValue";
@@ -27,6 +29,7 @@ class App extends React.Component {
 
     // test if there is any value to search
     if (
+      this.state.searchAllTitleCheckbox === false &&
       this.state.searchMatchYearCheckbox === false &&
       this.state.searchMatchIdCheckbox === false &&
       this.state.searchMatchTitleCheckbox === false
@@ -36,6 +39,7 @@ class App extends React.Component {
 
     // test if there is any value to search
     if (
+      this.state.searchAllTitleInput === "" &&
       this.state.searchMatchTitleInput === "" &&
       this.state.searchMatchIdInput === "" &&
       this.state.searchMatchYearInput === ""
@@ -44,10 +48,24 @@ class App extends React.Component {
     }
 
     let matchTitle = "",
+      searchAll = "",
       matchYear = "",
       matchId = "";
     const domain = process.env.REACT_APP_DOMAIN;
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
+
+    if (
+      this.state.searchAllTitleInput !== "" &&
+      this.state.searchAllTitleCheckbox === true
+    ) {
+      searchAll = "?s=" + this.state.searchAllTitleInput;
+      this.setState({
+        searchAllMovie: true,
+        searchAllTitle: this.state.searchAllTitleInput
+      });
+    } else {
+      this.setState({ searchAllMovie: false });
+    }
 
     if (
       this.state.searchMatchTitleInput !== "" &&
@@ -73,7 +91,7 @@ class App extends React.Component {
     }
 
     const response = await axios.get(
-      domain + "/" + matchTitle + matchId + matchYear + apikey
+      domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey
     );
 
     console.log(
@@ -96,6 +114,12 @@ class App extends React.Component {
   };
 
   updateInputs = e => {
+    if (e.target.getAttribute("name") === "searchAllTitleInput") {
+      this.setState({
+        searchAllTitleInput: e.target.value
+      });
+    }
+
     if (e.target.getAttribute("name") === "searchMatchTitleInput") {
       this.setState({
         searchMatchTitleInput: e.target.value
@@ -149,11 +173,29 @@ class App extends React.Component {
   };
 
   updateCheckbox = e => {
+    if (e.target.getAttribute("name") === "searchAllTitleCheckbox") {
+      this.setState(prevState => ({
+        searchAllTitleCheckbox: !prevState.searchAllTitleCheckbox,
+        searchAllTitleInput: "",
+
+        searchMatchTitleInput: "",
+        searchMatchTitleCheckbox: false,
+
+        searchMatchYearInput: "",
+        searchMatchYearCheckbox: false,
+
+        searchMatchIdInput: "",
+        searchMatchIdCheckbox: false
+      }));
+    }
+
     if (e.target.getAttribute("name") === "searchMatchTitleCheckbox") {
       this.setState(prevState => ({
         searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox,
         searchMatchIdCheckbox: false,
-        searchMatchIdInput: ""
+        searchMatchIdInput: "",
+        searchAllTitleInput: "",
+        searchAllTitleCheckbox: false
       }));
     }
 
@@ -161,7 +203,9 @@ class App extends React.Component {
       this.setState(prevState => ({
         searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox,
         searchMatchIdCheckbox: false,
-        searchMatchIdInput: ""
+        searchMatchIdInput: "",
+        searchAllTitleInput: "",
+        searchAllTitleCheckbox: false
       }));
     }
 
@@ -171,7 +215,9 @@ class App extends React.Component {
         searchMatchTitleCheckbox: false,
         searchMatchYearCheckbox: false,
         searchMatchTitleInput: "",
-        searchMatchYearInput: ""
+        searchMatchYearInput: "",
+        searchAllTitleInput: "",
+        searchAllTitleCheckbox: false
       }));
     }
 
@@ -199,7 +245,9 @@ class App extends React.Component {
     return (
       <div>
         <ToolDeveloper state={this.state} />
+
         <StructureHeader />
+
         <StructureSearch
           state={this.state}
           clearInputs={this.clearInputs}
@@ -212,6 +260,15 @@ class App extends React.Component {
         />
 
         <ShowMovieInformation
+          movieDb={this.state.json}
+          movieFound={this.state.movieFound}
+          jsonValid={this.state.jsonValid}
+          searchAllMovie={this.state.searchAllMovie}
+        />
+
+        <ShowSearchInformation
+          searchAllTitle={this.state.searchAllTitle}
+          searchAllMovie={this.state.searchAllMovie}
           movieDb={this.state.json}
           movieFound={this.state.movieFound}
           jsonValid={this.state.jsonValid}

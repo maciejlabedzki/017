@@ -1,4 +1,7 @@
 import React from "react";
+import imdb from "../../assets/img/ratings_imdb.png";
+import rotten from "../../assets/img/rotten_tomatoes.jpg";
+import metacritics from "../../assets/img/ratings_metacritics.png";
 
 const BlockDescription = props => {
   let movieLabel = props.movieDb[props.category];
@@ -9,17 +12,29 @@ const BlockDescription = props => {
   }
 
   if (props.type === "ratings") {
+    if (movieLabel.length === 0) {
+      return null;
+    }
     let blockStorage = [];
     for (var i = 0; i < movieLabel.length; i++) {
-      console.log(movieLabel, movieLabel[i]);
       let randomKey = "id_ratings_" + i;
+      let ratingName = movieLabel[i]["Source"];
+      let imgSrc = "";
+      if (ratingName === "Internet Movie Database") {
+        imgSrc = imdb;
+      } else if (ratingName === "Rotten Tomatoes") {
+        imgSrc = rotten;
+      } else if (ratingName === "Metacritic") {
+        imgSrc = metacritics;
+      }
       blockStorage.push(
         <label
           key={randomKey}
           className="lm_desc lm_ratings"
-          attr-img={movieLabel[i]["Source"]}
+          attr-img={ratingName}
         >
-          {movieLabel[i]["Source"]}:{movieLabel[i]["Value"]}
+          <img className="ratings_img" src={imgSrc} alt="Rating Images" />
+          {ratingName}:{movieLabel[i]["Value"]}
         </label>
       );
     }
@@ -54,8 +69,16 @@ const BlockDescription = props => {
   return null;
 };
 
-const ShowMovieInformation = ({ movieDb, movieFound, jsonValid }) => {
-  console.log("movieDb, movieFound, jsonValid", movieDb, movieFound, jsonValid);
+const ShowMovieInformation = ({
+  movieDb,
+  movieFound,
+  jsonValid,
+  searchAllMovie
+}) => {
+  if (searchAllMovie === true) {
+    return null;
+  }
+
   if (movieFound !== true) {
     return "No movie found";
   }
@@ -63,150 +86,155 @@ const ShowMovieInformation = ({ movieDb, movieFound, jsonValid }) => {
     return "No valid JSON";
   }
 
-  return (
-    <React.Fragment>
-      <div className="app_container">
-        <BlockDescription
-          inf="15"
-          movieDb={movieDb}
-          category="Ratings"
-          type="ratings"
-        />
-        <BlockDescription
+  if (searchAllMovie === false) {
+    return (
+      <>
+        <div className="app_container">
+          {/* <BlockDescription
           inf="18"
           movieDb={movieDb}
           category="imdbID"
           type="text"
-        />
-        <BlockDescription
-          inf="14"
-          movieDb={movieDb}
-          category="Poster"
-          type="img"
-        />
-        <BlockDescription
-          inf="1"
-          movieDb={movieDb}
-          category="Title"
-          type="text"
-        />
-        <BlockDescription
-          inf="2"
-          movieDb={movieDb}
-          category="Year"
-          type="text"
-        />
-        <BlockDescription
-          inf="3"
-          movieDb={movieDb}
-          category="Rated"
-          type="text"
-        />
-        <BlockDescription
-          inf="4"
-          movieDb={movieDb}
-          category="Released"
-          type="text"
-        />
-        <BlockDescription
-          inf="5"
-          movieDb={movieDb}
-          category="Runtime"
-          type="text"
-        />
-        <BlockDescription
-          inf="6"
-          movieDb={movieDb}
-          category="Genre"
-          type="text"
-        />
-        <BlockDescription
-          inf="7"
-          movieDb={movieDb}
-          category="Director"
-          type="text"
-        />
-        <BlockDescription
-          inf="8"
-          movieDb={movieDb}
-          category="Writer"
-          type="text"
-        />
-        <BlockDescription
-          inf="9"
-          movieDb={movieDb}
-          category="Actors"
-          type="text"
-        />
-        <BlockDescription
-          inf="10"
-          movieDb={movieDb}
-          category="Plot"
-          type="text"
-        />
-        <BlockDescription
-          inf="11"
-          movieDb={movieDb}
-          category="Language"
-          type="text"
-        />
-        <BlockDescription
-          inf="12"
-          movieDb={movieDb}
-          category="Country"
-          type="text"
-        />
-        <BlockDescription
-          inf="13"
-          movieDb={movieDb}
-          category="Awards"
-          type="text"
-        />
-        <BlockDescription
+        /> */}
+          <BlockDescription
+            inf="14"
+            movieDb={movieDb}
+            category="Poster"
+            type="img"
+          />
+          <BlockDescription
+            inf="1"
+            movieDb={movieDb}
+            category="Title"
+            type="text"
+          />
+          <BlockDescription
+            inf="2"
+            movieDb={movieDb}
+            category="Year"
+            type="text"
+          />
+          <BlockDescription
+            inf="3"
+            movieDb={movieDb}
+            category="Rated"
+            type="text"
+          />
+          <BlockDescription
+            inf="4"
+            movieDb={movieDb}
+            category="Released"
+            type="text"
+          />
+          <BlockDescription
+            inf="5"
+            movieDb={movieDb}
+            category="Runtime"
+            type="text"
+          />
+          <BlockDescription
+            inf="6"
+            movieDb={movieDb}
+            category="Genre"
+            type="text"
+          />
+          <BlockDescription
+            inf="7"
+            movieDb={movieDb}
+            category="Director"
+            type="text"
+          />
+          <BlockDescription
+            inf="8"
+            movieDb={movieDb}
+            category="Writer"
+            type="text"
+          />
+          <BlockDescription
+            inf="9"
+            movieDb={movieDb}
+            category="Actors"
+            type="text"
+          />
+          <BlockDescription
+            inf="10"
+            movieDb={movieDb}
+            category="Plot"
+            type="text"
+          />
+          <BlockDescription
+            inf="11"
+            movieDb={movieDb}
+            category="Language"
+            type="text"
+          />
+          <BlockDescription
+            inf="12"
+            movieDb={movieDb}
+            category="Country"
+            type="text"
+          />
+          <BlockDescription
+            inf="13"
+            movieDb={movieDb}
+            category="Awards"
+            type="text"
+          />
+
+          <BlockDescription
+            inf="19"
+            movieDb={movieDb}
+            category="Type"
+            type="text"
+          />
+          <BlockDescription
+            inf="20"
+            movieDb={movieDb}
+            category="DVD"
+            type="text"
+          />
+          <BlockDescription
+            inf="21"
+            movieDb={movieDb}
+            category="BoxOffice"
+            type="text"
+          />
+          <BlockDescription
+            inf="22"
+            movieDb={movieDb}
+            category="Production"
+            type="text"
+          />
+          <BlockDescription
+            inf="23"
+            movieDb={movieDb}
+            category="Website"
+            type="text"
+          />
+          <BlockDescription
+            inf="15"
+            movieDb={movieDb}
+            category="Ratings"
+            type="ratings"
+          />
+          {/* <BlockDescription
           inf="16"
           movieDb={movieDb}
           category="Metascore"
           type="text"
-        />
-        <BlockDescription
+        /> */}
+          {/* <BlockDescription
           inf="17"
           movieDb={movieDb}
           category="imdbRating"
           type="text"
-        />
-        <BlockDescription
-          inf="19"
-          movieDb={movieDb}
-          category="Type"
-          type="text"
-        />
-        <BlockDescription
-          inf="20"
-          movieDb={movieDb}
-          category="DVD"
-          type="text"
-        />
-        <BlockDescription
-          inf="21"
-          movieDb={movieDb}
-          category="BoxOffice"
-          type="text"
-        />
-        <BlockDescription
-          inf="22"
-          movieDb={movieDb}
-          category="Production"
-          type="text"
-        />
-        <BlockDescription
-          inf="23"
-          movieDb={movieDb}
-          category="Website"
-          type="text"
-        />
-      </div>
-    </React.Fragment>
-  );
+        /> */}
+        </div>
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default ShowMovieInformation;

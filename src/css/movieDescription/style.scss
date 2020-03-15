@@ -1,0 +1,59 @@
+.label_movie {
+  display: block;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  &:after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+  .lm_title {
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1px 5px;
+    text-shadow: 1px 1px 1px white;
+    font-weight: bold;
+    min-width: 320px;
+    float: left;
+    box-sizing: border-box;
+    text-align: justify;
+    background: white;
+    background: -webkit-gradient(
+      left top,
+      left bottom,
+      color-stop(0%, white),
+      color-stop(47%, #f6f6f6),
+      color-stop(100%, #ededed)
+    );
+    background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+    width: 100%;
+    min-width: 320px;
+    min-height: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+  }
+  .lm_desc {
+    float: left;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    &.lm_ratings {
+      border-bottom: 1px solid #c7c7c7;
+      //padding-left: 50px;
+      img.ratings_img {
+        float: left;
+        max-width: 40px;
+        margin-right: 10px;
+        max-height: 29px;
+      }
+    }
+  }
+}

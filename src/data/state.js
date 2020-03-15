@@ -18,6 +18,18 @@ const stateSetting = {
   searchMatchIdInput: "",
   searchMatchIdCheckbox: false,
 
+  searchAllTitleInput: "",
+  searchAllTitleCheckbox: false,
+  searchAllTitle: "",
+
+  searchAllMovie: false,
+
+  searchAllPage: 1,
+  searchAllPages: 10,
+  searchTotalResult: 0,
+
+  debug: false,
+
   searchMatchButton: false
 };
 
