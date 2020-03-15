@@ -1,7 +1,10 @@
 ### Page: Search all movies
 
-- page ?page=1
+- page ?page=1 http://www.omdbapi.com/?s=Batman&page=2
 - result click to show more information
+- http://www.omdbapi.com/?t=Game of Thrones&Season=1
+- http://www.omdbapi.com/?t=Game of Thrones&Season=1&Episode=1
+- totalSeasons
 
 ### Nice to have
 
