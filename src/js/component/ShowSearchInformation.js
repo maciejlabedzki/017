@@ -1,6 +1,6 @@
 import React from "react";
 
-const BlockDescription = ({ movieDb, searchAllTitle }) => {
+const BlockDescription = ({ movieDb, searchAllTitle, searchTotalResult }) => {
   if (movieDb === undefined) {
     return false;
   }
@@ -37,8 +37,10 @@ const BlockDescription = ({ movieDb, searchAllTitle }) => {
   }
 
   return (
-    <div className="temp class">
-      <label className="lm_title">Search:{searchAllTitle}</label>
+    <div className="lm_search_results">
+      <label className="lm_title">
+        Found [ {searchTotalResult} ] records about "{searchAllTitle}"
+      </label>
       {movieArr}
     </div>
   );
@@ -49,7 +51,8 @@ const ShowSearchInformation = ({
   movieFound,
   jsonValid,
   searchAllMovie,
-  searchAllTitle
+  searchAllTitle,
+  searchTotalResult
 }) => {
   if (searchAllMovie === false) {
     return null;
@@ -65,7 +68,11 @@ const ShowSearchInformation = ({
   if (searchAllMovie === true) {
     return (
       <div className="app_container">
-        <BlockDescription movieDb={movieDb} searchAllTitle={searchAllTitle} />
+        <BlockDescription
+          movieDb={movieDb}
+          searchAllTitle={searchAllTitle}
+          searchTotalResult={searchTotalResult}
+        />
       </div>
     );
   }

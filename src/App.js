@@ -107,6 +107,12 @@ class App extends React.Component {
           json: response.data,
           movieFound: true
         });
+
+        if (this.state.searchAllMovie === true) {
+          this.setState({
+            searchTotalResult: response.data["totalResults"]
+          });
+        }
       }
     } else {
       this.setState({ json: response.data, movieFound: false });
@@ -162,13 +168,16 @@ class App extends React.Component {
   clearInputs = () => {
     this.setState({
       searchMatchTitleInput: "",
-      searchMatchTitleCheckbox: true,
+      searchMatchTitleCheckbox: false,
 
       searchMatchYearInput: "",
       searchMatchYearCheckbox: false,
 
       searchMatchIdInput: "",
-      searchMatchIdCheckbox: false
+      searchMatchIdCheckbox: false,
+
+      searchAllTitleInput: "",
+      searchAllTitleCheckbox: true
     });
   };
 
@@ -269,6 +278,7 @@ class App extends React.Component {
         <ShowSearchInformation
           searchAllTitle={this.state.searchAllTitle}
           searchAllMovie={this.state.searchAllMovie}
+          searchTotalResult={this.state.searchTotalResult}
           movieDb={this.state.json}
           movieFound={this.state.movieFound}
           jsonValid={this.state.jsonValid}

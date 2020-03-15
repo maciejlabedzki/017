@@ -10,7 +10,7 @@ const stateSetting = {
   inputYear: "",
 
   searchMatchTitleInput: "",
-  searchMatchTitleCheckbox: true,
+  searchMatchTitleCheckbox: false,
 
   searchMatchYearInput: "",
   searchMatchYearCheckbox: false,
@@ -19,7 +19,7 @@ const stateSetting = {
   searchMatchIdCheckbox: false,
 
   searchAllTitleInput: "",
-  searchAllTitleCheckbox: false,
+  searchAllTitleCheckbox: true,
   searchAllTitle: "",
 
   searchAllMovie: false,

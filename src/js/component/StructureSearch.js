@@ -77,11 +77,12 @@ const StructureSearch = props => {
             type="checkbox"
           />
         </p>
+
         <button
           onClick={props.jsonApi}
           //disabled={props.state.searchMatchButton}
         >
-          Search First Match
+          Search
         </button>
         <button onClick={clearForm}>Clear Form</button>
       </form>

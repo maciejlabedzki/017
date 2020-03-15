@@ -140,3 +140,9 @@ label.lm_list-poster {
 .app_container.lm_list {
   min-height: 80px;
 }
+
+.lm_search_results .lm_title {
+  text-transform: capitalize;
+  font-size: 12px;
+  color: green;
+}
