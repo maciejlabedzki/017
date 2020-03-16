@@ -12,6 +12,8 @@ import ShowSearchInformation from "./js/component/ShowSearchInformation";
 
 import ToolDeveloper from "./js/component/ToolDeveloper";
 
+import UserPage from "./js/component/UserPage";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -372,6 +374,8 @@ class App extends React.Component {
           jsonValid={this.state.jsonValid}
           showMovie={this.showMovie}
         />
+
+        <UserPage statusLogin={this.state.loginStatus} user={this.state.user} />
       </div>
     );
   }

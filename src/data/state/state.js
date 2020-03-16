@@ -2,7 +2,7 @@ import movieLocalJsonData from "../json/movieLocalJsonData";
 import user from "../json/user";
 
 const stateSetting = {
-  json: movieLocalJsonData,
+  json: {},
   jsonOffline: movieLocalJsonData,
   jsonValid: true,
   jsonResponse: "",
@@ -32,7 +32,7 @@ const stateSetting = {
   movieFromSearchID: "",
 
   debug: false,
-  offlineJson: false,
+  offlineJson: true,
 
   searchMatchButton: false,
 

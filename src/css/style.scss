@@ -1,7 +1,20 @@
+// Vendor
+@import "default/_normalize.scss";
+
+// Basic settings
+@import "default/settings.scss";
+
+// Style Basic
+@import "default/style.scss";
+
+// Components
 @import "header/style.scss";
 @import "main/style.scss";
-@import "default/style.scss";
 @import "form/style.scss";
 @import "movieDescription/style.scss";
 
+// Default fast fix and style
 @import "app/style.scss";
+
+// Page User
+@import "page-user/style.scss";
