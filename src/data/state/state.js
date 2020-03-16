@@ -1,4 +1,5 @@
 import movieLocalJsonData from "../json/movieLocalJsonData";
+import user from "../json/user";
 
 const stateSetting = {
   json: movieLocalJsonData,
@@ -41,7 +42,8 @@ const stateSetting = {
     name: "John",
     lastName: "Doe"
   },
-  loginStatus: false
+  loginStatus: false,
+  user: user
   // user: "admin",
   // password: "Aa123456",
   // loginStatus: false
