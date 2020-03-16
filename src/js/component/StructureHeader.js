@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../assets/img/logo.png";
+import Login from "../component/Login";
 
 class StructureAppHeader extends React.Component {
   render() {
@@ -9,16 +10,12 @@ class StructureAppHeader extends React.Component {
           <div className="ahw_logo">
             <img alt="logo" src={logo} />
           </div>
-          <div className="ahw_login">
-            <div>
-              <label>Login:</label>
-              <input />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input />
-            </div>
-          </div>
+          <Login
+            logOut={this.props.logOut}
+            userData={this.props.userData}
+            signIn={this.props.signIn}
+            loginStatus={this.props.loginStatus}
+          />
         </div>
       </>
     );

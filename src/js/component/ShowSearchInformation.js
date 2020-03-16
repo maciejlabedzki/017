@@ -73,7 +73,11 @@ const ShowSearchInformation = ({
   }
 
   if (movieFound !== true) {
-    return "No movies found";
+    return (
+      <div className="app_container warning">
+        No movies found: {movieDb["Error"]}
+      </div>
+    );
   }
   if (jsonValid !== true) {
     return "No valid JSON";

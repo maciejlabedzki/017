@@ -98,10 +98,10 @@ const StructureSearch = props => {
 
       {props.state.offlineJson && (
         <React.Fragment>
-          <div className="app_search_offline">SEARCH OFFLINE!</div>
+          <div className="app_container alert-warning">SEARCH OFFLINE!</div>
           <form id="FormMatchSearch" className="header">
             <button name="search" onClick={props.jsonApi}>
-              Search
+              Show Offline Example
             </button>
             <button
               onClick={props.toggleOfflineJson}

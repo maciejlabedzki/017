@@ -4,11 +4,9 @@ const stateSetting = {
   json: movieLocalJsonData,
   jsonOffline: movieLocalJsonData,
   jsonValid: true,
+  jsonResponse: "",
+  jsonError: "",
   movieFound: true,
-  inputTitle: "",
-  inputID: "",
-  inputSearch: "",
-  inputYear: "",
 
   searchMatchTitleInput: "",
   searchMatchTitleCheckbox: false,
@@ -35,7 +33,18 @@ const stateSetting = {
   debug: false,
   offlineJson: false,
 
-  searchMatchButton: false
+  searchMatchButton: false,
+
+  userData: {
+    login: "admin",
+    password: "admin",
+    name: "John",
+    lastName: "Doe"
+  },
+  loginStatus: false
+  // user: "admin",
+  // password: "Aa123456",
+  // loginStatus: false
 };
 
 export default stateSetting;

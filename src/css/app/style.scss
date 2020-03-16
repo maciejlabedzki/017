@@ -250,3 +250,63 @@ button:hover {
   color: black;
   border: 1px solid black;
 }
+
+.label_movie.Poster label.lm_desc img {
+  display: block;
+  margin: 0 auto;
+  background: beige;
+}
+
+.app_container.warning {
+  text-align: center;
+  background: #ffb0b0;
+  color: red;
+  border: 1px solid red;
+}
+
+body {
+  background: #afafaf;
+}
+
+.userLogged {
+  float: right;
+  display: block;
+}
+
+.ahw_login-wrapper {
+  width: calc(100% - 100px);
+}
+
+.app_header_wrapper .userLogged {
+  display: block;
+  float: right;
+  font-size: 20px;
+}
+
+label.userLogged-lastName,
+label.userLogged-name {
+  font-size: 12px;
+  margin: 0;
+  padding: 0 0px 0 5px;
+  display: inline-block;
+  font-size: large;
+  color: #a70000;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}

@@ -20,7 +20,6 @@ class App extends React.Component {
 
   jsonApi = async e => {
     if (e !== null) {
-      console.log("yes");
       e.preventDefault();
     }
 
@@ -84,19 +83,19 @@ class App extends React.Component {
       }
 
       if (
-        this.state.searchMatchIdInput !== "" &&
-        this.state.searchMatchIdCheckbox === true
-      ) {
-        matchId = "?i=" + this.state.searchMatchIdInput;
-      }
-
-      if (
         this.state.searchMatchYearInput !== "" &&
         this.state.searchMatchYearCheckbox === true &&
         this.state.searchMatchTitleInput !== "" &&
         this.state.searchMatchTitleCheckbox === true
       ) {
-        matchYear = "?y=" + this.state.searchMatchYearInput;
+        matchYear = "&y=" + this.state.searchMatchYearInput;
+      }
+
+      if (
+        this.state.searchMatchIdInput !== "" &&
+        this.state.searchMatchIdCheckbox === true
+      ) {
+        matchId = "?i=" + this.state.searchMatchIdInput;
       }
     }
 
@@ -115,6 +114,7 @@ class App extends React.Component {
       if (this.state.jsonValid === true) {
         this.setState({
           json: response.data,
+          movieFromSearch: false,
           movieFound: true
         });
 
@@ -125,7 +125,12 @@ class App extends React.Component {
         }
       }
     } else {
-      this.setState({ json: response.data, movieFound: false });
+      this.setState({
+        json: response.data,
+        movieFound: false,
+        jsonResponse: response.data["Response"],
+        jsonError: response.data["Error"]
+      });
     }
   };
 
@@ -261,6 +266,32 @@ class App extends React.Component {
 
   toggleOfflineJson = e => {
     e.preventDefault();
+    if (this.state.offlineJson === false) {
+      this.setState({
+        json: {},
+        searchMatchTitleInput: "",
+        searchMatchTitleCheckbox: false,
+
+        searchMatchYearInput: "",
+        searchMatchYearCheckbox: false,
+
+        searchMatchIdInput: "",
+        searchMatchIdCheckbox: false,
+
+        searchAllTitleInput: "",
+        searchAllTitleCheckbox: true,
+        searchAllTitle: "",
+
+        searchAllMovie: false
+      });
+    }
+
+    if (this.state.offlineJson === true) {
+      this.setState({
+        json: {}
+      });
+    }
+
     this.setState(
       prevState => ({
         offlineJson: !prevState.offlineJson
@@ -284,12 +315,34 @@ class App extends React.Component {
       }
     );
   };
+
+  signIn = props => {
+    console.log("VALIDATE: sign in", props);
+
+    let userLogin = props.user;
+    let userPassword = props.password;
+    let signInStateUser = this.state.userData.login;
+    let signInStatePassword = this.state.userData.password;
+    if (userLogin === signInStateUser && userPassword === signInStatePassword) {
+      this.setState({ loginStatus: true });
+    }
+  };
+
+  logOut = () => {
+    this.setState({ loginStatus: false });
+  };
+
   render() {
     return (
       <div>
         <ToolDeveloper state={this.state} />
 
-        <StructureHeader />
+        <StructureHeader
+          logOut={this.logOut}
+          userData={this.state.userData}
+          signIn={this.signIn}
+          loginStatus={this.state.loginStatus}
+        />
 
         <StructureSearch
           toggleOfflineJson={this.toggleOfflineJson}
