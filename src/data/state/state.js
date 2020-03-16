@@ -1,7 +1,8 @@
-import movieLocalJsonData from "../data/movieLocalJsonData";
+import movieLocalJsonData from "../json/movieLocalJsonData";
 
 const stateSetting = {
   json: movieLocalJsonData,
+  jsonOffline: movieLocalJsonData,
   jsonValid: true,
   movieFound: true,
   inputTitle: "",
@@ -29,6 +30,7 @@ const stateSetting = {
   searchTotalResult: 0,
 
   debug: false,
+  offlineJson: true,
 
   searchMatchButton: false
 };

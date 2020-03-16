@@ -1,31 +1,33 @@
 import React from "react";
 import axios from "axios";
 import "./css/style.scss";
-import ShowMovieInformation from "./js/component/ShowMovieInformation";
 import ValidJson from "./js/util/json/validJson";
-
-import stateSetting from "./data/state";
+import stateSetting from "./data/state/state";
 
 import StructureHeader from "./js/component/StructureHeader";
 import StructureSearch from "./js/component/StructureSearch";
 
+import ShowMovieInformation from "./js/component/ShowMovieInformation";
 import ShowSearchInformation from "./js/component/ShowSearchInformation";
 
 import ToolDeveloper from "./js/component/ToolDeveloper";
-
-// import updateInputs from "./js/util/input/updateInputValue";
-
-// import exist from "./js/util/var/exist";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = stateSetting;
-    this.refForm = React.createRef();
   }
 
   jsonApi = async e => {
     e.preventDefault();
+
+    if (this.state.offlineJson === true) {
+      this.setState({
+        json: this.state.jsonOffline,
+        movieFound: true
+      });
+      return;
+    }
 
     // test if there is any value to search
     if (
@@ -251,9 +253,13 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("ToolDeveloper", ToolDeveloper);
     return (
       <div>
-        <ToolDeveloper state={this.state} />
+        <ToolDeveloper
+          state={this.state}
+          offlineJson={this.state.offlineJson}
+        />
 
         <StructureHeader />
 
