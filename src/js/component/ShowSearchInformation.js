@@ -1,6 +1,12 @@
 import React from "react";
+import imgNoPoster from "../../assets/img/no-poster.jpg";
 
-const BlockDescription = ({ movieDb, searchAllTitle, searchTotalResult }) => {
+const BlockDescription = ({
+  movieDb,
+  searchAllTitle,
+  searchTotalResult,
+  showMovie
+}) => {
   if (movieDb === undefined) {
     return false;
   }
@@ -15,15 +21,22 @@ const BlockDescription = ({ movieDb, searchAllTitle, searchTotalResult }) => {
 
   for (var i = 0; i < movieDatabase.length; i++) {
     let randomKey = "movie_list_" + i;
+    let img = "";
+    if (movieDatabase[i]["Poster"] !== "N/A") {
+      img = <img src={movieDatabase[i]["Poster"]} alt="poster" />;
+    } else {
+      img = <img src={imgNoPoster} alt="no poster" />;
+    }
+    let imdbID = movieDatabase[i]["imdbID"];
     movieArr.push(
       <div key={randomKey} className="app_container lm_list">
         <div className="lm_col_left">
-          <label className="lm_list-poster">
-            <img src={movieDatabase[i]["Poster"]} alt="poster" />
-          </label>
+          <label className="lm_list-poster">{img}</label>
         </div>
         <div className="lm_col_right">
-          <label className="lm_list-title">{movieDatabase[i]["Title"]}</label>
+          <label className="lm_list-title" id={imdbID} onClick={showMovie}>
+            {movieDatabase[i]["Title"]}
+          </label>
           <label className="lm_list-year">
             Year: {movieDatabase[i]["Year"]}
           </label>
@@ -52,7 +65,8 @@ const ShowSearchInformation = ({
   jsonValid,
   searchAllMovie,
   searchAllTitle,
-  searchTotalResult
+  searchTotalResult,
+  showMovie
 }) => {
   if (searchAllMovie === false) {
     return null;
@@ -72,6 +86,7 @@ const ShowSearchInformation = ({
           movieDb={movieDb}
           searchAllTitle={searchAllTitle}
           searchTotalResult={searchTotalResult}
+          showMovie={showMovie}
         />
       </div>
     );

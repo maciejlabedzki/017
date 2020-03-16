@@ -5,14 +5,10 @@ const ToolDeveloper = ({ state, offlineJson }) => {
     console.log(state);
   };
 
-  let offline = () => {
-    offlineJson = false;
-  };
-
   return (
     <div className="app_tool_developers app_container">
+      DEVTOOL:
       <button onClick={showState}>State</button>
-      <button onClick={offline}>offlineJson</button>
     </div>
   );
 };

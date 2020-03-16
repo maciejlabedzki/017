@@ -19,34 +19,9 @@ class App extends React.Component {
   }
 
   jsonApi = async e => {
-    e.preventDefault();
-
-    if (this.state.offlineJson === true) {
-      this.setState({
-        json: this.state.jsonOffline,
-        movieFound: true
-      });
-      return;
-    }
-
-    // test if there is any value to search
-    if (
-      this.state.searchAllTitleCheckbox === false &&
-      this.state.searchMatchYearCheckbox === false &&
-      this.state.searchMatchIdCheckbox === false &&
-      this.state.searchMatchTitleCheckbox === false
-    ) {
-      return;
-    }
-
-    // test if there is any value to search
-    if (
-      this.state.searchAllTitleInput === "" &&
-      this.state.searchMatchTitleInput === "" &&
-      this.state.searchMatchIdInput === "" &&
-      this.state.searchMatchYearInput === ""
-    ) {
-      return;
+    if (e !== null) {
+      console.log("yes");
+      e.preventDefault();
     }
 
     let matchTitle = "",
@@ -56,50 +31,83 @@ class App extends React.Component {
     const domain = process.env.REACT_APP_DOMAIN;
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
 
-    if (
-      this.state.searchAllTitleInput !== "" &&
-      this.state.searchAllTitleCheckbox === true
-    ) {
-      searchAll = "?s=" + this.state.searchAllTitleInput;
-      this.setState({
-        searchAllMovie: true,
-        searchAllTitle: this.state.searchAllTitleInput
-      });
+    if (this.state.movieFromSearch === true) {
+      console.log("search this");
+      matchId = "?i=" + this.state.movieFromSearchID;
     } else {
-      this.setState({ searchAllMovie: false });
-    }
+      if (this.state.offlineJson === true) {
+        this.setState({
+          json: this.state.jsonOffline,
+          movieFound: true
+        });
+        return;
+      }
 
-    if (
-      this.state.searchMatchTitleInput !== "" &&
-      this.state.searchMatchTitleCheckbox === true
-    ) {
-      matchTitle = "?t=" + this.state.searchMatchTitleInput;
-    }
+      // test if there is any value to search
+      if (
+        this.state.searchAllTitleCheckbox === false &&
+        this.state.searchMatchYearCheckbox === false &&
+        this.state.searchMatchIdCheckbox === false &&
+        this.state.searchMatchTitleCheckbox === false
+      ) {
+        return;
+      }
 
-    if (
-      this.state.searchMatchIdInput !== "" &&
-      this.state.searchMatchIdCheckbox === true
-    ) {
-      matchId = "?i=" + this.state.searchMatchIdInput;
-    }
+      // test if there is any value to search
+      if (
+        this.state.searchAllTitleInput === "" &&
+        this.state.searchMatchTitleInput === "" &&
+        this.state.searchMatchIdInput === "" &&
+        this.state.searchMatchYearInput === ""
+      ) {
+        return;
+      }
 
-    if (
-      this.state.searchMatchYearInput !== "" &&
-      this.state.searchMatchYearCheckbox === true &&
-      this.state.searchMatchTitleInput !== "" &&
-      this.state.searchMatchTitleCheckbox === true
-    ) {
-      matchYear = "?y=" + this.state.searchMatchYearInput;
+      if (
+        this.state.searchAllTitleInput !== "" &&
+        this.state.searchAllTitleCheckbox === true
+      ) {
+        searchAll = "?s=" + this.state.searchAllTitleInput;
+        this.setState({
+          searchAllMovie: true,
+          searchAllTitle: this.state.searchAllTitleInput
+        });
+      } else {
+        this.setState({ searchAllMovie: false });
+      }
+
+      if (
+        this.state.searchMatchTitleInput !== "" &&
+        this.state.searchMatchTitleCheckbox === true
+      ) {
+        matchTitle = "?t=" + this.state.searchMatchTitleInput;
+      }
+
+      if (
+        this.state.searchMatchIdInput !== "" &&
+        this.state.searchMatchIdCheckbox === true
+      ) {
+        matchId = "?i=" + this.state.searchMatchIdInput;
+      }
+
+      if (
+        this.state.searchMatchYearInput !== "" &&
+        this.state.searchMatchYearCheckbox === true &&
+        this.state.searchMatchTitleInput !== "" &&
+        this.state.searchMatchTitleCheckbox === true
+      ) {
+        matchYear = "?y=" + this.state.searchMatchYearInput;
+      }
     }
 
     const response = await axios.get(
       domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey
     );
 
-    console.log(
-      ' domain + "/" + matchTitle + matchId + matchYear + apikey',
-      domain + "/" + matchTitle + matchId + matchYear + apikey
-    );
+    // console.log(
+    //   ' domain + "/" + matchTitle + matchId + matchYear + apikey',
+    //   domain + "/" + matchTitle + matchId + matchYear + apikey
+    // );
 
     if (response.data.Response === "True" || response.data.Response === true) {
       this.setState({ jsonValid: ValidJson(response.data) });
@@ -179,7 +187,9 @@ class App extends React.Component {
       searchMatchIdCheckbox: false,
 
       searchAllTitleInput: "",
-      searchAllTitleCheckbox: true
+      searchAllTitleCheckbox: true,
+
+      movieFromSearch: false
     });
   };
 
@@ -231,8 +241,6 @@ class App extends React.Component {
         searchAllTitleCheckbox: false
       }));
     }
-
-    //this.validateSearchButton();
   };
 
   validateSearchButton = () => {
@@ -249,21 +257,42 @@ class App extends React.Component {
         searchMatchButton: false
       });
     }
-    console.log("validate");
   };
 
+  toggleOfflineJson = e => {
+    e.preventDefault();
+    this.setState(
+      prevState => ({
+        offlineJson: !prevState.offlineJson
+      }),
+      () => {
+        console.log(this.state.offlineJson);
+      }
+    );
+  };
+
+  showMovie = e => {
+    console.log("Show movie id:", e.target.getAttribute("id"));
+    this.setState(
+      {
+        searchAllMovie: false,
+        movieFromSearch: true,
+        movieFromSearchID: e.target.getAttribute("id")
+      },
+      () => {
+        this.jsonApi(null);
+      }
+    );
+  };
   render() {
-    console.log("ToolDeveloper", ToolDeveloper);
     return (
       <div>
-        <ToolDeveloper
-          state={this.state}
-          offlineJson={this.state.offlineJson}
-        />
+        <ToolDeveloper state={this.state} />
 
         <StructureHeader />
 
         <StructureSearch
+          toggleOfflineJson={this.toggleOfflineJson}
           state={this.state}
           clearInputs={this.clearInputs}
           updateInputs={this.updateInputs}
@@ -288,6 +317,7 @@ class App extends React.Component {
           movieDb={this.state.json}
           movieFound={this.state.movieFound}
           jsonValid={this.state.jsonValid}
+          showMovie={this.showMovie}
         />
       </div>
     );

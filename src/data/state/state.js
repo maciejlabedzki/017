@@ -29,8 +29,11 @@ const stateSetting = {
   searchAllPages: 10,
   searchTotalResult: 0,
 
+  movieFromSearch: false,
+  movieFromSearchID: "",
+
   debug: false,
-  offlineJson: true,
+  offlineJson: false,
 
   searchMatchButton: false
 };
