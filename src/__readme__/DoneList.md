@@ -49,3 +49,22 @@
 - show TITLE
 
 - show total result for search
+
+### User Page
+
+- user page
+- show Picture:large
+- show Picture:medium
+- show Picture:thumbnail
+- show Gender
+- show Full Name
+- show Location: street, city, state, postcode
+- show Location Coordinates
+- show Timezone
+- show Email
+- show Id
+- show Phone
+- show Cell
+- show Nat
+- show Registered
+- show Login

@@ -13,6 +13,7 @@ import ShowSearchInformation from "./js/component/ShowSearchInformation";
 import ToolDeveloper from "./js/component/ToolDeveloper";
 
 import UserPage from "./js/component/UserPage";
+import NavBar from "./js/component/Navbar";
 
 class App extends React.Component {
   constructor() {
@@ -334,6 +335,12 @@ class App extends React.Component {
     this.setState({ loginStatus: false });
   };
 
+  changePage = e => {
+    this.setState({
+      page: e.target.getAttribute("name")
+    });
+  };
+
   render() {
     return (
       <div>
@@ -346,36 +353,66 @@ class App extends React.Component {
           loginStatus={this.state.loginStatus}
         />
 
-        <StructureSearch
-          toggleOfflineJson={this.toggleOfflineJson}
-          state={this.state}
-          clearInputs={this.clearInputs}
-          updateInputs={this.updateInputs}
-          updateCheckbox={this.updateCheckbox}
-          updateSearchMatchTitleCheckbox={this.updateSearchMatchTitleCheckbox}
-          updateSearchMatchYearCheckbox={this.updateSearchMatchYearCheckbox}
-          updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
-          jsonApi={this.jsonApi}
-        />
+        <NavBar changePage={this.changePage} />
 
-        <ShowMovieInformation
-          movieDb={this.state.json}
-          movieFound={this.state.movieFound}
-          jsonValid={this.state.jsonValid}
-          searchAllMovie={this.state.searchAllMovie}
-        />
+        {this.state.page === "home" && (
+          <div className="app_container">HOME PAGE ---> SOON</div>
+        )}
 
-        <ShowSearchInformation
-          searchAllTitle={this.state.searchAllTitle}
-          searchAllMovie={this.state.searchAllMovie}
-          searchTotalResult={this.state.searchTotalResult}
-          movieDb={this.state.json}
-          movieFound={this.state.movieFound}
-          jsonValid={this.state.jsonValid}
-          showMovie={this.showMovie}
-        />
+        {this.state.page === "search" && (
+          <React.Fragment>
+            <StructureSearch
+              toggleOfflineJson={this.toggleOfflineJson}
+              state={this.state}
+              clearInputs={this.clearInputs}
+              updateInputs={this.updateInputs}
+              updateCheckbox={this.updateCheckbox}
+              updateSearchMatchTitleCheckbox={
+                this.updateSearchMatchTitleCheckbox
+              }
+              updateSearchMatchYearCheckbox={this.updateSearchMatchYearCheckbox}
+              updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
+              jsonApi={this.jsonApi}
+            />
 
-        <UserPage statusLogin={this.state.loginStatus} user={this.state.user} />
+            <ShowMovieInformation
+              movieDb={this.state.json}
+              movieFound={this.state.movieFound}
+              jsonValid={this.state.jsonValid}
+              searchAllMovie={this.state.searchAllMovie}
+            />
+            <ShowSearchInformation
+              searchAllTitle={this.state.searchAllTitle}
+              searchAllMovie={this.state.searchAllMovie}
+              searchTotalResult={this.state.searchTotalResult}
+              movieDb={this.state.json}
+              movieFound={this.state.movieFound}
+              jsonValid={this.state.jsonValid}
+              showMovie={this.showMovie}
+            />
+          </React.Fragment>
+        )}
+        {this.state.page === "user page" && this.state.loginStatus === true && (
+          <UserPage
+            statusLogin={this.state.loginStatus}
+            user={this.state.user}
+          />
+        )}
+
+        {this.state.page === "user page" &&
+          this.state.loginStatus === false && (
+            <div className="app_container">
+              Please login to see that page L: admin P: admin
+            </div>
+          )}
+
+        {this.state.page === "register" && (
+          <div className="app_container">Register</div>
+        )}
+
+        {this.state.page === "contact" && (
+          <div className="app_container">Contact</div>
+        )}
       </div>
     );
   }

@@ -17,7 +17,8 @@
 ### LOGIN/Auth
 
 - CRUD pattern [create, read, update and delete ]
-- login,guest
+- login
+- guest
 - user page
 - form for new user
 - favourite movies

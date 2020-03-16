@@ -324,3 +324,23 @@ label.page-user.page-name {
 label.page-user.page-name {
   box-sizing: border-box;
 }
+
+.app_container.navbar ul {
+  list-style: none;
+  padding: 0;
+  float: left;
+}
+
+.app_container.navbar ul li {
+  float: left;
+  margin: 1px;
+  background: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.app_container.navbar ul li:hover {
+  opacity: 0.5;
+}

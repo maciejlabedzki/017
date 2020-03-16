@@ -1,9 +1,25 @@
-1 - scss - img inside background url
+### 1 - scss - img inside background url
 
-```
-div{
-    background:url('src/img.png')
+```scss
+div {
+  background: url("src/img.png");
 }
 ```
 
-2 - nested changes on state
+### 2 - nested changes on state
+
+```js
+this.setState(prevState => ({
+  ...prevState,
+  someProperty: {
+    ...prevState.someProperty,
+    someOtherProperty: {
+      ...prevState.someProperty.someOtherProperty,
+      anotherProperty: {
+        ...prevState.someProperty.someOtherProperty.anotherProperty,
+        flag: false
+      }
+    }
+  }
+}));
+```

@@ -42,6 +42,7 @@ const stateSetting = {
     name: "John",
     lastName: "Doe"
   },
+  page: "home",
   loginStatus: false,
   user: user
   // user: "admin",
