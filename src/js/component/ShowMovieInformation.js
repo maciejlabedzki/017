@@ -103,7 +103,7 @@ const ShowMovieInformation = ({
             >
               add
             </button>
-            <button
+            {/* <button
               mmovie-id={movieDb["imdbID"]}
               movie-title={movieDb["Title"]}
               movie-year={movieDb["Year"]}
@@ -111,7 +111,7 @@ const ShowMovieInformation = ({
               onClick={favouritesRemove}
             >
               remove
-            </button>
+            </button> */}
           </p>
           {/* <BlockDescription
           inf="18"

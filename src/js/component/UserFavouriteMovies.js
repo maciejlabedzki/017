@@ -11,8 +11,8 @@ const MoviesFavourite = props => {
     let poster = moviesDB[key]["poster"];
     let year = moviesDB[key]["year"];
     let id = key;
-    console.log(id);
-    let img = <img src={imgNoPoster} />;
+    //console.log(id);
+    let img = <img src={imgNoPoster} alt="No Poster Movies" />;
     if (poster !== "N/A") {
       img = <img src={poster} alt="Movies" />;
     }
@@ -39,7 +39,7 @@ const MoviesFavourite = props => {
 
 class UserFavouriteMovies extends React.Component {
   render() {
-    console.log("fav", this.props.favourite);
+    //console.log("fav", this.props.favourite);
     return (
       <>
         <div className="app_container">
@@ -50,6 +50,15 @@ class UserFavouriteMovies extends React.Component {
               movies={this.props.favourite}
               favouriteRemove={this.props.favouriteRemove}
             />
+          )}
+          {this.props.statusLogin === false && (
+            <React.Fragment>
+              <div className="app_container">
+                <p>Please login to see that page</p>
+                <p>Login: admin</p>
+                <p>Password: admin</p>
+              </div>
+            </React.Fragment>
           )}
           {/* <button onClick={this.props.favouriteRemove}>del</button> */}
         </div>

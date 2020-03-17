@@ -47,6 +47,15 @@ const stateSetting = {
 
   page: "favourite",
 
+  pagesList: [
+    "home",
+    "search",
+    "user page",
+    "favourite",
+    "register",
+    "contact"
+  ],
+
   favourites: {
     tt0800369: {
       title: "Thor ::OFFLINE SEARCH RESULT SAMPLE::",

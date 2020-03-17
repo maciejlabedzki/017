@@ -35,7 +35,6 @@ class App extends React.Component {
     const apikey = "&apikey=" + process.env.REACT_APP_SECRET_API_KEY;
 
     if (this.state.movieFromSearch === true) {
-      console.log("search this");
       matchId = "?i=" + this.state.movieFromSearchID;
     } else {
       if (this.state.offlineJson === true) {
@@ -303,7 +302,7 @@ class App extends React.Component {
         offlineJson: !prevState.offlineJson
       }),
       () => {
-        console.log(this.state.offlineJson);
+        //console.log(this.state.offlineJson);
       }
     );
   };
@@ -364,38 +363,9 @@ class App extends React.Component {
     this.setState({ favourites: favourites });
   };
 
-  // Ok is working update but is problematic
-  // favouritesRemove = () => {
-  //   this.setState(
-  //     prevState => ({
-  //       edit: {
-  //         long: { ...prevState["edit"]["long"], b: 3 },
-  //         short: { ...prevState["edit"]["short"] }
-  //       }
-  //     }),
-  //     () => {
-  //       console.log(this.state.edit);
-  //     }
-  //   );
-  // };
-
-  favouritesRemove = () => {
-    this.setState(
-      prevState => ({
-        edit: {
-          ...prevState["edit"],
-          long: { ...prevState["edit"]["long"], b: 3 }
-        }
-      }),
-      () => {
-        console.log(this.state);
-      }
-    );
-  };
-
   render() {
     return (
-      <div>
+      <React.Fragment>
         <ToolDeveloper state={this.state} />
 
         <StructureHeader
@@ -405,7 +375,11 @@ class App extends React.Component {
           loginStatus={this.state.loginStatus}
         />
 
-        <NavBar changePage={this.changePage} />
+        <NavBar
+          pagesList={this.state.pagesList}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
 
         {this.state.page === "home" && (
           <div className="app_container">HOME PAGE</div>
@@ -477,7 +451,7 @@ class App extends React.Component {
         {this.state.page === "contact" && (
           <div className="app_container">Contact</div>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
