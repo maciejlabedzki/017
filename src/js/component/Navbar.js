@@ -15,6 +15,9 @@ class NavBar extends React.Component {
             <li name="user page" onClick={this.props.changePage}>
               user page
             </li>
+            <li name="favourite" onClick={this.props.changePage}>
+              user favourite
+            </li>
             <li name="register" onClick={this.props.changePage}>
               register
             </li>

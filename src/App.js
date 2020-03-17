@@ -9,6 +9,7 @@ import StructureSearch from "./js/component/StructureSearch";
 
 import ShowMovieInformation from "./js/component/ShowMovieInformation";
 import ShowSearchInformation from "./js/component/ShowSearchInformation";
+import UserFavouriteMovies from "./js/component/UserFavouriteMovies";
 
 import ToolDeveloper from "./js/component/ToolDeveloper";
 
@@ -342,16 +343,21 @@ class App extends React.Component {
   };
 
   favouritesAdd = e => {
-    let id = e.target.getAttribute("movie-id");
-    let title = e.target.getAttribute("movie-title");
-    let year = e.target.getAttribute("movie-year");
-    let poster = e.target.getAttribute("movie-poster");
-    let favourites = this.state.favourites;
+    const id = e.target.getAttribute("movie-id");
+    const title = e.target.getAttribute("movie-title");
+    const year = e.target.getAttribute("movie-year");
+    const poster = e.target.getAttribute("movie-poster");
+    const favourites = this.state.favourites;
     favourites[id] = { title: title, poster: poster, year: year };
-    //favourites.push({ id: id, title: title ,year:year});
     this.setState({
       favourites: favourites
     });
+  };
+
+  favouriteRemove = movieID => {
+    const favourites = this.state.favourites;
+    delete favourites[movieID];
+    this.setState({ favourites: favourites });
   };
 
   // Ok is working update but is problematic
@@ -398,7 +404,14 @@ class App extends React.Component {
         <NavBar changePage={this.changePage} />
 
         {this.state.page === "home" && (
-          <div className="app_container">HOME PAGE ---> SOON</div>
+          <div className="app_container">HOME PAGE</div>
+        )}
+
+        {this.state.page === "favourite" && (
+          <UserFavouriteMovies
+            favourite={this.state.favourites}
+            favouriteRemove={this.favouriteRemove}
+          />
         )}
 
         {this.state.page === "search" && (
