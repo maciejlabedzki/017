@@ -15,14 +15,14 @@ class NavBar extends React.Component {
       counter++;
     });
 
-    return wrapper;
+    return <ul>{wrapper}</ul>;
   };
 
   render() {
     return (
       <>
         <div className="app_container navbar" date-page={this.props.page}>
-          <ul>{this.buildList}</ul>
+          {this.buildList()}
           {/* <ul>
             <li name="home" onClick={this.props.changePage}>
               home
