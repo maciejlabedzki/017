@@ -341,6 +341,48 @@ class App extends React.Component {
     });
   };
 
+  favouritesAdd = e => {
+    let id = e.target.getAttribute("movie-id");
+    let title = e.target.getAttribute("movie-title");
+    let year = e.target.getAttribute("movie-year");
+    let poster = e.target.getAttribute("movie-poster");
+    let favourites = this.state.favourites;
+    favourites[id] = { title: title, poster: poster, year: year };
+    //favourites.push({ id: id, title: title ,year:year});
+    this.setState({
+      favourites: favourites
+    });
+  };
+
+  // Ok is working update but is problematic
+  // favouritesRemove = () => {
+  //   this.setState(
+  //     prevState => ({
+  //       edit: {
+  //         long: { ...prevState["edit"]["long"], b: 3 },
+  //         short: { ...prevState["edit"]["short"] }
+  //       }
+  //     }),
+  //     () => {
+  //       console.log(this.state.edit);
+  //     }
+  //   );
+  // };
+
+  favouritesRemove = () => {
+    this.setState(
+      prevState => ({
+        edit: {
+          ...prevState["edit"],
+          long: { ...prevState["edit"]["long"], b: 3 }
+        }
+      }),
+      () => {
+        console.log(this.state);
+      }
+    );
+  };
+
   render() {
     return (
       <div>
@@ -376,6 +418,8 @@ class App extends React.Component {
             />
 
             <ShowMovieInformation
+              favouritesAdd={this.favouritesAdd}
+              favouritesRemove={this.favouritesRemove}
               movieDb={this.state.json}
               movieFound={this.state.movieFound}
               jsonValid={this.state.jsonValid}
@@ -399,12 +443,13 @@ class App extends React.Component {
           />
         )}
 
-        {this.state.page === "user page" &&
-          this.state.loginStatus === false && (
-            <div className="app_container">
-              Please login to see that page L: admin P: admin
-            </div>
-          )}
+        {this.state.page === "user page" && this.state.loginStatus === false && (
+          <div className="app_container">
+            <p>Please login to see that page</p>
+            <p>Login: admin</p>
+            <p>Password: admin</p>
+          </div>
+        )}
 
         {this.state.page === "register" && (
           <div className="app_container">Register</div>

@@ -2,7 +2,7 @@ import movieLocalJsonData from "../json/movieLocalJsonData";
 import user from "../json/user";
 
 const stateSetting = {
-  json: {},
+  json: movieLocalJsonData,
   jsonOffline: movieLocalJsonData,
   jsonValid: true,
   jsonResponse: "",
@@ -42,9 +42,17 @@ const stateSetting = {
     name: "John",
     lastName: "Doe"
   },
-  page: "home",
-  loginStatus: false,
-  user: user
+  page: "search",
+  loginStatus: true,
+  user: user,
+  edit: { long: { a: 1, b: 2, c: 3, d: 4 }, short: { a: 1 }, medium: { c: 1 } },
+  favourites: {
+    tt00000001: {
+      title: "aaa",
+      src:
+        "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+    }
+  }
   // user: "admin",
   // password: "Aa123456",
   // loginStatus: false

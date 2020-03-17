@@ -73,7 +73,9 @@ const ShowMovieInformation = ({
   movieDb,
   movieFound,
   jsonValid,
-  searchAllMovie
+  searchAllMovie,
+  favouritesAdd,
+  favouritesRemove
 }) => {
   if (searchAllMovie === true) {
     return null;
@@ -90,6 +92,27 @@ const ShowMovieInformation = ({
     return (
       <>
         <div className="app_container">
+          <p className="app_container favourite">
+            <label>Favourite:</label>
+            <button
+              movie-id={movieDb["imdbID"]}
+              movie-title={movieDb["Title"]}
+              movie-year={movieDb["Year"]}
+              movie-poster={movieDb["Poster"]}
+              onClick={favouritesAdd}
+            >
+              add
+            </button>
+            <button
+              mmovie-id={movieDb["imdbID"]}
+              movie-title={movieDb["Title"]}
+              movie-year={movieDb["Year"]}
+              movie-poster={movieDb["Poster"]}
+              onClick={favouritesRemove}
+            >
+              remove
+            </button>
+          </p>
           {/* <BlockDescription
           inf="18"
           movieDb={movieDb}

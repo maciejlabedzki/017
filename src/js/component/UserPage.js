@@ -3,7 +3,6 @@ import React from "react";
 class PageUser extends React.Component {
   render() {
     let userDetails = this.props["user"]["results"][0];
-    console.log("props", userDetails);
     return (
       <>
         <div className="app_container page-user-wrapper">
@@ -12,23 +11,17 @@ class PageUser extends React.Component {
             <label className="page-user-title">picture:</label>
             <label>
               large:
-              <img
-                src={userDetails["picture"]["large"]}
-                alt="User Large Picture"
-              />
+              <img src={userDetails["picture"]["large"]} alt="User Large  " />
             </label>
             <label>
               medium:
-              <img
-                src={userDetails["picture"]["medium"]}
-                alt="User Medium Picture"
-              />
+              <img src={userDetails["picture"]["medium"]} alt="User Medium  " />
             </label>
             <label>
               thumbnail:
               <img
                 src={userDetails["picture"]["thumbnail"]}
-                alt="User Thumbnail Picture"
+                alt="User Thumbnail  "
               />
             </label>
           </div>
