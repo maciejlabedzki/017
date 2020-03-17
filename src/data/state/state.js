@@ -36,15 +36,17 @@ const stateSetting = {
 
   searchMatchButton: false,
 
+  user: user,
   userData: {
     login: "admin",
     password: "admin",
     name: "John",
     lastName: "Doe"
   },
-  page: "favourite",
   loginStatus: true,
-  user: user,
+
+  page: "favourite",
+
   favourites: {
     tt0800369: {
       title: "Thor ::OFFLINE SEARCH RESULT SAMPLE::",

@@ -352,3 +352,54 @@ input {
 .app_container.navbar ul li {
   padding: 5px 10px;
 }
+.app-fav-page.afp-img {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  float: left;
+  padding: 10px;
+  margin: 0 0 0 0;
+  text-align: center;
+}
+
+.app-fav-page.afp-img img {
+  height: 100%;
+  width: 80px;
+}
+
+.app-fav-page-wrapper.app_container {
+  background: white;
+}
+
+.app-fav-page.afp-desc {
+  float: left;
+  display: block;
+  width: calc(100% - 200px);
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.app-fav-page.afp-remove {
+  float: right;
+  width: 80px;
+  display: block;
+  position: relative;
+}
+
+.app-fav-page.afp-remove button {
+  position: absolute;
+  top: calc(50% + 45px);
+  left: calc(50% - 40px);
+}
+
+label.afp-desc-title {
+  float: left;
+  color: #8e1f1f;
+}
+
+label.afp-desc-year {
+  float: left;
+  font-size: 12px;
+  width: 100%;
+  display: block;
+}

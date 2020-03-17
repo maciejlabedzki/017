@@ -309,12 +309,13 @@ class App extends React.Component {
   };
 
   showMovie = e => {
-    console.log("Show movie id:", e.target.getAttribute("id"));
+    //console.log("Show movie id:", e.target.getAttribute("id"));
     this.setState(
       {
         searchAllMovie: false,
         movieFromSearch: true,
-        movieFromSearchID: e.target.getAttribute("id")
+        movieFromSearchID: e.target.getAttribute("id"),
+        page: "search"
       },
       () => {
         this.jsonApi(null);
@@ -323,7 +324,7 @@ class App extends React.Component {
   };
 
   signIn = props => {
-    console.log("VALIDATE: sign in", props);
+    //console.log("VALIDATE: sign in", props);
 
     let userLogin = props.user;
     let userPassword = props.password;
@@ -356,9 +357,10 @@ class App extends React.Component {
     });
   };
 
-  favouriteRemove = movieID => {
+  favouriteRemove = e => {
+    const movieid = e.target.getAttribute("movieid");
     const favourites = this.state.favourites;
-    delete favourites[movieID];
+    delete favourites[movieid];
     this.setState({ favourites: favourites });
   };
 
@@ -411,8 +413,10 @@ class App extends React.Component {
 
         {this.state.page === "favourite" && (
           <UserFavouriteMovies
+            statusLogin={this.state.loginStatus}
             favourite={this.state.favourites}
             favouriteRemove={this.favouriteRemove}
+            showMovie={this.showMovie}
           />
         )}
 
