@@ -107,10 +107,12 @@ class App extends React.Component {
       domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey
     );
 
-    // console.log(
-    //   ' domain + "/" + matchTitle + matchId + matchYear + apikey',
-    //   domain + "/" + matchTitle + matchId + matchYear + apikey
-    // );
+    // console.log(`Status code: ${response.status}`);
+    // console.log(`Status text: ${response.statusText}`);
+    // console.log(`Request method: ${response.request.method}`);
+    // console.log(`Path: ${response.request.path}`);
+    // console.log(`Date: ${response.headers.date}`);
+    // console.log(`Data: ${response.data}`);
 
     if (response.data.Response === "True" || response.data.Response === true) {
       this.setState({ jsonValid: ValidJson(response.data) });
