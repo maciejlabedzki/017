@@ -1,28 +1,26 @@
 import React from "react";
 
+const BuildList = props => {
+  let wrapper = [];
+  this.props.pagesList.map(item => {
+    wrapper.push(
+      <li name={item} key={"id_navbar_" + item} onClick={this.props.changePage}>
+        {item}
+      </li>
+    );
+  });
+
+  return wrapper;
+};
+
 class NavBar extends React.Component {
-  buildList = () => {
-    let list = this.props.pagesList;
-    let wrapper = [];
-    let counter = 0;
-    list.map(item => {
-      let randomkey = "id_navbar_" + counter;
-      wrapper.push(
-        <li name={item} key={randomkey} onClick={this.props.changePage}>
-          {item}
-        </li>
-      );
-      counter++;
-    });
-
-    return wrapper;
-  };
-
   render() {
     return (
       <>
         <div className="app_container navbar" date-page={this.props.page}>
-          <ul>{this.buildList()}</ul>
+          <ul>
+            <BuildList />
+          </ul>
           {/* <ul>
             <li name="home" onClick={this.props.changePage}>
               home
