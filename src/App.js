@@ -366,7 +366,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div id="app-movie-db">
         <ToolDeveloper state={this.state} />
         <StructureHeader
           logOut={this.logOut}
@@ -380,7 +380,9 @@ class App extends React.Component {
           page={this.state.page}
         />
         {this.state.page === "home" && (
-          <div className="app_container">HOME PAGE</div>
+          <div className="app_container">
+            <label className="icon-home">HOME PAGE</label>
+          </div>
         )}
         {this.state.page === "favourite" && (
           <UserFavouriteMovies
@@ -446,7 +448,7 @@ class App extends React.Component {
         {this.state.page === "contact" && (
           <div className="app_container">Contact</div>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
