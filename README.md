@@ -1,3 +1,13 @@
+## Homepage
+
+"homepage": "http://maciejlabedzki.pl/0_projects/017/build/",
+
+## json-server
+
+json-server --watch src/data/json/test.json --port 3333
+
+## Rest Of The information
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

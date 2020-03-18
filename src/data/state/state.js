@@ -1,5 +1,7 @@
 import movieLocalJsonData from "../json/movieLocalJsonData";
 import user from "../json/user";
+import favouriteJSON from "../json/favourite.json";
+import commentsJSON from "../json/comments.json";
 
 const stateSetting = {
   json: movieLocalJsonData,
@@ -45,7 +47,7 @@ const stateSetting = {
   },
   loginStatus: true,
 
-  page: "favourite",
+  page: "register",
 
   pagesList: [
     "home",
@@ -56,24 +58,21 @@ const stateSetting = {
     "contact"
   ],
 
-  favourites: {
-    tt0800369: {
-      title: "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
-      poster:
-        "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
-      year: "2011"
-    },
-    tt0449157: {
-      title: ".1111 testimonio",
-      poster: "N/A",
-      year: "1999"
-    },
-    tt0461316: {
-      title: "Police Nr. 1111",
-      poster: "N/A",
-      year: "1915"
-    }
-  }
+  comments: commentsJSON,
+  // commentsReplay: {
+  //   "comments-ucid-1": [
+  //     {
+  //       title: "I like this movie also",
+  //       describe: "Lorem ipsum",
+  //       commentsUID: "comments-ucid-1",
+  //       autor: "admin",
+  //       date: "12:13:11 13.03.2020",
+  //       autorUUID: "1"
+  //     }
+  //   ]
+  // },
+
+  favourites: favouriteJSON
   //edit: { long: { a: 1, b: 2, c: 3, d: 4 }, short: { a: 1 }, medium: { c: 1 } },
   // favourites: {
   //   tt00000001: {

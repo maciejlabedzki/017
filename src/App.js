@@ -15,6 +15,7 @@ import ToolDeveloper from "./js/component/ToolDeveloper";
 
 import UserPage from "./js/component/UserPage";
 import NavBar from "./js/component/Navbar";
+import Register from "./js/component/Register";
 
 class App extends React.Component {
   constructor() {
@@ -367,24 +368,20 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <ToolDeveloper state={this.state} />
-
         <StructureHeader
           logOut={this.logOut}
           userData={this.state.userData}
           signIn={this.signIn}
           loginStatus={this.state.loginStatus}
         />
-
         <NavBar
           pagesList={this.state.pagesList}
           changePage={this.changePage}
           page={this.state.page}
         />
-
         {this.state.page === "home" && (
           <div className="app_container">HOME PAGE</div>
         )}
-
         {this.state.page === "favourite" && (
           <UserFavouriteMovies
             statusLogin={this.state.loginStatus}
@@ -393,7 +390,6 @@ class App extends React.Component {
             showMovie={this.showMovie}
           />
         )}
-
         {this.state.page === "search" && (
           <React.Fragment>
             <StructureSearch
@@ -435,7 +431,6 @@ class App extends React.Component {
             user={this.state.user}
           />
         )}
-
         {this.state.page === "user page" && this.state.loginStatus === false && (
           <div className="app_container">
             <p>Please login to see that page</p>
@@ -443,11 +438,11 @@ class App extends React.Component {
             <p>Password: admin</p>
           </div>
         )}
-
         {this.state.page === "register" && (
-          <div className="app_container">Register</div>
+          <div className="app_container">
+            <Register />
+          </div>
         )}
-
         {this.state.page === "contact" && (
           <div className="app_container">Contact</div>
         )}
