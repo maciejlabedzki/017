@@ -18,6 +18,7 @@ import Helper from "./js/component/_Dev/Helper";
 // APP : STRUCTURE
 import Header from "./js/component/Structure/Header/Header";
 import Navigation from "./js/component/Structure/Navigation/Navigation";
+import Footer from "./js/component/Structure/Footer/Footer";
 
 // APP : PAGE
 import Home from "./js/component/Page/Home/Home";
@@ -26,7 +27,7 @@ import User from "./js/component/Page/User/User";
 import Favourite from "./js/component/Page/Favourite/Favourite";
 import Register from "./js/component/Page/Register/Register";
 
-// APP : SUBPAGE
+// APP : SUBPAGE : PAGE : SEARCH
 import SearchForm from "./js/component/Page/Search/SearchForm";
 import MovieDescription from "./js/component/Page/Search/MovieDescription";
 
@@ -452,8 +453,10 @@ class App extends React.Component {
           </div>
         )}
         {this.state.page === "contact" && (
-          <div className="app_container">Contact</div>
+          <div className="app_container ">Contact</div>
         )}
+
+        <Footer />
       </div>
     );
   }

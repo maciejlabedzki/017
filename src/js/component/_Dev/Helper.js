@@ -6,7 +6,7 @@ const Helper = ({ state, offlineJson }) => {
   };
 
   return (
-    <div className="app_tool_developers app_container">
+    <div className="app_container app_tool_developers">
       DEVTOOL:
       <button onClick={showState}>State</button>
     </div>
