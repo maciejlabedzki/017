@@ -1,6 +1,6 @@
 import React from "react";
 
-const ToolDeveloper = ({ state, offlineJson }) => {
+const Helper = ({ state, offlineJson }) => {
   let showState = () => {
     console.log(state);
   };
@@ -13,4 +13,4 @@ const ToolDeveloper = ({ state, offlineJson }) => {
   );
 };
 
-export default ToolDeveloper;
+export default Helper;

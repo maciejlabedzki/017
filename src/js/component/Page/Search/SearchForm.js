@@ -1,6 +1,6 @@
 import React from "react";
 
-const StructureSearch = props => {
+const SearchForm = props => {
   const clearForm = e => {
     props.clearInputs();
     e.preventDefault();
@@ -116,4 +116,4 @@ const StructureSearch = props => {
   );
 };
 
-export default StructureSearch;
+export default SearchForm;

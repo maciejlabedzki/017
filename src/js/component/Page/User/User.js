@@ -1,10 +1,10 @@
 import React from "react";
 
-class PageUser extends React.Component {
+class User extends React.Component {
   render() {
     let userDetails = this.props["user"]["results"][0];
     return (
-      <>
+      <React.Fragment>
         <div className="app_container page-user-wrapper">
           <label className="page-user page-name">User Page</label>
           <div className="page-user-details">
@@ -105,9 +105,9 @@ class PageUser extends React.Component {
             <label>sha256:{userDetails["login"]["sha256"]} </label>
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }
 
-export default PageUser;
+export default User;

@@ -1,21 +1,34 @@
 import React from "react";
+
+// APP : LIBRARY
 import axios from "axios";
-import "./css/style.scss";
-import ValidJson from "./js/util/json/validJson";
+
+// APP : STATE
 import stateSetting from "./data/state/state";
 
-import StructureHeader from "./js/component/StructureHeader";
-import StructureSearch from "./js/component/StructureSearch";
+// APP : FUNCTIONS : VALIDATION
+import ValidateJSON from "./js/util/json/validJson";
 
-import ShowMovieInformation from "./js/component/ShowMovieInformation";
-import ShowSearchInformation from "./js/component/ShowSearchInformation";
-import UserFavouriteMovies from "./js/component/UserFavouriteMovies";
+// APP : STYLE
+import "./css/style.scss";
 
-import ToolDeveloper from "./js/component/ToolDeveloper";
+// APP : DEV : HELPER
+import Helper from "./js/component/_Dev/Helper";
 
-import UserPage from "./js/component/UserPage";
-import NavBar from "./js/component/Navbar";
-import Register from "./js/component/Register";
+// APP : STRUCTURE
+import Header from "./js/component/Structure/Header/Header";
+import Navigation from "./js/component/Structure/Navigation/Navigation";
+
+// APP : PAGE
+import Home from "./js/component/Page/Home/Home";
+import SearchResult from "./js/component/Page/Search/SearchResult";
+import User from "./js/component/Page/User/User";
+import Favourite from "./js/component/Page/Favourite/Favourite";
+import Register from "./js/component/Page/Register/Register";
+
+// APP : SUBPAGE
+import SearchForm from "./js/component/Page/Search/SearchForm";
+import MovieDescription from "./js/component/Page/Search/MovieDescription";
 
 class App extends React.Component {
   constructor() {
@@ -107,15 +120,8 @@ class App extends React.Component {
       domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey
     );
 
-    // console.log(`Status code: ${response.status}`);
-    // console.log(`Status text: ${response.statusText}`);
-    // console.log(`Request method: ${response.request.method}`);
-    // console.log(`Path: ${response.request.path}`);
-    // console.log(`Date: ${response.headers.date}`);
-    // console.log(`Data: ${response.data}`);
-
     if (response.data.Response === "True" || response.data.Response === true) {
-      this.setState({ jsonValid: ValidJson(response.data) });
+      this.setState({ jsonValid: ValidateJSON(response.data) });
 
       if (this.state.jsonValid === true) {
         this.setState({
@@ -367,25 +373,28 @@ class App extends React.Component {
   render() {
     return (
       <div id="app-movie-db">
-        <ToolDeveloper state={this.state} />
-        <StructureHeader
+        {/* DEV: TOOL : HELPER */}
+        <Helper state={this.state} />
+
+        {/* APP : STRUCTURE : HEADER */}
+        <Header
           logOut={this.logOut}
           userData={this.state.userData}
           signIn={this.signIn}
           loginStatus={this.state.loginStatus}
         />
-        <NavBar
+
+        {/* APP : STRUCTURE : NAVIGATION */}
+        <Navigation
           pagesList={this.state.pagesList}
           changePage={this.changePage}
           page={this.state.page}
         />
-        {this.state.page === "home" && (
-          <div className="app_container">
-            <label className="icon-home">HOME PAGE</label>
-          </div>
-        )}
+
+        {this.state.page === "home" && <Home />}
+
         {this.state.page === "favourite" && (
-          <UserFavouriteMovies
+          <Favourite
             statusLogin={this.state.loginStatus}
             favourite={this.state.favourites}
             favouriteRemove={this.favouriteRemove}
@@ -394,7 +403,7 @@ class App extends React.Component {
         )}
         {this.state.page === "search" && (
           <React.Fragment>
-            <StructureSearch
+            <SearchForm
               toggleOfflineJson={this.toggleOfflineJson}
               state={this.state}
               clearInputs={this.clearInputs}
@@ -408,7 +417,7 @@ class App extends React.Component {
               jsonApi={this.jsonApi}
             />
 
-            <ShowMovieInformation
+            <MovieDescription
               favouritesAdd={this.favouritesAdd}
               favouritesRemove={this.favouritesRemove}
               movieDb={this.state.json}
@@ -416,7 +425,7 @@ class App extends React.Component {
               jsonValid={this.state.jsonValid}
               searchAllMovie={this.state.searchAllMovie}
             />
-            <ShowSearchInformation
+            <SearchResult
               searchAllTitle={this.state.searchAllTitle}
               searchAllMovie={this.state.searchAllMovie}
               searchTotalResult={this.state.searchTotalResult}
@@ -428,10 +437,7 @@ class App extends React.Component {
           </React.Fragment>
         )}
         {this.state.page === "user page" && this.state.loginStatus === true && (
-          <UserPage
-            statusLogin={this.state.loginStatus}
-            user={this.state.user}
-          />
+          <User statusLogin={this.state.loginStatus} user={this.state.user} />
         )}
         {this.state.page === "user page" && this.state.loginStatus === false && (
           <div className="app_container">

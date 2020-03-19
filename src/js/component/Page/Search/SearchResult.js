@@ -1,5 +1,5 @@
 import React from "react";
-import imgNoPoster from "../../assets/img/no-poster.jpg";
+import imgNoPoster from "../../../../assets/img/no-poster.jpg";
 
 const BlockDescription = ({
   movieDb,
@@ -59,7 +59,7 @@ const BlockDescription = ({
   );
 };
 
-const ShowSearchInformation = ({
+const SearchResult = ({
   movieDb,
   movieFound,
   jsonValid,
@@ -72,7 +72,8 @@ const ShowSearchInformation = ({
     return null;
   }
 
-  if (movieFound !== true) {
+  if (movieFound !== true && movieDb !== undefined) {
+    console.log("movieDb", movieDb);
     return (
       <div className="app_container warning">
         No movies found: {movieDb["Error"]}
@@ -97,4 +98,4 @@ const ShowSearchInformation = ({
   }
 };
 
-export default ShowSearchInformation;
+export default SearchResult;

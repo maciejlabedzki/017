@@ -1,7 +1,7 @@
 import React from "react";
-import imdb from "../../assets/img/ratings_imdb.png";
-import rotten from "../../assets/img/rotten_tomatoes.jpg";
-import metacritics from "../../assets/img/ratings_metacritics.png";
+import img_imdb from "../../../../assets/img/ratings_imdb.png";
+import img_rotten from "../../../../assets/img/rotten_tomatoes.jpg";
+import img_metacritics from "../../../../assets/img/ratings_metacritics.png";
 
 const BlockDescription = props => {
   let movieLabel = props.movieDb[props.category];
@@ -21,11 +21,11 @@ const BlockDescription = props => {
       let ratingName = movieLabel[i]["Source"];
       let imgSrc = "";
       if (ratingName === "Internet Movie Database") {
-        imgSrc = imdb;
+        imgSrc = img_imdb;
       } else if (ratingName === "Rotten Tomatoes") {
-        imgSrc = rotten;
+        imgSrc = img_rotten;
       } else if (ratingName === "Metacritic") {
-        imgSrc = metacritics;
+        imgSrc = img_metacritics;
       }
       blockStorage.push(
         <label
@@ -69,7 +69,7 @@ const BlockDescription = props => {
   return null;
 };
 
-const ShowMovieInformation = ({
+const MovieDescription = ({
   movieDb,
   movieFound,
   jsonValid,
@@ -260,4 +260,4 @@ const ShowMovieInformation = ({
   }
 };
 
-export default ShowMovieInformation;
+export default MovieDescription;

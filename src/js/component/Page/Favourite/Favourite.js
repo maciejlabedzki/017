@@ -1,5 +1,5 @@
 import React from "react";
-import imgNoPoster from "../../assets/img/no-poster.jpg";
+import imgNoPoster from "../../../../assets/img/no-poster.jpg";
 
 const MoviesFavourite = props => {
   var moviesDB = props.movies;
@@ -37,7 +37,7 @@ const MoviesFavourite = props => {
   return <div> {moviesList}</div>;
 };
 
-class UserFavouriteMovies extends React.Component {
+class Favourite extends React.Component {
   render() {
     //console.log("fav", this.props.favourite);
     return (
@@ -67,4 +67,4 @@ class UserFavouriteMovies extends React.Component {
   }
 }
 
-export default UserFavouriteMovies;
+export default Favourite;
