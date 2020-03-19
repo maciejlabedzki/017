@@ -20,3 +20,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+button:hover {
+  opacity: 0.5;
+}
+
+body {
+  background: #afafaf;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+input {
+  outline: none;
+}
+
+// APP : TOOL : DEV
+.app_container {
+  &.app_developer {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    background: #00000078;
+  }
+}

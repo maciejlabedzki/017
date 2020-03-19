@@ -41,28 +41,24 @@ class Favourite extends React.Component {
   render() {
     //console.log("fav", this.props.favourite);
     return (
-      <>
-        <div className="app_container">
-          UserFavouriteMovies{" "}
-          {this.props.statusLogin === true && (
-            <MoviesFavourite
-              showMovie={this.props.showMovie}
-              movies={this.props.favourite}
-              favouriteRemove={this.props.favouriteRemove}
-            />
-          )}
-          {this.props.statusLogin === false && (
-            <React.Fragment>
-              <div className="app_container">
-                <p>Please login to see that page</p>
-                <p>Login: admin</p>
-                <p>Password: admin</p>
-              </div>
-            </React.Fragment>
-          )}
-          {/* <button onClick={this.props.favouriteRemove}>del</button> */}
-        </div>
-      </>
+      <div className="app_container">
+        Favourites
+        {this.props.statusLogin === true && (
+          <MoviesFavourite
+            showMovie={this.props.showMovie}
+            movies={this.props.favourite}
+            favouriteRemove={this.props.favouriteRemove}
+          />
+        )}
+        {this.props.statusLogin === false && (
+          <>
+            <p>Please login to see that page</p>
+            <p>Login: admin</p>
+            <p>Password: admin</p>
+          </>
+        )}
+        {/* <button onClick={this.props.favouriteRemove}>del</button> */}
+      </div>
     );
   }
 }

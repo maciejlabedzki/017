@@ -31,6 +31,9 @@ import Register from "./js/component/Page/Register/Register";
 import SearchForm from "./js/component/Page/Search/SearchForm";
 import MovieDescription from "./js/component/Page/Search/MovieDescription";
 
+// RULES
+import rules from "./js/config/rules";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -392,19 +395,13 @@ class App extends React.Component {
           page={this.state.page}
         />
 
-        {/* APP : STRUCTURE : HOME */}
-        {this.state.page === "home" && <Home />}
-
+        {/* APP : STRUCTURE : CENTRUM */}
         <div className="app-wrapper-center">
-          {this.state.page === "favourite" && (
-            <Favourite
-              statusLogin={this.state.loginStatus}
-              favourite={this.state.favourites}
-              favouriteRemove={this.favouriteRemove}
-              showMovie={this.showMovie}
-            />
-          )}
-          {this.state.page === "search" && (
+          {/* APP : PAGE : HOME */}
+          {this.state.page === "home" && <Home />}
+
+          {/* APP : PAGE : SEARCH */}
+          {rules({ page: "Search", statePage: this.state.page }) && (
             <React.Fragment>
               <SearchForm
                 toggleOfflineJson={this.toggleOfflineJson}
@@ -421,7 +418,6 @@ class App extends React.Component {
                 updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
                 jsonApi={this.jsonApi}
               />
-
               <MovieDescription
                 favouritesAdd={this.favouritesAdd}
                 favouritesRemove={this.favouritesRemove}
@@ -441,30 +437,37 @@ class App extends React.Component {
               />
             </React.Fragment>
           )}
-          {this.state.page === "user page" &&
-            this.state.loginStatus === true && (
-              <User
-                statusLogin={this.state.loginStatus}
-                user={this.state.user}
-              />
-            )}
-          {this.state.page === "user page" && this.state.loginStatus === false && (
-            <div className="app_container">
-              <p>Please login to see that page</p>
-              <p>Login: admin</p>
-              <p>Password: admin</p>
-            </div>
+
+          {/* APP : PAGE : USER */}
+          {rules({
+            page: "user page",
+            statePage: this.state.page
+          }) && (
+            <User statusLogin={this.state.loginStatus} user={this.state.user} />
           )}
-          {this.state.page === "register" && (
-            <div className="app_container">
-              <Register />
-            </div>
+
+          {/* APP : PAGE : FAVOURITE */}
+          {rules({ page: "Favourite", statePage: this.state.page }) && (
+            <Favourite
+              statusLogin={this.state.loginStatus}
+              favourite={this.state.favourites}
+              favouriteRemove={this.favouriteRemove}
+              showMovie={this.showMovie}
+            />
           )}
-          {this.state.page === "contact" && (
+
+          {/* APP : PAGE : REGISTER */}
+          {rules({ page: "Register", statePage: this.state.page }) && (
+            <Register />
+          )}
+
+          {/* APP : PAGE : CONTACT */}
+          {rules({ page: "Contact", statePage: this.state.page }) && (
             <div className="app_container ">Contact</div>
           )}
         </div>
 
+        {/* APP : STRUCTURE : FAVOURITE */}
         <Footer />
       </div>
     );
