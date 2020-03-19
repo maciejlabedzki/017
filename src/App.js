@@ -392,69 +392,78 @@ class App extends React.Component {
           page={this.state.page}
         />
 
+        {/* APP : STRUCTURE : HOME */}
         {this.state.page === "home" && <Home />}
 
-        {this.state.page === "favourite" && (
-          <Favourite
-            statusLogin={this.state.loginStatus}
-            favourite={this.state.favourites}
-            favouriteRemove={this.favouriteRemove}
-            showMovie={this.showMovie}
-          />
-        )}
-        {this.state.page === "search" && (
-          <React.Fragment>
-            <SearchForm
-              toggleOfflineJson={this.toggleOfflineJson}
-              state={this.state}
-              clearInputs={this.clearInputs}
-              updateInputs={this.updateInputs}
-              updateCheckbox={this.updateCheckbox}
-              updateSearchMatchTitleCheckbox={
-                this.updateSearchMatchTitleCheckbox
-              }
-              updateSearchMatchYearCheckbox={this.updateSearchMatchYearCheckbox}
-              updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
-              jsonApi={this.jsonApi}
-            />
-
-            <MovieDescription
-              favouritesAdd={this.favouritesAdd}
-              favouritesRemove={this.favouritesRemove}
-              movieDb={this.state.json}
-              movieFound={this.state.movieFound}
-              jsonValid={this.state.jsonValid}
-              searchAllMovie={this.state.searchAllMovie}
-            />
-            <SearchResult
-              searchAllTitle={this.state.searchAllTitle}
-              searchAllMovie={this.state.searchAllMovie}
-              searchTotalResult={this.state.searchTotalResult}
-              movieDb={this.state.json}
-              movieFound={this.state.movieFound}
-              jsonValid={this.state.jsonValid}
+        <div className="app-wrapper-center">
+          {this.state.page === "favourite" && (
+            <Favourite
+              statusLogin={this.state.loginStatus}
+              favourite={this.state.favourites}
+              favouriteRemove={this.favouriteRemove}
               showMovie={this.showMovie}
             />
-          </React.Fragment>
-        )}
-        {this.state.page === "user page" && this.state.loginStatus === true && (
-          <User statusLogin={this.state.loginStatus} user={this.state.user} />
-        )}
-        {this.state.page === "user page" && this.state.loginStatus === false && (
-          <div className="app_container">
-            <p>Please login to see that page</p>
-            <p>Login: admin</p>
-            <p>Password: admin</p>
-          </div>
-        )}
-        {this.state.page === "register" && (
-          <div className="app_container">
-            <Register />
-          </div>
-        )}
-        {this.state.page === "contact" && (
-          <div className="app_container ">Contact</div>
-        )}
+          )}
+          {this.state.page === "search" && (
+            <React.Fragment>
+              <SearchForm
+                toggleOfflineJson={this.toggleOfflineJson}
+                state={this.state}
+                clearInputs={this.clearInputs}
+                updateInputs={this.updateInputs}
+                updateCheckbox={this.updateCheckbox}
+                updateSearchMatchTitleCheckbox={
+                  this.updateSearchMatchTitleCheckbox
+                }
+                updateSearchMatchYearCheckbox={
+                  this.updateSearchMatchYearCheckbox
+                }
+                updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
+                jsonApi={this.jsonApi}
+              />
+
+              <MovieDescription
+                favouritesAdd={this.favouritesAdd}
+                favouritesRemove={this.favouritesRemove}
+                movieDb={this.state.json}
+                movieFound={this.state.movieFound}
+                jsonValid={this.state.jsonValid}
+                searchAllMovie={this.state.searchAllMovie}
+              />
+              <SearchResult
+                searchAllTitle={this.state.searchAllTitle}
+                searchAllMovie={this.state.searchAllMovie}
+                searchTotalResult={this.state.searchTotalResult}
+                movieDb={this.state.json}
+                movieFound={this.state.movieFound}
+                jsonValid={this.state.jsonValid}
+                showMovie={this.showMovie}
+              />
+            </React.Fragment>
+          )}
+          {this.state.page === "user page" &&
+            this.state.loginStatus === true && (
+              <User
+                statusLogin={this.state.loginStatus}
+                user={this.state.user}
+              />
+            )}
+          {this.state.page === "user page" && this.state.loginStatus === false && (
+            <div className="app_container">
+              <p>Please login to see that page</p>
+              <p>Login: admin</p>
+              <p>Password: admin</p>
+            </div>
+          )}
+          {this.state.page === "register" && (
+            <div className="app_container">
+              <Register />
+            </div>
+          )}
+          {this.state.page === "contact" && (
+            <div className="app_container ">Contact</div>
+          )}
+        </div>
 
         <Footer />
       </div>

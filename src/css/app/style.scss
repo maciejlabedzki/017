@@ -1,24 +1,59 @@
-.app_container.lm_list {
-  //height: 60px;
+.lm_list {
   overflow: hidden;
+  .lm_list-title {
+    width: calc(100% - 50px);
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 10px;
+    background: white;
+    border-bottom: 1px solid #aca6a6;
+    font-size: 12px;
+  }
+  .lm_list-type {
+    width: calc(50% - 50px);
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 10px;
+    background: white;
+    border-bottom: 1px solid #aca6a6;
+    font-size: 12px;
+  }
+  .lm_list-year {
+    width: calc(50% - 50px);
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    padding: 0px 0px 0px 10px;
+    background: white;
+    border-bottom: 1px solid #aca6a6;
+    font-size: 12px;
+    width: 50%;
+  }
+  .lm_list-id {
+    display: none;
+  }
+  .lm_list-title {
+    width: 100%;
+  }
 }
 
-label.lm_list-poster {
+.lm_list-poster {
   width: 50px;
   height: auto;
   overflow: hidden;
   display: block;
   float: left;
+  img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
 }
 
-label.lm_list-poster img {
-  height: 100%;
-  width: 100%;
-  display: block;
-  overflow: hidden;
-}
-
-label.lm_title {
+.lm_title {
   display: block;
   float: left;
   border: 1px solid #d0d0d0;
@@ -45,41 +80,9 @@ label.lm_title {
   text-transform: uppercase;
 }
 
-.app_container.lm_list .lm_list-title {
-  width: calc(100% - 50px);
-  display: block;
-  float: left;
-  box-sizing: border-box;
-  padding: 0px 0px 0px 10px;
-  background: white;
-  border-bottom: 1px solid #aca6a6;
-  font-size: 12px;
-}
-
-.app_container.lm_list .lm_list-type {
-  width: calc(50% - 50px);
-  display: block;
-  float: left;
-  box-sizing: border-box;
-  padding: 0px 0px 0px 10px;
-  background: white;
-  border-bottom: 1px solid #aca6a6;
-  font-size: 12px;
-}
-
-.app_container.lm_list .lm_list-year {
-  width: calc(50% - 50px);
-  display: block;
-  float: left;
-  box-sizing: border-box;
-  padding: 0px 0px 0px 10px;
-  background: white;
-  border-bottom: 1px solid #aca6a6;
-  font-size: 12px;
-}
-
-.app_container.lm_list .lm_list-id {
-  display: none;
+.lm_list-title {
+  font-weight: bold;
+  color: #645c5c;
 }
 
 .lm_list-poster {
@@ -97,47 +100,34 @@ label.lm_title {
   width: calc(100% - 50px);
 }
 
-.app_container.lm_list .lm_list-year {
+.lm_list-type {
   width: 50%;
 }
 
-.app_container.lm_list .lm_list-title {
-  width: 100%;
-}
-
-.app_container.lm_list .lm_list-type {
-  width: 50%;
-}
-
-label.lm_list-title {
-  font-weight: bold;
-  color: #645c5c;
-}
-
-.app_container.lm_list {
+.lm_list {
   background: white;
   padding: 5px 5px;
 }
 
-.app_container.lm_list {
+.lm_list {
   background: white;
   padding: 5px 5px;
 }
 
-label.lm_list-poster {
+.lm_list-poster {
   height: 70px;
 }
-.app_container.lm_list .lm_list-title,
-.app_container.lm_list .lm_list-year,
-.app_container.lm_list .lm_list-type {
+.lm_list-title,
+.lm_list-year,
+.lm_list-type {
   border: none;
 }
 
-.app_container.lm_list .lm_list-type {
+.lm_list-type {
   width: 100%;
 }
 
-.app_container.lm_list {
+.lm_list {
   min-height: 80px;
 }
 
@@ -154,92 +144,86 @@ label.lm_list-poster {
   border: 1px solid red;
 }
 
-button[attr-state="true"] {
-  background: rgba(210, 255, 82, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(210, 255, 82, 1) 0%,
-    rgba(145, 232, 66, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(210, 255, 82, 1)),
-    color-stop(100%, rgba(145, 232, 66, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(210, 255, 82, 1) 0%,
-    rgba(145, 232, 66, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(210, 255, 82, 1) 0%,
-    rgba(145, 232, 66, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(210, 255, 82, 1) 0%,
-    rgba(145, 232, 66, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(210, 255, 82, 1) 0%,
-    rgba(145, 232, 66, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
-  color: black;
-  border: 1px solid #aaaaaa;
-  width: 100px;
-  height: 21px;
-}
+#FormMatchSearch {
+  button[attr-state="true"] {
+    background: rgba(210, 255, 82, 1);
+    background: -moz-linear-gradient(
+      top,
+      rgba(210, 255, 82, 1) 0%,
+      rgba(145, 232, 66, 1) 100%
+    );
+    background: -webkit-gradient(
+      left top,
+      left bottom,
+      color-stop(0%, rgba(210, 255, 82, 1)),
+      color-stop(100%, rgba(145, 232, 66, 1))
+    );
+    background: -webkit-linear-gradient(
+      top,
+      rgba(210, 255, 82, 1) 0%,
+      rgba(145, 232, 66, 1) 100%
+    );
+    background: -o-linear-gradient(
+      top,
+      rgba(210, 255, 82, 1) 0%,
+      rgba(145, 232, 66, 1) 100%
+    );
+    background: -ms-linear-gradient(
+      top,
+      rgba(210, 255, 82, 1) 0%,
+      rgba(145, 232, 66, 1) 100%
+    );
+    background: linear-gradient(
+      to bottom,
+      rgba(210, 255, 82, 1) 0%,
+      rgba(145, 232, 66, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+    color: black;
+    border: 1px solid #aaaaaa;
+    width: 100px;
+    height: 21px;
+  }
 
-button[attr-state="false"] {
-  background: rgba(255, 82, 84, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(255, 82, 84, 1) 0%,
-    rgba(231, 103, 64, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(255, 82, 84, 1)),
-    color-stop(100%, rgba(231, 103, 64, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(255, 82, 84, 1) 0%,
-    rgba(231, 103, 64, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(255, 82, 84, 1) 0%,
-    rgba(231, 103, 64, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(255, 82, 84, 1) 0%,
-    rgba(231, 103, 64, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 82, 84, 1) 0%,
-    rgba(231, 103, 64, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5254', endColorstr='#e76740', GradientType=0 );
-  color: black;
-  border: 1px solid #aaaaaa;
-  width: 100px;
-  height: 21px;
-}
-
-button {
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none; /* Likely future */
-  outline: none;
+  button[attr-state="false"] {
+    background: rgba(255, 82, 84, 1);
+    background: -moz-linear-gradient(
+      top,
+      rgba(255, 82, 84, 1) 0%,
+      rgba(231, 103, 64, 1) 100%
+    );
+    background: -webkit-gradient(
+      left top,
+      left bottom,
+      color-stop(0%, rgba(255, 82, 84, 1)),
+      color-stop(100%, rgba(231, 103, 64, 1))
+    );
+    background: -webkit-linear-gradient(
+      top,
+      rgba(255, 82, 84, 1) 0%,
+      rgba(231, 103, 64, 1) 100%
+    );
+    background: -o-linear-gradient(
+      top,
+      rgba(255, 82, 84, 1) 0%,
+      rgba(231, 103, 64, 1) 100%
+    );
+    background: -ms-linear-gradient(
+      top,
+      rgba(255, 82, 84, 1) 0%,
+      rgba(231, 103, 64, 1) 100%
+    );
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 82, 84, 1) 0%,
+      rgba(231, 103, 64, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5254', endColorstr='#e76740', GradientType=0 );
+    color: black;
+    border: 1px solid #aaaaaa;
+    width: 100px;
+    height: 21px;
+  }
 }
 
 button:hover {
@@ -331,16 +315,6 @@ label.page-user.page-name {
   float: left;
 }
 
-.app_container.navbar ul li {
-  float: left;
-  margin: 1px;
-  background: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-transform: capitalize;
-  cursor: pointer;
-}
-
 .app_container.navbar ul li:hover {
   opacity: 0.5;
 }
@@ -351,45 +325,6 @@ input {
 
 .app_container.navbar ul li {
   padding: 5px 10px;
-}
-.app-fav-page.afp-img {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  float: left;
-  padding: 10px;
-  margin: 0 0 0 0;
-  text-align: center;
-}
-
-.app-fav-page.afp-img img {
-  height: 100%;
-  width: 80px;
-}
-
-.app-fav-page-wrapper.app_container {
-  background: white;
-}
-
-.app-fav-page.afp-desc {
-  float: left;
-  display: block;
-  width: calc(100% - 200px);
-  box-sizing: border-box;
-  padding: 10px;
-}
-
-.app-fav-page.afp-remove {
-  float: right;
-  width: 80px;
-  display: block;
-  position: relative;
-}
-
-.app-fav-page.afp-remove button {
-  position: absolute;
-  top: calc(50% + 45px);
-  left: calc(50% - 40px);
 }
 
 label.afp-desc-title {
@@ -414,9 +349,21 @@ div#app-movie-db {
   min-width: 320px;
 }
 
-.app_container.copyright_wrapper {
-  text-align: center;
-  font-size: 12px;
-  box-sizing: border-box;
-  overflow: hidden;
+// APP : TOOL : DEV
+.app_container {
+  &.app_developer {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    background: #00000078;
+  }
+}
+
+.app_center {
+  display: block;
+  float: left;
+  width: 100%;
 }

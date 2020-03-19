@@ -1,1 +1,1 @@
-$PATH_IMAGES:  
+// $PATH_IMAGES:

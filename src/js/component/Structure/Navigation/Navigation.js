@@ -3,7 +3,7 @@ import React from "react";
 class Navigation extends React.Component {
   render() {
     return (
-      <div className="app_container navbar" date-page={this.props.page}>
+      <div className="app_container app_navigation">
         <ul>
           {this.props.pagesList.map(item => {
             return (

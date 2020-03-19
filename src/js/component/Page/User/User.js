@@ -5,7 +5,7 @@ class User extends React.Component {
     let userDetails = this.props["user"]["results"][0];
     return (
       <React.Fragment>
-        <div className="app_container page-user-wrapper">
+        <div className="app_container app_user ">
           <label className="page-user page-name">User Page</label>
           <div className="page-user-details">
             <label className="page-user-title">picture:</label>

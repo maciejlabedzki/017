@@ -1,5 +1,6 @@
 // Vendor
-@import "vendor/_normalize.scss";
+@import "vendor/_normalize.scss"; // Normalize css
+@import "vendor/icomoon/style.css"; // Icon Set Icomoon
 
 // Basic settings
 @import "default/settings.scss";
@@ -7,17 +8,41 @@
 // Style Basic
 @import "default/style.scss";
 
-// Components
-@import "header/style.scss";
-@import "main/style.scss";
-@import "form/style.scss";
-@import "movieDescription/style.scss";
-
 // Default fast fix and style
 @import "app/style.scss";
 
-// Page User
-@import "page-user/style.scss";
+// Structure Header
+@import "Structure/Header/style_structure.scss";
+@import "Structure/Header/style_theme.scss";
 
-//icomoon
-@import "icomoon/style.css";
+// Structure Footer
+@import "Structure/Footer/style_structure.scss";
+@import "Structure/Footer/style_theme.scss";
+
+// Structure Navigation
+@import "Structure/Navigation/style_structure.scss";
+@import "Structure/Navigation/style_theme.scss";
+
+// Page User
+@import "Page/User/style_structure.scss";
+@import "Page/User/style_theme.scss";
+
+// Page Search
+@import "Page/Search/style_structure.scss";
+@import "Page/Search/style_theme.scss";
+
+// Page Register
+@import "Page/Register/style_structure.scss";
+@import "Page/Register/style_theme.scss";
+
+// Page Home
+@import "Page/Home/style_structure.scss";
+@import "Page/Home/style_theme.scss";
+
+// Page Favourite
+@import "Page/Favourite/style_structure.scss";
+@import "Page/Favourite/style_theme.scss";
+
+// Page Contact
+@import "Page/Contact/style_structure.scss";
+@import "Page/Contact/style_theme.scss";

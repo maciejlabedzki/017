@@ -91,7 +91,7 @@ const MovieDescription = ({
   if (searchAllMovie === false) {
     return (
       <>
-        <div className="app_container">
+        <div className="app_container ">
           <p className="app_container favourite">
             <label>Favourite:</label>
             <button
@@ -103,22 +103,7 @@ const MovieDescription = ({
             >
               add
             </button>
-            {/* <button
-              mmovie-id={movieDb["imdbID"]}
-              movie-title={movieDb["Title"]}
-              movie-year={movieDb["Year"]}
-              movie-poster={movieDb["Poster"]}
-              onClick={favouritesRemove}
-            >
-              remove
-            </button> */}
           </p>
-          {/* <BlockDescription
-          inf="18"
-          movieDb={movieDb}
-          category="imdbID"
-          type="text"
-        /> */}
           <BlockDescription
             inf="14"
             movieDb={movieDb}
@@ -240,18 +225,6 @@ const MovieDescription = ({
             category="Ratings"
             type="ratings"
           />
-          {/* <BlockDescription
-          inf="16"
-          movieDb={movieDb}
-          category="Metascore"
-          type="text"
-        /> */}
-          {/* <BlockDescription
-          inf="17"
-          movieDb={movieDb}
-          category="imdbRating"
-          type="text"
-        /> */}
         </div>
       </>
     );

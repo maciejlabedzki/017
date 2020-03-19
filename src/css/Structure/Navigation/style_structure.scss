@@ -1,0 +1,22 @@
+// APP : PAGE : NAVIGATION
+.app_container {
+  &.app_navigation {
+    ul {
+      list-style: none;
+      padding: 0;
+      float: left;
+      li {
+        padding: 5px 10px;
+        float: left;
+        margin: 1px;
+        background: white;
+        text-align: center;
+        text-transform: capitalize;
+        cursor: pointer;
+        :hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

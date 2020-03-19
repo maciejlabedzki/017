@@ -8,7 +8,7 @@ const SearchForm = props => {
   };
 
   return (
-    <div className="app_container">
+    <div className="app_container app_search-form">
       {!props.state.offlineJson && (
         <form id="FormMatchSearch" className="header">
           <p>
