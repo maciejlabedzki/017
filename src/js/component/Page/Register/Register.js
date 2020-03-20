@@ -10,6 +10,8 @@ class Register extends React.Component {
       removed: false,
       removedError: undefined,
       url: process.env.REACT_APP_REGISTER_USER,
+      patternInputs:
+        "[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+",
       user: {
         key: Date.now(),
         name: "",
@@ -135,7 +137,7 @@ class Register extends React.Component {
                 name="name"
                 placeholder="Name"
                 type="text"
-                pattern="[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+"
+                pattern={this.state.patternInputs}
                 required
               ></input>
             </div>
@@ -145,7 +147,7 @@ class Register extends React.Component {
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
-                pattern="[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+"
+                pattern={this.state.patternInputs}
                 required
               ></input>
             </div>

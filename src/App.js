@@ -18,6 +18,7 @@ import Helper from "./js/component/_Dev/Helper";
 // APP : STRUCTURE
 import Header from "./js/component/Structure/Header/Header";
 import Navigation from "./js/component/Structure/Navigation/Navigation";
+import NavigationLogged from "./js/component/Structure/NavigationLogged/NavigationLogged";
 import Footer from "./js/component/Structure/Footer/Footer";
 
 // APP : PAGE
@@ -401,6 +402,11 @@ class App extends React.Component {
         {/* APP : STRUCTURE : NAVIGATION */}
         <Navigation
           pagesList={this.state.pagesList}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        <NavigationLogged
+          pagesListLogged={this.state.pagesListLogged}
           changePage={this.changePage}
           page={this.state.page}
         />

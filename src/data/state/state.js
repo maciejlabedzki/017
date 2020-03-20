@@ -51,6 +51,17 @@ const stateSetting = {
   page: "register",
 
   pagesList: ["home", "search", "user", "favourite", "register", "contact"],
+  pagesListLogged: ["user", "favourite", "ticket", "edit", "play", "account"],
+  pagesListAdmin: [
+    "user",
+    "favourite",
+    "ticket",
+    "edit",
+    "play",
+    "account",
+    "delete",
+    "data"
+  ],
 
   comments: commentsJSON,
   // commentsReplay: {
