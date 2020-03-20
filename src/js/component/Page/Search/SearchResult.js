@@ -66,13 +66,14 @@ const SearchResult = ({
   searchAllMovie,
   searchAllTitle,
   searchTotalResult,
-  showMovie
+  showMovie,
+  catchError
 }) => {
   if (searchAllMovie === false) {
     return null;
   }
 
-  if (movieFound !== true && movieDb !== undefined) {
+  if (movieFound === false && movieDb !== undefined && catchError === "") {
     console.log("movieDb", movieDb);
     return (
       <div className="app_container warning">
@@ -80,6 +81,16 @@ const SearchResult = ({
       </div>
     );
   }
+
+  if (movieFound === false && movieDb !== undefined && catchError !== "") {
+    console.log("movieDb", movieDb);
+    return (
+      <div className="app_container warning">
+        No movies found: {catchError["message"]}
+      </div>
+    );
+  }
+
   if (jsonValid !== true) {
     return "No valid JSON";
   }

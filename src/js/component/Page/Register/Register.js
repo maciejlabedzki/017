@@ -1,10 +1,10 @@
 import React from "react";
-import Axios from "axios";
+import axios from "axios";
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
-
+    this.msg = "";
     this.state = {
       message: "",
       user: {
@@ -18,42 +18,61 @@ class Register extends React.Component {
   }
 
   jsonApiGet = async () => {
-    await Axios.get("http://localhost:3333/results").then(function(response) {
+    await axios.get("http://localhost:3333/results").then(response => {
       console.log(response.data);
       console.log(response.status);
       console.log(response.statusText);
       console.log(response.headers);
       console.log(response.config);
+      this.setState({ message: response.status });
     });
   };
 
   jsonApiPost = async () => {
-    let user = { id: Math.random() };
-    await Axios.post("http://localhost:3333/results", { user }).then(function(
-      response
-    ) {
-      console.log(response.data);
-      console.log(response.status);
-      console.log(response.statusText);
-      console.log(response.headers);
-      console.log(response.config);
-    });
+    //console.log("handleMessage", e);
+    let user = this.state.user;
+    const dataFlow = await axios
+      .post("http://localhost:3333/user", { user })
+      .then(function(response) {
+        // console.log("data", response.data);
+        // console.log("status", response.status);
+        // console.log("statusText", response.statusText);
+        // console.log("headers", response.headers);
+        // console.log("config", response.config);
+        this.setState({ a: 11 });
+        console.log("response", response);
+      })
+      .catch(function(error) {
+        //console.log(error);
+        //this.handleMessage("error");
+      });
+    console.log(dataFlow);
+    if (dataFlow) {
+      console.log("22", dataFlow);
+    }
+  };
+
+  handleMessage = value => {
+    console.log("!!message");
+
+    this.setState({ message: value });
   };
 
   jsonApiPut = async () => {
-    await Axios.put("http://localhost:3333/user/1", { name: 222 }).then(
-      function(response) {
+    await axios
+      .put("http://localhost:3333/user/1", { name: 222 })
+      .then(function(response) {
         console.log(response.data);
         console.log(response.status);
         console.log(response.statusText);
         console.log(response.headers);
         console.log(response.config);
-      }
-    );
+      });
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    //this.handleMessage("submit");
     const form = e.target;
     const data = new FormData(form);
 
@@ -94,13 +113,22 @@ class Register extends React.Component {
   };
 
   jsonApiDel = async () => {
-    await Axios.delete("http://localhost:3333/user/a1");
+    await axios.delete("http://localhost:3333/user/a1");
   };
+
+  componentDidMount() {}
+
+  show = () => {
+    console.log(this.state);
+    console.log(global);
+  };
+
   render() {
     return (
       <React.Fragment>
         <div className="app_container">
           Register
+          <button onClick={this.show}>Test</button>
           <form onSubmit={this.handleSubmit}>
             <div className="input_container">
               <label>Name:</label>
@@ -134,7 +162,7 @@ class Register extends React.Component {
               <input
                 name="password"
                 type="password"
-                placeholder="email"
+                placeholder="password"
                 required
               ></input>
             </div>
@@ -152,6 +180,7 @@ class Register extends React.Component {
           <p>
             <button onClick={this.jsonApiPut}>put</button>
           </p>
+          <div className="form-message">{this.state.message}</div>
         </div>
       </React.Fragment>
     );

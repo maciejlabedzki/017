@@ -120,34 +120,44 @@ class App extends React.Component {
       }
     }
 
-    const response = await axios.get(
-      domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey
-    );
+    await axios
+      .get(domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey)
+      .then(response => {
+        if (
+          response.data.Response === "True" ||
+          response.data.Response === true
+        ) {
+          this.setState({ jsonValid: ValidateJSON(response.data) });
 
-    if (response.data.Response === "True" || response.data.Response === true) {
-      this.setState({ jsonValid: ValidateJSON(response.data) });
+          if (this.state.jsonValid === true) {
+            this.setState({
+              json: response.data,
+              movieFromSearch: false,
+              movieFound: true
+            });
 
-      if (this.state.jsonValid === true) {
-        this.setState({
-          json: response.data,
-          movieFromSearch: false,
-          movieFound: true
-        });
-
-        if (this.state.searchAllMovie === true) {
+            if (this.state.searchAllMovie === true) {
+              this.setState({
+                searchTotalResult: response.data["totalResults"]
+              });
+            }
+          }
+        } else {
           this.setState({
-            searchTotalResult: response.data["totalResults"]
+            json: response.data,
+            movieFound: false,
+            jsonResponse: response.data["Response"],
+            jsonError: response.data["Error"]
           });
         }
-      }
-    } else {
-      this.setState({
-        json: response.data,
-        movieFound: false,
-        jsonResponse: response.data["Response"],
-        jsonError: response.data["Error"]
+      })
+      .catch(error => {
+        this.setState({
+          json: {},
+          movieFound: false,
+          catchError: error.toJSON()
+        });
       });
-    }
   };
 
   updateInputs = e => {
@@ -427,6 +437,7 @@ class App extends React.Component {
                 searchAllMovie={this.state.searchAllMovie}
               />
               <SearchResult
+                catchError={this.state.catchError}
                 searchAllTitle={this.state.searchAllTitle}
                 searchAllMovie={this.state.searchAllMovie}
                 searchTotalResult={this.state.searchTotalResult}
@@ -458,7 +469,7 @@ class App extends React.Component {
 
           {/* APP : PAGE : REGISTER */}
           {rules({ page: "Register", statePage: this.state.page }) && (
-            <Register />
+            <Register message={this.message} />
           )}
 
           {/* APP : PAGE : CONTACT */}

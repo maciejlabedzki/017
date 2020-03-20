@@ -9,6 +9,7 @@ const stateSetting = {
   jsonValid: true,
   jsonResponse: "",
   jsonError: "",
+  catchError: "",
   movieFound: true,
 
   searchMatchTitleInput: "",
