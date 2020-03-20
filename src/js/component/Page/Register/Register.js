@@ -186,7 +186,6 @@ class Register extends React.Component {
               <div className="alert-warning">{this.state.removedError}</div>
             )}
           </form>
-          {/* <button onClick={this.jsonApiDel}>Delete </button> */}
         </div>
       </React.Fragment>
     );
