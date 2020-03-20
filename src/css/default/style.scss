@@ -51,15 +51,29 @@ input {
   outline: none;
 }
 
-// APP : TOOL : DEV
-.app_container {
-  &.app_developer {
-    text-align: center;
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    background: #00000078;
-  }
+form.app_form {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+form.app_form .input_container {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+form.app_form .input_container label {
+  min-width: 100px;
+  display: block;
+  float: left;
+}
+
+form.app_form .input_container input {
+  padding: 0 10px;
+  position: relative;
+}
+
+form.app_form .input_container input[required] {
+  border: 1px solid red;
 }
