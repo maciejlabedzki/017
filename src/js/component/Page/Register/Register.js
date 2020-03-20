@@ -135,7 +135,7 @@ class Register extends React.Component {
                 name="name"
                 placeholder="Name"
                 type="text"
-                pattern="[a-zA-Z]+"
+                pattern="[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+"
                 required
               ></input>
             </div>
@@ -145,7 +145,7 @@ class Register extends React.Component {
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
-                pattern="[a-zA-Z]+"
+                pattern="[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+"
                 required
               ></input>
             </div>
