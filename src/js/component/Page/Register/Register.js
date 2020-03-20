@@ -56,20 +56,37 @@ class Register extends React.Component {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
-    console.log(form, data, data.get("name"));
-    for (let name of data.keys()) {
-      console.log(data.get(name));
-      //this.setState({ name: })
-      // const input = form.elements[name];
-      // const parserName = input.dataset.parse;
 
-      // if (parserName) {
-      //   const parser = inputParsers[parserName];
-      //   const parsedValue = parser(data.get(name));
-      //   data.set(name, );
-      // }
-    }
-    console.log("name", data);
+    let user = {
+      key: Date.now(),
+      name: data.get("name"),
+      lastName: data.get("lastName"),
+      mail: data.get("mail"),
+      password: data.get("password")
+    };
+
+    this.setState(
+      {
+        user
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
+    // console.log(form, data, data.get("name"));
+    // for (let name of data.keys()) {
+    //   console.log(data.get(name));
+    //   //this.setState({ name: })
+    //   // const input = form.elements[name];
+    //   // const parserName = input.dataset.parse;
+
+    //   // if (parserName) {
+    //   //   const parser = inputParsers[parserName];
+    //   //   const parsedValue = parser(data.get(name));
+    //   //   data.set(name, );
+    //   // }
+    // }
+    // console.log("name", data);
   };
 
   updateInputs = e => {
@@ -89,8 +106,9 @@ class Register extends React.Component {
               <label>Name:</label>
               <input
                 name="name"
-                defaultValue="Name"
+                placeholder="Name"
                 onChange={this.updateInputs}
+                required
               ></input>
             </div>
             <div className="input_container">
@@ -98,19 +116,25 @@ class Register extends React.Component {
               <input
                 name="lastName"
                 type="text"
-                defaultValue="Last Name"
+                placeholder="Last Name"
+                required
               ></input>
             </div>
             <div className="input_container">
               <label>Email:</label>
-              <input name="mail" type="text" defaultValue="email"></input>
+              <input
+                name="mail"
+                type="email"
+                placeholder="email"
+                required
+              ></input>
             </div>
             <div className="input_container">
               <label>Password:</label>
               <input
                 name="password"
                 type="password"
-                defaultValue="email"
+                placeholder="email"
                 required
               ></input>
             </div>
