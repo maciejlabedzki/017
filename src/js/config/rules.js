@@ -15,7 +15,7 @@ const Rules = props => {
   }
 
   // User : true
-  if (props.page === "user page" && props.statePage === "user page") {
+  if (props.page === "user" && props.statePage === "user") {
     return true;
   }
 

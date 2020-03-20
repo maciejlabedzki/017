@@ -36,7 +36,7 @@ class Login extends React.Component {
       <div className="ahw_login-wrapper">
         {this.props.loginStatus === true && (
           <div className="userLogged">
-            Welcome
+            <label className="userLogged-greeting">Welcome</label>
             <label className="userLogged-name">
               {this.props.userData.name}
             </label>

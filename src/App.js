@@ -440,7 +440,7 @@ class App extends React.Component {
 
           {/* APP : PAGE : USER */}
           {rules({
-            page: "user page",
+            page: "user",
             statePage: this.state.page
           }) && (
             <User statusLogin={this.state.loginStatus} user={this.state.user} />

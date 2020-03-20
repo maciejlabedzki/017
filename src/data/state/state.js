@@ -49,14 +49,7 @@ const stateSetting = {
 
   page: "register",
 
-  pagesList: [
-    "home",
-    "search",
-    "user page",
-    "favourite",
-    "register",
-    "contact"
-  ],
+  pagesList: ["home", "search", "user", "favourite", "register", "contact"],
 
   comments: commentsJSON,
   // commentsReplay: {

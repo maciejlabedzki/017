@@ -1,3 +1,9 @@
+/*
+########################################
+    VENDORS  
+########################################
+*/
+
 // Vendor
 @import "vendor/_normalize.scss"; // Normalize css
 @import "vendor/icomoon/style.css"; // Icon Set Icomoon
@@ -11,17 +17,33 @@
 // Default fast fix and style
 @import "app/style.scss";
 
+/*
+########################################
+    STRUCTURE  
+########################################
+*/
+
 // Structure Header
 @import "Structure/Header/style_structure.scss";
 @import "Structure/Header/style_theme.scss";
+
+// Structure Navigation
+@import "Structure/Navigation/style_structure.scss";
+@import "Structure/Navigation/style_theme.scss";
+
+// Structure Center
+@import "Structure/Center/style_structure.scss";
+@import "Structure/Center/style_theme.scss";
 
 // Structure Footer
 @import "Structure/Footer/style_structure.scss";
 @import "Structure/Footer/style_theme.scss";
 
-// Structure Navigation
-@import "Structure/Navigation/style_structure.scss";
-@import "Structure/Navigation/style_theme.scss";
+/*
+########################################
+    PAGE  
+########################################
+*/
 
 // Page User
 @import "Page/User/style_structure.scss";
