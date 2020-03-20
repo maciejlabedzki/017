@@ -4,7 +4,6 @@ import axios from "axios";
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.msg = "";
     this.state = {
       message: "",
       user: {
@@ -24,14 +23,12 @@ class Register extends React.Component {
       console.log(response.statusText);
       console.log(response.headers);
       console.log(response.config);
-      this.setState({ message: response.status });
     });
   };
 
   jsonApiPost = async () => {
-    //console.log("handleMessage", e);
     let user = this.state.user;
-    const dataFlow = await axios
+    await axios
       .post("http://localhost:3333/user", { user })
       .then(function(response) {
         // console.log("data", response.data);
@@ -39,23 +36,10 @@ class Register extends React.Component {
         // console.log("statusText", response.statusText);
         // console.log("headers", response.headers);
         // console.log("config", response.config);
-        this.setState({ a: 11 });
-        console.log("response", response);
       })
       .catch(function(error) {
-        //console.log(error);
-        //this.handleMessage("error");
+        console.log(error);
       });
-    console.log(dataFlow);
-    if (dataFlow) {
-      console.log("22", dataFlow);
-    }
-  };
-
-  handleMessage = value => {
-    console.log("!!message");
-
-    this.setState({ message: value });
   };
 
   jsonApiPut = async () => {
@@ -72,10 +56,8 @@ class Register extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    //this.handleMessage("submit");
     const form = e.target;
     const data = new FormData(form);
-
     let user = {
       key: Date.now(),
       name: data.get("name"),
@@ -84,14 +66,7 @@ class Register extends React.Component {
       password: data.get("password")
     };
 
-    this.setState(
-      {
-        user
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({ user });
     // console.log(form, data, data.get("name"));
     // for (let name of data.keys()) {
     //   console.log(data.get(name));

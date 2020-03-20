@@ -32,7 +32,7 @@ import SearchForm from "./js/component/Page/Search/SearchForm";
 import MovieDescription from "./js/component/Page/Search/MovieDescription";
 
 // RULES
-import rules from "./js/config/rules";
+//import rules from "./js/config/rules";
 
 class App extends React.Component {
   constructor() {
@@ -411,7 +411,7 @@ class App extends React.Component {
           {this.state.page === "home" && <Home />}
 
           {/* APP : PAGE : SEARCH */}
-          {rules({ page: "Search", statePage: this.state.page }) && (
+          {this.state.page === "search" && (
             <React.Fragment>
               <SearchForm
                 toggleOfflineJson={this.toggleOfflineJson}
@@ -450,15 +450,12 @@ class App extends React.Component {
           )}
 
           {/* APP : PAGE : USER */}
-          {rules({
-            page: "user",
-            statePage: this.state.page
-          }) && (
+          {this.state.page === "user" && (
             <User statusLogin={this.state.loginStatus} user={this.state.user} />
           )}
 
           {/* APP : PAGE : FAVOURITE */}
-          {rules({ page: "Favourite", statePage: this.state.page }) && (
+          {this.state.page === "favourite" && (
             <Favourite
               statusLogin={this.state.loginStatus}
               favourite={this.state.favourites}
@@ -468,12 +465,12 @@ class App extends React.Component {
           )}
 
           {/* APP : PAGE : REGISTER */}
-          {rules({ page: "Register", statePage: this.state.page }) && (
+          {this.state.page === "register" && (
             <Register message={this.message} />
           )}
 
           {/* APP : PAGE : CONTACT */}
-          {rules({ page: "Contact", statePage: this.state.page }) && (
+          {this.state.page === "contact" && (
             <div className="app_container ">Contact</div>
           )}
         </div>
