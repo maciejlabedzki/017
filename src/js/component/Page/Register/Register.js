@@ -9,6 +9,7 @@ class Register extends React.Component {
       removeUserID: undefined,
       removed: false,
       removedError: undefined,
+      url: process.env.REACT_APP_REGISTER_USER,
       user: {
         key: Date.now(),
         name: "",
@@ -20,7 +21,7 @@ class Register extends React.Component {
   }
 
   jsonApiGet = async () => {
-    await axios.get("http://localhost:3333/results").then(response => {
+    await axios.get(this.state.url).then(response => {
       console.log(response.data);
       console.log(response.status);
       console.log(response.statusText);
@@ -30,15 +31,14 @@ class Register extends React.Component {
   };
 
   jsonApiPost = async () => {
-    let user = this.state.user;
     await axios
-      .post("http://localhost:3333/user", { user })
+      .post(this.state.url, this.state.user)
       .then(function(response) {
-        // console.log("data", response.data);
-        // console.log("status", response.status);
-        // console.log("statusText", response.statusText);
-        // console.log("headers", response.headers);
-        // console.log("config", response.config);
+        console.log("data", response.data);
+        console.log("status", response.status);
+        console.log("statusText", response.statusText);
+        console.log("headers", response.headers);
+        console.log("config", response.config);
       })
       .catch(function(error) {
         console.log(error);
@@ -46,8 +46,11 @@ class Register extends React.Component {
   };
 
   jsonApiPut = async () => {
+    let posts = {
+      title: "json-server22"
+    };
     await axios
-      .put("http://localhost:3333/user/1", { name: 222 })
+      .put("http://localhost:3333/posts/3", posts)
       .then(function(response) {
         console.log(response.data);
         console.log(response.status);
@@ -55,21 +58,6 @@ class Register extends React.Component {
         console.log(response.headers);
         console.log(response.config);
       });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    let user = {
-      key: Date.now(),
-      name: data.get("name"),
-      lastName: data.get("lastName"),
-      mail: data.get("mail"),
-      password: data.get("password")
-    };
-
-    this.setState({ user });
   };
 
   jsonApiDel = async id => {
@@ -86,7 +74,9 @@ class Register extends React.Component {
     // },
     if (this.state.removeUserID !== "") {
       await axios
-        .delete("http://localhost:3333/user/" + this.state.removeUserID)
+        .delete(
+          process.env.REACT_APP_REGISTER_USER + "/" + this.state.removeUserID
+        )
         .then(response => {
           this.setState({ removed: true, removedError: undefined });
         })
@@ -94,12 +84,30 @@ class Register extends React.Component {
           console.log(error.toJSON());
           let errorStorage = error.toJSON();
           this.setState({
+            removed: false,
             removedError: errorStorage["message"]
           });
         });
     } else {
       console.log("No user id");
     }
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    let user = {
+      key: Date.now(),
+      name: data.get("name"),
+      lastName: data.get("lastName"),
+      mail: data.get("mail"),
+      password: data.get("password")
+    };
+
+    this.setState({ user }, () => {
+      this.jsonApiPost();
+    });
   };
 
   setRemoveUserID = e => {
@@ -123,7 +131,13 @@ class Register extends React.Component {
           <form className="app_form" onSubmit={this.handleSubmit}>
             <div className="input_container">
               <label>Name:</label>
-              <input name="name" placeholder="Name" required></input>
+              <input
+                name="name"
+                placeholder="Name"
+                type="text"
+                pattern="[a-zA-Z]+"
+                required
+              ></input>
             </div>
             <div className="input_container">
               <label>Last Name:</label>
@@ -131,6 +145,7 @@ class Register extends React.Component {
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
+                pattern="[a-zA-Z]+"
                 required
               ></input>
             </div>
@@ -167,16 +182,20 @@ class Register extends React.Component {
           <div className="form-message">{this.state.message}</div>
           <form onSubmit={this.setRemoveUserID}>
             Remove User ID:
+            <input
+              name="removeID"
+              type="number"
+              placeholder="User ID to remove"
+            />
+            <input type="submit" value="Submit" pattern="" />
             {this.state.removeUserID === undefined && (
               <div className="alert-warning">No user ID</div>
             )}
             {this.state.removeUserID !== undefined && (
               <div className="alert-success">
-                User ID: {this.state.removeUserID}
+                User ID was set to: {this.state.removeUserID}
               </div>
             )}
-            <input name="removeID" placeholder="User ID to remove" />
-            <input type="submit" value="Submit" />
             {this.state.removed === true && (
               <div className="alert-success">
                 User ID: {this.state.removeUserID} was deleted

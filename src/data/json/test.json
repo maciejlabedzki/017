@@ -315,16 +315,6 @@
         "mail": "bedzki@wp.pl",
         "password": "a"
       },
-      "id": 8
-    },
-    {
-      "user": {
-        "key": 1584700360498,
-        "name": "3",
-        "lastName": "4",
-        "mail": "bedzki@wp.pl",
-        "password": "a"
-      },
       "id": 9
     },
     {
@@ -1078,31 +1068,28 @@
       "id": 84
     },
     {
-      "user": {
-        "key": 1584704416968,
-        "name": "Maciej",
-        "lastName": "Łabędzki",
-        "mail": "bedzki@wp.pl",
-        "password": "--"
-      },
+      "key": 1584712354666,
+      "name": "Maciej",
+      "lastName": "Labedzki",
+      "mail": "bedzki@wp.pl",
+      "password": "aaa",
       "id": 85
-    },
-    {
-      "user": {
-        "key": 1584707963619,
-        "name": "Maciej",
-        "lastName": "Łabędzki",
-        "mail": "bedzki@wp.pl",
-        "password": "111"
-      },
-      "id": 86
     }
   ],
   "posts": [
     {
       "id": 1,
       "title": "json-server",
-      "author": "typicode"
+      "author": "aaa"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "aaa"
+    },
+    {
+      "title": "json-server22",
+      "id": 3
     }
   ],
   "comments": [
