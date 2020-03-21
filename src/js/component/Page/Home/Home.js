@@ -6,9 +6,18 @@ const Home = props => {
       <div className="app_container app_home">
         <label className="icon-home">Home</label>
         <ul>
-          <li>Search movies</li>
           <li>
-            User Account [ login , password ]
+            Search
+            <ul>
+              <li>By title all that is close matching</li>
+              <li>By title and year</li>
+              <li>By ID from imdb : "tt********"</li>
+              <li>By title match first</li>
+              <li>By offline example</li>
+            </ul>
+          </li>
+          <li>
+            User Account
             <ul>
               <li>Favourite</li>
             </ul>
@@ -20,7 +29,7 @@ const Home = props => {
               <li>inspect all users</li>
             </ul>
           </li>
-          <li></li>
+          <li>Register</li>
         </ul>
       </div>
     </React.Fragment>
