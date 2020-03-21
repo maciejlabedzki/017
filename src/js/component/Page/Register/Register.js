@@ -24,13 +24,18 @@ class Register extends React.Component {
   }
 
   jsonApiGet = async () => {
-    await axios.get(this.state.url).then(response => {
-      console.log(response.data);
-      console.log(response.status);
-      console.log(response.statusText);
-      console.log(response.headers);
-      console.log(response.config);
-    });
+    await axios
+      .get(this.state.url)
+      .then(response => {
+        console.log(response.data);
+        console.log(response.status);
+        console.log(response.statusText);
+        console.log(response.headers);
+        console.log(response.config);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   jsonApiPost = async () => {
@@ -44,7 +49,7 @@ class Register extends React.Component {
         console.log("config", response.config);
       })
       .catch(function(error) {
-        console.log(error);
+        console.log(error.toJSON());
       });
   };
 

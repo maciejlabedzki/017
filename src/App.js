@@ -29,6 +29,11 @@ import User from "./js/component/Page/User/User";
 import Favourite from "./js/component/Page/Favourite/Favourite";
 import Register from "./js/component/Page/Register/Register";
 
+// APP : PAGE : Logged
+
+// APP : PAGE : Admin
+import Delete from "./js/component/Page/Delete/Delete";
+
 // APP : SUBPAGE : PAGE : SEARCH
 import SearchForm from "./js/component/Page/Search/SearchForm";
 import MovieDescription from "./js/component/Page/Search/MovieDescription";
@@ -484,6 +489,13 @@ class App extends React.Component {
           {/* APP : PAGE : CONTACT */}
           {this.state.page === "contact" && (
             <div className="app_container ">Contact</div>
+          )}
+
+          {/* APP : PAGE : CONTACT */}
+          {this.state.page === "delete" && (
+            <div className="delete ">
+              <Delete />
+            </div>
           )}
         </div>
 

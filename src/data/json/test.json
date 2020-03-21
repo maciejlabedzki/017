@@ -298,37 +298,11 @@
   },
   "user": [
     {
-      "user": {
-        "key": 1584700360498,
-        "name": "3",
-        "lastName": "4",
-        "mail": "bedzki@wp.pl",
-        "password": "a"
-      },
-      "id": 3
-    },
-    {
-      "key": 1584776300731,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl",
-      "password": "aaa",
-      "id": 4
-    },
-    {
       "key": 1584776405538,
       "name": "Maciej",
       "lastName": "Łabędzki",
       "mail": "bedzki@wp.pl",
       "id": "bedzki@wp.pl",
-      "password": "aaa"
-    },
-    {
-      "key": 1584776424844,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzaaki@wp.plaa",
-      "id": "bedzaaki@wp.plaa",
       "password": "aaa"
     }
   ],
