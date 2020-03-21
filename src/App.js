@@ -40,6 +40,8 @@ import AllUsers from "./js/component/Page/AllUsers/AllUsers";
 import SearchForm from "./js/component/Page/Search/SearchForm";
 import MovieDescription from "./js/component/Page/Search/MovieDescription";
 
+import img_bg from "../src/assets/img/bg.jpg";
+
 // RULES
 //import rules from "./js/config/rules";
 
@@ -396,6 +398,14 @@ class App extends React.Component {
   render() {
     return (
       <div id="app-movie-db">
+        <div className="test">1111</div>
+        <div className="test1">111</div>
+        <div className="test2">111</div>
+        <div className="test3">222</div>
+        <div className="test4">333</div>
+        <div className="test5">444</div>
+        <div className="test6">555</div>
+        <div className="test7">6666</div>
         {/* DEV: TOOL : HELPER */}
         <Helper state={this.state} />
 
@@ -406,7 +416,6 @@ class App extends React.Component {
           signIn={this.signIn}
           loginStatus={this.state.loginStatus}
         />
-
         {/* APP : STRUCTURE : NAVIGATION */}
         <Navigation
           pagesList={this.state.pagesList}
@@ -423,7 +432,6 @@ class App extends React.Component {
           changePage={this.changePage}
           page={this.state.page}
         />
-
         {/* APP : STRUCTURE : CENTRUM */}
         <div className="app-wrapper-center">
           {/* APP : PAGE : HOME */}
@@ -497,7 +505,6 @@ class App extends React.Component {
           {/* APP : PAGE : ALLUSERS */}
           {this.state.page === "all users" && <AllUsers />}
         </div>
-
         {/* APP : STRUCTURE : FAVOURITE */}
         <Footer />
       </div>

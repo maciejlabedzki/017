@@ -6,7 +6,35 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #afafaf;
+  background-image: url("/0_projects/017/build/static/media/bg.jpg");
+}
+
+// .test {
+//   background-image: url("../../bg.jpg");
+// }
+
+// .test1 {
+//   background-image: url("../../../bg.jpg");
+// }
+
+// .test2 {
+//   background-image: url("../../../../bg.jpg");
+// }
+
+// .test3 {
+//   background-image: url("../../../../../bg.jpg");
+// }
+
+.test4 {
   background-image: url("/src/bg.jpg");
+}
+
+.test5 {
+  background-image: url("/src/public/bg.jpg");
+}
+
+.test6 {
+  background-image: url("/static/img/bg.jpg");
 }
 
 .app_container {
