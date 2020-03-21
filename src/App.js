@@ -28,11 +28,13 @@ import SearchResult from "./js/component/Page/Search/SearchResult";
 import User from "./js/component/Page/User/User";
 import Favourite from "./js/component/Page/Favourite/Favourite";
 import Register from "./js/component/Page/Register/Register";
+import Contact from "./js/component/Page/Contact/Contact";
 
 // APP : PAGE : Logged
 
 // APP : PAGE : Admin
 import Delete from "./js/component/Page/Delete/Delete";
+import AllUsers from "./js/component/Page/AllUsers/AllUsers";
 
 // APP : SUBPAGE : PAGE : SEARCH
 import SearchForm from "./js/component/Page/Search/SearchForm";
@@ -487,16 +489,13 @@ class App extends React.Component {
           )}
 
           {/* APP : PAGE : CONTACT */}
-          {this.state.page === "contact" && (
-            <div className="app_container ">Contact</div>
-          )}
+          {this.state.page === "contact" && <Contact />}
 
-          {/* APP : PAGE : CONTACT */}
-          {this.state.page === "delete" && (
-            <div className="delete ">
-              <Delete />
-            </div>
-          )}
+          {/* APP : PAGE : DELETE */}
+          {this.state.page === "delete" && <Delete />}
+
+          {/* APP : PAGE : ALLUSERS */}
+          {this.state.page === "all users" && <AllUsers />}
         </div>
 
         {/* APP : STRUCTURE : FAVOURITE */}

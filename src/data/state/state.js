@@ -50,9 +50,17 @@ const stateSetting = {
 
   page: "register",
 
+  accountLv: {
+    0: "admin",
+    1: "guest",
+    2: "user",
+    3: "manager",
+    4: "marketing",
+    5: "affiliate"
+  },
   pagesList: ["home", "search", "register", "contact"],
   pagesListLogged: ["user", "favourite"],
-  pagesListAdmin: ["user", "favourite", "delete"],
+  pagesListAdmin: ["user", "favourite", "delete", "all users"],
 
   comments: commentsJSON,
   // commentsReplay: {

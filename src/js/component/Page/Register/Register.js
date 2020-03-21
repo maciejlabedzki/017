@@ -68,39 +68,6 @@ class Register extends React.Component {
       });
   };
 
-  jsonApiDel = async id => {
-    // Information
-    // {
-    //   "user": {
-    //     "key": 1584700360498,
-    //     "name": "3",
-    //     "lastName": "4",
-    //     "mail": "bedzki@wp.pl",
-    //     "password": "a"
-    //   },
-    //   "id": 3 // <= THIS NUMBER IS FOR URL .../user/3
-    // },
-    if (this.state.removeUserID !== "") {
-      await axios
-        .delete(
-          process.env.REACT_APP_REGISTER_USER + "/" + this.state.removeUserID
-        )
-        .then(response => {
-          this.setState({ removed: true, removedError: undefined });
-        })
-        .catch(error => {
-          console.log(error.toJSON());
-          let errorStorage = error.toJSON();
-          this.setState({
-            removed: false,
-            removedError: errorStorage["message"]
-          });
-        });
-    } else {
-      console.log("No user id");
-    }
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -189,31 +156,6 @@ class Register extends React.Component {
             <button onClick={this.jsonApiPut}>put</button>
           </p>
           <div className="form-message">{this.state.message}</div>
-          <form onSubmit={this.setRemoveUserID}>
-            Remove User ID:
-            <input
-              name="removeID"
-              type="number"
-              placeholder="User ID to remove"
-            />
-            <input type="submit" value="Submit" pattern="" />
-            {this.state.removeUserID === undefined && (
-              <div className="alert-warning">No user ID</div>
-            )}
-            {this.state.removeUserID !== undefined && (
-              <div className="alert-success">
-                User ID was set to: {this.state.removeUserID}
-              </div>
-            )}
-            {this.state.removed === true && (
-              <div className="alert-success">
-                User ID: {this.state.removeUserID} was deleted
-              </div>
-            )}
-            {this.state.removedError !== undefined && (
-              <div className="alert-warning">{this.state.removedError}</div>
-            )}
-          </form>
         </div>
       </React.Fragment>
     );
