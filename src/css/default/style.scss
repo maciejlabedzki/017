@@ -1,12 +1,3 @@
-.app_container {
-  float: left;
-  width: 100%;
-  background: #c7c7c7;
-  padding: 5px 5px;
-  margin: 1px 1px;
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -14,6 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #afafaf;
+}
+
+.app_container {
+  float: left;
+  width: 100%;
+  background: #c7c7c7;
+  padding: 5px 5px;
+  margin: 1px 1px;
+  box-sizing: border-box;
 }
 
 code {
@@ -25,28 +26,6 @@ button:hover {
   opacity: 0.5;
 }
 
-body {
-  background: #afafaf;
-}
-
-.alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-}
-
-.alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
-}
-
-.alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
-}
-
 input {
   outline: none;
 }
@@ -55,25 +34,26 @@ form.app_form {
   float: left;
   width: 100%;
   padding: 10px;
+  .input_container {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    label {
+      min-width: 100px;
+      display: block;
+      float: left;
+    }
+    input {
+      padding: 0 10px;
+      position: relative;
+    }
+  }
 }
 
-form.app_form .input_container {
-  float: left;
-  width: 100%;
-  padding: 10px;
-}
-
-form.app_form .input_container label {
-  min-width: 100px;
-  display: block;
-  float: left;
-}
-
-form.app_form .input_container input {
-  padding: 0 10px;
-  position: relative;
-}
-
-form.app_form .input_container input[required] {
+input[required] {
   border: 1px solid red;
+}
+
+.legend-required {
+  color: red;
 }

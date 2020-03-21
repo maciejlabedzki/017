@@ -5,10 +5,12 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
+      message: undefined,
+      error: undefined,
       removeUserID: undefined,
       removed: false,
       removedError: undefined,
+      send: false,
       url: process.env.REACT_APP_REGISTER_USER,
       patternInputs:
         "[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+",
@@ -23,48 +25,20 @@ class Register extends React.Component {
     };
   }
 
-  jsonApiGet = async () => {
-    await axios
-      .get(this.state.url)
-      .then(response => {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
   jsonApiPost = async () => {
     await axios
       .post(this.state.url, this.state.user)
-      .then(function(response) {
+      .then(response => {
         console.log("data", response.data);
         console.log("status", response.status);
         console.log("statusText", response.statusText);
         console.log("headers", response.headers);
         console.log("config", response.config);
+        this.setState({ send: true, message: response.statusText });
       })
-      .catch(function(error) {
+      .catch(error => {
         console.log(error.toJSON());
-      });
-  };
-
-  jsonApiPut = async () => {
-    let posts = {
-      title: "json-server22"
-    };
-    await axios
-      .put("http://localhost:3333/posts/3", posts)
-      .then(function(response) {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
+        this.setState({ message: undefined, error: error.toJSON()["message"] });
       });
   };
 
@@ -104,60 +78,75 @@ class Register extends React.Component {
       <React.Fragment>
         <div className="app_container">
           Register <button onClick={this.showState}>Show State</button>
-          <form className="app_form" onSubmit={this.handleSubmit}>
-            <div className="input_container">
-              <label>Name:</label>
-              <input
-                name="name"
-                placeholder="Name"
-                type="text"
-                pattern={this.state.patternInputs}
-                required
-              ></input>
-            </div>
-            <div className="input_container">
-              <label>Last Name:</label>
-              <input
-                name="lastName"
-                type="text"
-                placeholder="Last Name"
-                pattern={this.state.patternInputs}
-                required
-              ></input>
-            </div>
-            <div className="input_container">
-              <label>Email:</label>
-              <input
-                name="mail"
-                type="email"
-                autoComplete="email"
-                placeholder="email"
-                required
-              ></input>
-            </div>
-            <div className="input_container">
-              <label>Password:</label>
-              <input
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                placeholder="Password"
-                required
-              ></input>
-            </div>
-            <input type="submit" value="submit"></input>
-          </form>
-          <p>
-            <button onClick={this.jsonApiGet}>Get</button>
-          </p>
-          <p>
-            <button onClick={this.jsonApiPost}>post</button>
-          </p>
-          <p></p>
-          <p>
-            <button onClick={this.jsonApiPut}>put</button>
-          </p>
-          <div className="form-message">{this.state.message}</div>
+          {this.state.send === false && (
+            <React.Fragment>
+              <form className="app_form" onSubmit={this.handleSubmit}>
+                <div className="input_container">
+                  <label>
+                    Name<span className="legend-required">*</span>:
+                  </label>
+                  <input
+                    name="name"
+                    placeholder="Name"
+                    type="text"
+                    pattern={this.state.patternInputs}
+                    required
+                  ></input>
+                </div>
+                <div className="input_container">
+                  <label>
+                    Last Name<span className="legend-required">*</span>:
+                  </label>
+                  <input
+                    name="lastName"
+                    type="text"
+                    placeholder="Last Name"
+                    pattern={this.state.patternInputs}
+                    required
+                  ></input>
+                </div>
+                <div className="input_container">
+                  <label>
+                    Email<span className="legend-required">*</span>:
+                  </label>
+                  <input
+                    name="mail"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="email"
+                    required
+                  ></input>
+                </div>
+                <div className="input_container">
+                  <label>
+                    Password<span className="legend-required">*</span>:
+                  </label>
+                  <input
+                    name="password"
+                    type="password"
+                    autoComplete="new-password"
+                    placeholder="Password"
+                    required
+                  ></input>
+                </div>
+                <input type="submit" value="Send"></input>
+              </form>
+            </React.Fragment>
+          )}
+          {this.state.message !== undefined && (
+            <React.Fragment>
+              <div className="app_container alert-success">
+                {this.state.message}
+              </div>
+            </React.Fragment>
+          )}
+          {this.state.error !== undefined && (
+            <React.Fragment>
+              <div className="app_container alert-warning">
+                {this.state.error}
+              </div>
+            </React.Fragment>
+          )}
         </div>
       </React.Fragment>
     );
