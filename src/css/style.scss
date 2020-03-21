@@ -41,9 +41,13 @@
 @import "Structure/Navigation/style_structure.scss";
 @import "Structure/Navigation/style_theme.scss";
 
-// Structure Navigation
+// Structure Navigation Logged
 @import "Structure/NavigationLogged/style_structure.scss";
 @import "Structure/NavigationLogged/style_theme.scss";
+
+// Structure Navigation Admin
+@import "Structure/NavigationAdmin/style_structure.scss";
+@import "Structure/NavigationAdmin/style_theme.scss";
 
 // Structure Center
 @import "Structure/Center/style_structure.scss";

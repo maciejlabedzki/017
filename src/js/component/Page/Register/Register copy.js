@@ -17,8 +17,7 @@ class Register extends React.Component {
         name: "",
         lastName: "",
         mail: "",
-        password: "",
-        id: ""
+        password: ""
       }
     };
   }
@@ -105,7 +104,6 @@ class Register extends React.Component {
       name: data.get("name"),
       lastName: data.get("lastName"),
       mail: data.get("mail"),
-      id: data.get("mail"),
       password: data.get("password")
     };
 

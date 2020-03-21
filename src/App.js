@@ -19,6 +19,7 @@ import Helper from "./js/component/_Dev/Helper";
 import Header from "./js/component/Structure/Header/Header";
 import Navigation from "./js/component/Structure/Navigation/Navigation";
 import NavigationLogged from "./js/component/Structure/NavigationLogged/NavigationLogged";
+import NavigationAdmin from "./js/component/Structure/NavigationAdmin/NavigationAdmin";
 import Footer from "./js/component/Structure/Footer/Footer";
 
 // APP : PAGE
@@ -407,6 +408,11 @@ class App extends React.Component {
         />
         <NavigationLogged
           pagesListLogged={this.state.pagesListLogged}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        <NavigationAdmin
+          pagesListAdmin={this.state.pagesListAdmin}
           changePage={this.changePage}
           page={this.state.page}
         />
