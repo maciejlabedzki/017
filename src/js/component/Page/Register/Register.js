@@ -130,6 +130,7 @@ class Register extends React.Component {
               <input
                 name="mail"
                 type="email"
+                autoComplete="email"
                 placeholder="email"
                 required
               ></input>
@@ -139,7 +140,8 @@ class Register extends React.Component {
               <input
                 name="password"
                 type="password"
-                placeholder="password"
+                autoComplete="new-password"
+                placeholder="Password"
                 required
               ></input>
             </div>
