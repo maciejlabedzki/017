@@ -8,14 +8,28 @@
 @import "vendor/_normalize.scss"; // Normalize css
 @import "vendor/icomoon/style.css"; // Icon Set Icomoon
 
-// Basic settings
-@import "default/settings.scss";
-
 // Style Basic
 @import "default/style.scss";
 
 // Default fast fix and style
 @import "app/style.scss";
+
+/*
+########################################
+    Settings  
+########################################
+*/
+
+// Basic settings
+@import "settings/settings.scss";
+
+/*
+########################################
+    IMAGES  
+########################################
+*/
+
+@import "images/style.scss";
 
 /*
 ########################################
@@ -97,4 +111,4 @@
 ########################################
 */
 
-@import "default/alerts.scss";
+@import "alerts/alerts.scss";

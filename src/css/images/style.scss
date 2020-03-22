@@ -1,0 +1,12 @@
+body {
+  background-image: url("#{$path_img}/bg.jpg");
+  background-position: center top;
+}
+
+// Error is visible if there is no another css references after [ background-image: url(); ]
+// Error: resolve-url-loader: CSS error
+// source-map information is not available at url() declaration (no orphan CR found)
+
+.body-background-fix {
+  opacity: 1;
+}
