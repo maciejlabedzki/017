@@ -44,7 +44,7 @@ const SearchForm = props => {
             />
           </p>
 
-          <p>OR:</p>
+          <hr />
 
           <p>
             <label>Match ID:</label>
@@ -62,7 +62,8 @@ const SearchForm = props => {
             />
           </p>
 
-          <p>OR:</p>
+          <hr />
+
           <p>
             <label>Search:</label>
             <input
@@ -80,14 +81,18 @@ const SearchForm = props => {
           </p>
 
           <button
+            className="app-button"
             name="search"
             onClick={props.jsonApi}
             //disabled={props.state.searchMatchButton}
           >
             Search
           </button>
-          <button onClick={clearForm}>Clear Form</button>
+          <button className="app-button" onClick={clearForm}>
+            Clear Form
+          </button>
           <button
+            className="app-button"
             onClick={props.toggleOfflineJson}
             attr-state={JSON.stringify(props.state.offlineJson)}
           >

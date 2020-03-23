@@ -35,7 +35,9 @@ class AllUsers extends React.Component {
         <div className="app_container">
           All Users:
           <p>
-            <button onClick={this.jsonApiGet}>Show All Users</button>
+            <button className="app-button" onClick={this.jsonApiGet}>
+              Show All Users
+            </button>
           </p>
           <div className="all_user_table">
             {this.state.build === true &&

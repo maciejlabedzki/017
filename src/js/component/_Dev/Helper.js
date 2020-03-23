@@ -12,8 +12,12 @@ const Helper = ({ state, offlineJson }) => {
   return (
     <div className="app_container app_developer">
       DEVTOOL:
-      <button onClick={showState}>State</button>
-      <button onClick={showProcess}>showProcess</button>
+      <button className="app-button" onClick={showState}>
+        State
+      </button>
+      <button className="app-button" onClick={showProcess}>
+        showProcess
+      </button>
     </div>
   );
 };

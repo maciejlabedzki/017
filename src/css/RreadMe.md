@@ -22,3 +22,14 @@ body {
   color: red;
 }
 ```
+
+BEM [ block :: element :: modifier ]
+
+```css
+.site-block__head--active {
+}
+.site-block__head--hide {
+}
+.site-block__head--selected {
+}
+```

@@ -172,14 +172,20 @@ class Register extends React.Component {
             <input type="submit" value="submit"></input>
           </form>
           <p>
-            <button onClick={this.jsonApiGet}>Get</button>
+            <button className="app-button" onClick={this.jsonApiGet}>
+              Get
+            </button>
           </p>
           <p>
-            <button onClick={this.jsonApiPost}>post</button>
+            <button className="app-button" onClick={this.jsonApiPost}>
+              post
+            </button>
           </p>
           <p></p>
           <p>
-            <button onClick={this.jsonApiPut}>put</button>
+            <button className="app-button" onClick={this.jsonApiPut}>
+              put
+            </button>
           </p>
           <div className="form-message">{this.state.message}</div>
           <form onSubmit={this.setRemoveUserID}>

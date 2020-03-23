@@ -90,7 +90,10 @@ class Login extends React.Component {
             <label className="userLogged-lastName">
               {this.props.userDataLogin.lastName}
             </label>
-            <button className="signOut" onClick={this.handleLogOut}>
+            <button
+              className="app-button app-button--sign-out signOut"
+              onClick={this.handleLogOut}
+            >
               Logout
             </button>
           </div>

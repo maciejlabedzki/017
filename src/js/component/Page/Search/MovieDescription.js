@@ -95,6 +95,7 @@ const MovieDescription = ({
           <p className="app_container favourite">
             <label>Favourite:</label>
             <button
+              className="app-button"
               movie-id={movieDb["imdbID"]}
               movie-title={movieDb["Title"]}
               movie-year={movieDb["Year"]}

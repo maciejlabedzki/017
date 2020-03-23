@@ -102,7 +102,9 @@ class Register extends React.Component {
               <form className="app_form" onSubmit={this.handleSubmit}>
                 <div className="input_container">
                   <label>
-                    Name<span className="legend-required">*</span>:
+                    Name
+                    <span className="app-button__information--required">*</span>
+                    :
                   </label>
                   <input
                     name="name"
@@ -114,7 +116,9 @@ class Register extends React.Component {
                 </div>
                 <div className="input_container">
                   <label>
-                    Last Name<span className="legend-required">*</span>:
+                    Last Name
+                    <span className="app-button__information--required">*</span>
+                    :
                   </label>
                   <input
                     name="lastName"
@@ -126,7 +130,9 @@ class Register extends React.Component {
                 </div>
                 <div className="input_container">
                   <label>
-                    Email<span className="legend-required">*</span>:
+                    Email
+                    <span className="app-button__information--required">*</span>
+                    :
                   </label>
                   <input
                     name="mail"
@@ -138,7 +144,9 @@ class Register extends React.Component {
                 </div>
                 <div className="input_container">
                   <label>
-                    Password<span className="legend-required">*</span>:
+                    Password
+                    <span className="app-button__information--required">*</span>
+                    :
                   </label>
                   <input
                     name="password"

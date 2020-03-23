@@ -14,19 +14,73 @@ code {
 }
 
 button:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 input {
   outline: none;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0,
+    rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid black;
+
+  font-size: 12px;
+  padding: 2px 20px;
+  color: white;
+  &[type="submit"] {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
-input[required] {
-  border: 1px solid red;
+hr {
+  background: black;
+  border-color: black;
+  box-shadow: 1px 1px 1px #424242;
 }
 
-.legend-required {
+input[type="checkbox"] {
+  margin-left: 0px;
+  margin-top: 5px;
+  float: left;
+  margin-right: 10px;
+}
+
+// input[required] {
+//   border: 1px solid red;
+// }
+
+.app-button__information--required {
   color: red;
+}
+
+.app-button {
+  border: none;
+  min-width: 50px;
+  min-height: 25px;
+  line-height: 25px;
+  margin: 0 2px;
+  background: #131313;
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, #131313),
+    color-stop(9%, #1c1c1c),
+    color-stop(24%, #2b2b2b),
+    color-stop(42%, #111111),
+    color-stop(100%, black)
+  );
+  background: linear-gradient(
+    to bottom,
+    #131313 0%,
+    #1c1c1c 9%,
+    #2b2b2b 24%,
+    #111111 42%,
+    black 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#000000', GradientType=0 );
 }
 
 // UNCOMMON CLASS STYLE
@@ -34,7 +88,6 @@ input[required] {
 .app_container {
   float: left;
   width: 100%;
-  background: #c7c7c7;
   padding: 5px 5px;
   margin: 1px 1px;
   box-sizing: border-box;
@@ -63,4 +116,5 @@ form.app_form {
 * {
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }

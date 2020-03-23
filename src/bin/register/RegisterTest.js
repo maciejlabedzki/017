@@ -46,16 +46,24 @@ const Register = props => {
       <div className="app_container">
         Register
         <p>
-          <button onClick={jsonApiGet}>Get</button>
+          <button className="app-button" onClick={jsonApiGet}>
+            Get
+          </button>
         </p>
         <p>
-          <button onClick={jsonApiPost}>post</button>
+          <button className="app-button" onClick={jsonApiPost}>
+            post
+          </button>
         </p>
         <p>
-          <button onClick={jsonApiDel}>del</button>
+          <button className="app-button" onClick={jsonApiDel}>
+            del
+          </button>
         </p>
         <p>
-          <button onClick={jsonApiPut}>put</button>
+          <button className="app-button" onClick={jsonApiPut}>
+            put
+          </button>
         </p>
       </div>
     </React.Fragment>

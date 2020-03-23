@@ -19,7 +19,7 @@ class Navigation extends React.Component {
                   name={item}
                   onClick={this.props.changePage}
                 >
-                  <li>{item}</li>
+                  <li className="app-button app_button__navigation">{item}</li>
                 </Link>
               );
             }

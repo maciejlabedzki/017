@@ -70,7 +70,7 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   background-color: rgba(42, 42, 42, 0.9);
   box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
-  border-radius: 4px;
+
   padding: 20px;
 }
 
@@ -78,7 +78,7 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   background-color: rgba(42, 42, 42, 0.9);
   box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
-  border-radius: 4px;
+
   overflow: hidden;
 }
 
@@ -96,7 +96,7 @@ input.input_login {
     rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid black;
-  border-radius: 10px;
+
   font-size: 12px;
   padding: 2px 20px;
   color: white;
@@ -107,7 +107,7 @@ input.input_password {
     rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid black;
-  border-radius: 10px;
+
   font-size: 12px;
   padding: 2px 20px;
   color: white;
@@ -117,7 +117,7 @@ input[type="submit"] {
   box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid #131313;
-  border-radius: 10px;
+
   font-size: 12px;
   padding: 2px 20px;
   color: white;
@@ -125,11 +125,6 @@ input[type="submit"] {
 
 div#app-movie-db {
   padding: 5px;
-}
-
-input[type="submit"]:hover {
-  opacity: 0.5;
-  cursor: pointer;
 }
 
 input[type="submit"] {
@@ -240,7 +235,7 @@ input[type="submit"] {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#000000', GradientType=0 );
   color: white;
   font-size: 12px;
-  border-radius: 16px;
+
   height: 20px;
   padding: 0;
   line-height: 20px;
@@ -281,61 +276,12 @@ input[type="submit"] {
   font-size: 12px;
 }
 
-.app_container.app_navigation ul li:hover {
-  background: rgba(0, 0, 0, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(17, 17, 17, 1) 58%,
-    rgba(43, 43, 43, 1) 76%,
-    rgba(28, 28, 28, 1) 91%,
-    rgba(19, 19, 19, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(0, 0, 0, 1)),
-    color-stop(58%, rgba(17, 17, 17, 1)),
-    color-stop(76%, rgba(43, 43, 43, 1)),
-    color-stop(91%, rgba(28, 28, 28, 1)),
-    color-stop(100%, rgba(19, 19, 19, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(17, 17, 17, 1) 58%,
-    rgba(43, 43, 43, 1) 76%,
-    rgba(28, 28, 28, 1) 91%,
-    rgba(19, 19, 19, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(17, 17, 17, 1) 58%,
-    rgba(43, 43, 43, 1) 76%,
-    rgba(28, 28, 28, 1) 91%,
-    rgba(19, 19, 19, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(17, 17, 17, 1) 58%,
-    rgba(43, 43, 43, 1) 76%,
-    rgba(28, 28, 28, 1) 91%,
-    rgba(19, 19, 19, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(17, 17, 17, 1) 58%,
-    rgba(43, 43, 43, 1) 76%,
-    rgba(28, 28, 28, 1) 91%,
-    rgba(19, 19, 19, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#131313', GradientType=0 );
-}
-
 .app_container.app_home {
   background: none;
   color: white;
+}
+
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+  background-image: none !important;
 }
