@@ -378,7 +378,11 @@ class App extends React.Component {
   };
 
   logOut = () => {
-    this.setState({ loginStatus: false, userDataLogin: undefined });
+    this.setState({
+      loginStatus: false,
+      accessLv: undefined,
+      userDataLogin: undefined
+    });
   };
 
   changePage = e => {
@@ -405,6 +409,14 @@ class App extends React.Component {
     delete favourites[movieid];
     this.setState({ favourites: favourites });
   };
+
+  NoMatch = ({ location }) => (
+    <div>
+      <h3>
+        404 : No match for <code>{location.pathname}</code>
+      </h3>
+    </div>
+  );
 
   render() {
     return (
@@ -517,6 +529,8 @@ class App extends React.Component {
               <Route path="/all_users">
                 <AllUsers />
               </Route>
+
+              <Route component={this.NoMatch} />
             </Switch>
           </div>
 
