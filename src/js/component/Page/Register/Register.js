@@ -11,16 +11,17 @@ class Register extends React.Component {
       removed: false,
       removedError: undefined,
       send: false,
-      url: process.env.REACT_APP_REGISTER_USER,
+      _url: process.env.REACT_APP_REGISTER_USER,
+      url: process.env.REACT_APP_REGISTER_USER_ONLINE,
       patternInputs:
         "[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+",
       user: {
-        key: Date.now(),
+        id: "",
+        registryDate: Date.now(),
         name: "",
         lastName: "",
         mail: "",
-        password: "",
-        id: ""
+        password: ""
       }
     };
   }
@@ -34,11 +35,26 @@ class Register extends React.Component {
         console.log("statusText", response.statusText);
         console.log("headers", response.headers);
         console.log("config", response.config);
-        this.setState({ send: true, message: response.statusText });
+        this.setState({
+          send: true,
+          error: undefined,
+          message: response.statusText
+        });
       })
       .catch(error => {
-        console.log(error.toJSON());
-        this.setState({ message: undefined, error: error.toJSON()["message"] });
+        if (
+          error.toJSON()["message"] === "Request failed with status code 500"
+        ) {
+          this.setState({
+            message: undefined,
+            error: "This email was already used."
+          });
+        } else {
+          this.setState({
+            message: undefined,
+            error: error.toJSON()["message"]
+          });
+        }
       });
   };
 
@@ -47,11 +63,11 @@ class Register extends React.Component {
     const form = e.target;
     const data = new FormData(form);
     let user = {
-      key: Date.now(),
+      id: data.get("mail"),
+      registryDate: Date.now(),
       name: data.get("name"),
       lastName: data.get("lastName"),
       mail: data.get("mail"),
-      id: data.get("mail"),
       password: data.get("password")
     };
 
@@ -77,7 +93,8 @@ class Register extends React.Component {
     return (
       <React.Fragment>
         <div className="app_container">
-          Register <button onClick={this.showState}>Show State</button>
+          Register
+          {/* <button onClick={this.showState}>Show State</button> */}
           {this.state.send === false && (
             <React.Fragment>
               <form className="app_form" onSubmit={this.handleSubmit}>
@@ -126,6 +143,7 @@ class Register extends React.Component {
                     type="password"
                     autoComplete="new-password"
                     placeholder="Password"
+                    minLength="8"
                     required
                   ></input>
                 </div>
@@ -136,7 +154,19 @@ class Register extends React.Component {
           {this.state.message !== undefined && (
             <React.Fragment>
               <div className="app_container alert-success">
-                {this.state.message}
+                {/* {this.state.message}.  */}
+                <p>
+                  Welcome{" "}
+                  <strong>
+                    {this.state.user.name} {this.state.user.lastName}
+                  </strong>{" "}
+                  .{" "}
+                </p>
+                <p>Your account was created.</p>
+                <p>
+                  To login use your email adress:{" "}
+                  <strong>{this.state.user.mail}</strong>
+                </p>
               </div>
             </React.Fragment>
           )}

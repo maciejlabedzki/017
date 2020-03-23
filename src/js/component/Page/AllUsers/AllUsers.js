@@ -7,11 +7,14 @@ class AllUsers extends React.Component {
     this.state = {
       alluser: {},
       build: false,
-      url: process.env.REACT_APP_REGISTER_USER
+      _url: process.env.REACT_APP_REGISTER_USER,
+      url: process.env.REACT_APP_REGISTER_USER_ONLINE
     };
   }
 
   jsonApiGet = async () => {
+    var CancelToken = axios.CancelToken;
+    var cancel = undefined;
     await axios
       .get(this.state.url)
       .then(response => {

@@ -4,6 +4,7 @@ import favouriteJSON from "../json/favourite.json";
 import commentsJSON from "../json/comments.json";
 
 const stateSetting = {
+  development: "production",
   json: movieLocalJsonData,
   jsonOffline: movieLocalJsonData,
   jsonValid: true,

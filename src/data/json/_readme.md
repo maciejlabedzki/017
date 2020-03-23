@@ -1,9 +1,11 @@
 ### delete item
 
+```js
 var myObj = {'test' : {'key1' : 'value', 'key2': 'value'}}
 delete myObj.test.key1;
 
 {'test' : {'key2': 'value'}}
+```
 
 ### delete item
 

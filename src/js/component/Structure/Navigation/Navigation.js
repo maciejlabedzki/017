@@ -9,11 +9,14 @@ class Navigation extends React.Component {
           {this.props.pagesList.map(item => {
             var link = "/" + item;
             return (
-              <li name={item}>
-                <Link to={link} name={item} onClick={this.props.changePage}>
-                  {item}
-                </Link>
-              </li>
+              <Link
+                key={"id_navbar_" + item}
+                to={link}
+                name={item}
+                onClick={this.props.changePage}
+              >
+                <li>{item}</li>
+              </Link>
             );
           })}
         </ul>

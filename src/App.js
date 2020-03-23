@@ -44,7 +44,7 @@ import MovieDescription from "./js/component/Page/Search/MovieDescription";
 //import rules from "./js/config/rules";
 
 // ROUTE URL
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends React.Component {
   constructor() {
@@ -501,7 +501,7 @@ class App extends React.Component {
                 <Delete />
               </Route>
 
-              <Route path="/allusers">
+              <Route path="/all_users">
                 <AllUsers />
               </Route>
             </Switch>
