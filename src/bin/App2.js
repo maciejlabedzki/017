@@ -44,7 +44,14 @@ import MovieDescription from "./js/component/Page/Search/MovieDescription";
 //import rules from "./js/config/rules";
 
 // ROUTE URL
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link,
+//   useRouteMatch,
+//   useParams
+// } from "react-router-dom";
 
 class App extends React.Component {
   constructor() {
@@ -398,118 +405,109 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div id="app-movie-db">
-          {/* DEV: TOOL : HELPER */}
-          <Helper state={this.state} />
+      <div id="app-movie-db">
+        {/* DEV: TOOL : HELPER */}
+        <Helper state={this.state} />
 
-          {/* APP : STRUCTURE : HEADER */}
-          <Header
-            logOut={this.logOut}
-            userData={this.state.userData}
-            signIn={this.signIn}
-            loginStatus={this.state.loginStatus}
-          />
-          {/* APP : STRUCTURE : NAVIGATION */}
-          <Navigation
-            pagesList={this.state.pagesList}
-            changePage={this.changePage}
-            page={this.state.page}
-          />
-          <NavigationLogged
-            pagesListLogged={this.state.pagesListLogged}
-            changePage={this.changePage}
-            page={this.state.page}
-          />
-          <NavigationAdmin
-            pagesListAdmin={this.state.pagesListAdmin}
-            changePage={this.changePage}
-            page={this.state.page}
-          />
+        {/* APP : STRUCTURE : HEADER */}
+        <Header
+          logOut={this.logOut}
+          userData={this.state.userData}
+          signIn={this.signIn}
+          loginStatus={this.state.loginStatus}
+        />
+        {/* APP : STRUCTURE : NAVIGATION */}
+        <Navigation
+          pagesList={this.state.pagesList}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        <NavigationLogged
+          pagesListLogged={this.state.pagesListLogged}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        <NavigationAdmin
+          pagesListAdmin={this.state.pagesListAdmin}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        {/* APP : STRUCTURE : CENTRUM */}
+        <div className="app-wrapper-center">
+          {/* APP : PAGE : HOME */}
+          {this.state.page === "home" && <Home />}
 
-          <div className="app-wrapper-center">
-            <Switch>
-              <Route path="/home">
-                <Home />
-              </Route>
+          {/* APP : PAGE : SEARCH */}
+          {this.state.page === "search" && (
+            <React.Fragment>
+              <SearchForm
+                toggleOfflineJson={this.toggleOfflineJson}
+                state={this.state}
+                clearInputs={this.clearInputs}
+                updateInputs={this.updateInputs}
+                updateCheckbox={this.updateCheckbox}
+                updateSearchMatchTitleCheckbox={
+                  this.updateSearchMatchTitleCheckbox
+                }
+                updateSearchMatchYearCheckbox={
+                  this.updateSearchMatchYearCheckbox
+                }
+                updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
+                jsonApi={this.jsonApi}
+              />
+              <MovieDescription
+                favouritesAdd={this.favouritesAdd}
+                favouritesRemove={this.favouritesRemove}
+                movieDb={this.state.json}
+                movieFound={this.state.movieFound}
+                jsonValid={this.state.jsonValid}
+                searchAllMovie={this.state.searchAllMovie}
+              />
+              <SearchResult
+                catchError={this.state.catchError}
+                searchAllTitle={this.state.searchAllTitle}
+                searchAllMovie={this.state.searchAllMovie}
+                searchTotalResult={this.state.searchTotalResult}
+                movieDb={this.state.json}
+                movieFound={this.state.movieFound}
+                jsonValid={this.state.jsonValid}
+                showMovie={this.showMovie}
+              />
+            </React.Fragment>
+          )}
 
-              <Route path="/search">
-                <React.Fragment>
-                  <SearchForm
-                    toggleOfflineJson={this.toggleOfflineJson}
-                    state={this.state}
-                    clearInputs={this.clearInputs}
-                    updateInputs={this.updateInputs}
-                    updateCheckbox={this.updateCheckbox}
-                    updateSearchMatchTitleCheckbox={
-                      this.updateSearchMatchTitleCheckbox
-                    }
-                    updateSearchMatchYearCheckbox={
-                      this.updateSearchMatchYearCheckbox
-                    }
-                    updateSearchMatchIdCheckbox={
-                      this.updateSearchMatchIdCheckbox
-                    }
-                    jsonApi={this.jsonApi}
-                  />
-                  <MovieDescription
-                    favouritesAdd={this.favouritesAdd}
-                    favouritesRemove={this.favouritesRemove}
-                    movieDb={this.state.json}
-                    movieFound={this.state.movieFound}
-                    jsonValid={this.state.jsonValid}
-                    searchAllMovie={this.state.searchAllMovie}
-                  />
-                  <SearchResult
-                    catchError={this.state.catchError}
-                    searchAllTitle={this.state.searchAllTitle}
-                    searchAllMovie={this.state.searchAllMovie}
-                    searchTotalResult={this.state.searchTotalResult}
-                    movieDb={this.state.json}
-                    movieFound={this.state.movieFound}
-                    jsonValid={this.state.jsonValid}
-                    showMovie={this.showMovie}
-                  />
-                </React.Fragment>
-              </Route>
+          {/* APP : PAGE : USER */}
+          {this.state.page === "user" && (
+            <User statusLogin={this.state.loginStatus} user={this.state.user} />
+          )}
 
-              <Route path="/user">
-                <User
-                  statusLogin={this.state.loginStatus}
-                  user={this.state.user}
-                />
-              </Route>
+          {/* APP : PAGE : FAVOURITE */}
+          {this.state.page === "favourite" && (
+            <Favourite
+              statusLogin={this.state.loginStatus}
+              favourite={this.state.favourites}
+              favouriteRemove={this.favouriteRemove}
+              showMovie={this.showMovie}
+            />
+          )}
 
-              <Route path="/favourite">
-                <Favourite
-                  statusLogin={this.state.loginStatus}
-                  favourite={this.state.favourites}
-                  favouriteRemove={this.favouriteRemove}
-                  showMovie={this.showMovie}
-                />
-              </Route>
+          {/* APP : PAGE : REGISTER */}
+          {this.state.page === "register" && (
+            <Register message={this.message} />
+          )}
 
-              <Route path="/register">
-                <Register message={this.message} />
-              </Route>
+          {/* APP : PAGE : CONTACT */}
+          {this.state.page === "contact" && <Contact />}
 
-              <Route path="/contact">
-                <Contact />
-              </Route>
+          {/* APP : PAGE : DELETE */}
+          {this.state.page === "delete" && <Delete />}
 
-              <Route path="/delete">
-                <Delete />
-              </Route>
-
-              <Route path="/allusers">
-                <AllUsers />
-              </Route>
-            </Switch>
-          </div>
-
-          <Footer />
+          {/* APP : PAGE : ALLUSERS */}
+          {this.state.page === "all users" && <AllUsers />}
         </div>
-      </Router>
+        {/* APP : STRUCTURE : FAVOURITE */}
+        <Footer />
+      </div>
     );
   }
 }

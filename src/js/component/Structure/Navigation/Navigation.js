@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Navigation extends React.Component {
   render() {
@@ -6,13 +7,12 @@ class Navigation extends React.Component {
       <div className="app_container app_navigation">
         <ul>
           {this.props.pagesList.map(item => {
+            var link = "/" + item;
             return (
-              <li
-                name={item}
-                key={"id_navbar_" + item}
-                onClick={this.props.changePage}
-              >
-                {item}
+              <li name={item}>
+                <Link to={link} name={item} onClick={this.props.changePage}>
+                  {item}
+                </Link>
               </li>
             );
           })}

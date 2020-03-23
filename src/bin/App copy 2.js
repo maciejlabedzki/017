@@ -44,7 +44,14 @@ import MovieDescription from "./js/component/Page/Search/MovieDescription";
 //import rules from "./js/config/rules";
 
 // ROUTE URL
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link,
+//   useRouteMatch,
+//   useParams
+// } from "react-router-dom";
 
 class App extends React.Component {
   constructor() {
@@ -398,128 +405,109 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div id="app-movie-db">
-          {/* DEV: TOOL : HELPER */}
-          <Helper state={this.state} />
+      <div id="app-movie-db">
+        {/* DEV: TOOL : HELPER */}
+        <Helper state={this.state} />
 
-          {/* APP : STRUCTURE : HEADER */}
-          <Header
-            logOut={this.logOut}
-            userData={this.state.userData}
-            signIn={this.signIn}
-            loginStatus={this.state.loginStatus}
-          />
-          {/* APP : STRUCTURE : NAVIGATION */}
-          <Navigation
-            pagesList={this.state.pagesList}
-            changePage={this.changePage}
-            page={this.state.page}
-          />
-          <NavigationLogged
-            pagesListLogged={this.state.pagesListLogged}
-            changePage={this.changePage}
-            page={this.state.page}
-          />
-          <NavigationAdmin
-            pagesListAdmin={this.state.pagesListAdmin}
-            changePage={this.changePage}
-            page={this.state.page}
-          />
+        {/* APP : STRUCTURE : HEADER */}
+        <Header
+          logOut={this.logOut}
+          userData={this.state.userData}
+          signIn={this.signIn}
+          loginStatus={this.state.loginStatus}
+        />
+        {/* APP : STRUCTURE : NAVIGATION */}
+        <Navigation
+          pagesList={this.state.pagesList}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        <NavigationLogged
+          pagesListLogged={this.state.pagesListLogged}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        <NavigationAdmin
+          pagesListAdmin={this.state.pagesListAdmin}
+          changePage={this.changePage}
+          page={this.state.page}
+        />
+        {/* APP : STRUCTURE : CENTRUM */}
+        <div className="app-wrapper-center">
+          {/* APP : PAGE : HOME */}
+          {this.state.page === "home" && <Home />}
 
-          {/* APP : STRUCTURE : CENTRUM */}
-          <div className="app-wrapper-center">
-            {/* APP : PAGE : HOME */}
-            <Switch>
-              <Route path="/home">
-                {this.state.page === "home" && <Home />}
-              </Route>
-              <Route path="/search">
-                {/* APP : PAGE : SEARCH */}
-                {this.state.page === "search" && (
-                  <React.Fragment>
-                    <SearchForm
-                      toggleOfflineJson={this.toggleOfflineJson}
-                      state={this.state}
-                      clearInputs={this.clearInputs}
-                      updateInputs={this.updateInputs}
-                      updateCheckbox={this.updateCheckbox}
-                      updateSearchMatchTitleCheckbox={
-                        this.updateSearchMatchTitleCheckbox
-                      }
-                      updateSearchMatchYearCheckbox={
-                        this.updateSearchMatchYearCheckbox
-                      }
-                      updateSearchMatchIdCheckbox={
-                        this.updateSearchMatchIdCheckbox
-                      }
-                      jsonApi={this.jsonApi}
-                    />
-                    <MovieDescription
-                      favouritesAdd={this.favouritesAdd}
-                      favouritesRemove={this.favouritesRemove}
-                      movieDb={this.state.json}
-                      movieFound={this.state.movieFound}
-                      jsonValid={this.state.jsonValid}
-                      searchAllMovie={this.state.searchAllMovie}
-                    />
-                    <SearchResult
-                      catchError={this.state.catchError}
-                      searchAllTitle={this.state.searchAllTitle}
-                      searchAllMovie={this.state.searchAllMovie}
-                      searchTotalResult={this.state.searchTotalResult}
-                      movieDb={this.state.json}
-                      movieFound={this.state.movieFound}
-                      jsonValid={this.state.jsonValid}
-                      showMovie={this.showMovie}
-                    />
-                  </React.Fragment>
-                )}
-              </Route>
-              <Route path="/user">
-                {/* APP : PAGE : USER */}
-                {this.state.page === "user" && (
-                  <User
-                    statusLogin={this.state.loginStatus}
-                    user={this.state.user}
-                  />
-                )}
-              </Route>
-              <Route path="/favourite">
-                {/* APP : PAGE : FAVOURITE */}
-                {this.state.page === "favourite" && (
-                  <Favourite
-                    statusLogin={this.state.loginStatus}
-                    favourite={this.state.favourites}
-                    favouriteRemove={this.favouriteRemove}
-                    showMovie={this.showMovie}
-                  />
-                )}
-              </Route>
-              <Route path="/register">
-                {/* APP : PAGE : REGISTER */}
-                {this.state.page === "register" && (
-                  <Register message={this.message} />
-                )}
-              </Route>
-              <Route path="/contact">
-                {/* APP : PAGE : CONTACT */}
-                {this.state.page === "contact" && <Contact />}
-              </Route>
-              <Route path="/delete">
-                {/* APP : PAGE : DELETE */}
-                {this.state.page === "delete" && <Delete />}
-              </Route>
-              <Route path="/allusers">
-                {/* APP : PAGE : ALLUSERS */}
-                {this.state.page === "all users" && <AllUsers />}
-              </Route>
-            </Switch>
-          </div>
-          {/* APP : STRUCTURE : FAVOURITE */}
-          <Footer />
+          {/* APP : PAGE : SEARCH */}
+          {this.state.page === "search" && (
+            <React.Fragment>
+              <SearchForm
+                toggleOfflineJson={this.toggleOfflineJson}
+                state={this.state}
+                clearInputs={this.clearInputs}
+                updateInputs={this.updateInputs}
+                updateCheckbox={this.updateCheckbox}
+                updateSearchMatchTitleCheckbox={
+                  this.updateSearchMatchTitleCheckbox
+                }
+                updateSearchMatchYearCheckbox={
+                  this.updateSearchMatchYearCheckbox
+                }
+                updateSearchMatchIdCheckbox={this.updateSearchMatchIdCheckbox}
+                jsonApi={this.jsonApi}
+              />
+              <MovieDescription
+                favouritesAdd={this.favouritesAdd}
+                favouritesRemove={this.favouritesRemove}
+                movieDb={this.state.json}
+                movieFound={this.state.movieFound}
+                jsonValid={this.state.jsonValid}
+                searchAllMovie={this.state.searchAllMovie}
+              />
+              <SearchResult
+                catchError={this.state.catchError}
+                searchAllTitle={this.state.searchAllTitle}
+                searchAllMovie={this.state.searchAllMovie}
+                searchTotalResult={this.state.searchTotalResult}
+                movieDb={this.state.json}
+                movieFound={this.state.movieFound}
+                jsonValid={this.state.jsonValid}
+                showMovie={this.showMovie}
+              />
+            </React.Fragment>
+          )}
+
+          {/* APP : PAGE : USER */}
+          {this.state.page === "user" && (
+            <User statusLogin={this.state.loginStatus} user={this.state.user} />
+          )}
+
+          {/* APP : PAGE : FAVOURITE */}
+          {this.state.page === "favourite" && (
+            <Favourite
+              statusLogin={this.state.loginStatus}
+              favourite={this.state.favourites}
+              favouriteRemove={this.favouriteRemove}
+              showMovie={this.showMovie}
+            />
+          )}
+
+          {/* APP : PAGE : REGISTER */}
+          {this.state.page === "register" && (
+            <Register message={this.message} />
+          )}
+
+          {/* APP : PAGE : CONTACT */}
+          {this.state.page === "contact" && <Contact />}
+
+          {/* APP : PAGE : DELETE */}
+          {this.state.page === "delete" && <Delete />}
+
+          {/* APP : PAGE : ALLUSERS */}
+          {this.state.page === "all users" && <AllUsers />}
         </div>
-      </Router>
+        {/* APP : STRUCTURE : FAVOURITE */}
+        <Footer />
+      </div>
     );
   }
 }
