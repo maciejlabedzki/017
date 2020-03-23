@@ -1,5 +1,8 @@
 import React from "react";
+
 import imgNoPoster from "../../../../assets/img/no-poster.jpg";
+
+import axios from "axios";
 
 const MoviesFavourite = props => {
   var moviesDB = props.movies;
@@ -38,15 +41,68 @@ const MoviesFavourite = props => {
 };
 
 class Favourite extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: undefined,
+      movies: undefined,
+      ready: false,
+      url: process.env.REACT_APP_REGISTER_FAVOURITES
+    };
+  }
+
+  jsonApiGet = async () => {
+    console.log("ask");
+    if (this.state.id === undefined) {
+      return false;
+    }
+
+    console.log("ask");
+    var url = this.state.url + "/" + this.state.id;
+    await axios
+      .get(url)
+      .then(response => {
+        console.log(response.data);
+        console.log(response.status);
+        console.log(response.statusText);
+        console.log(response.headers);
+        console.log(response.config);
+
+        this.setState({ movies: response.data.movies, ready: true }, () => {});
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  componentDidMount() {
+    console.log("yes, favourite");
+
+    var id = this.props.userID["id"];
+    this.setState({ id: id }, () => {
+      this.jsonApiGet();
+    });
+  }
+  show = () => {
+    console.log(this.state);
+  };
+
+  componentWillUpdate() {
+    // var id = this.props.userID["id"];
+    // this.setState({ id: id }, () => {
+    //   this.jsonApiGet();
+    // });
+  }
+
   render() {
-    //console.log("fav", this.props.favourite);
     return (
       <div className="app_container">
         Favourites
-        {this.props.statusLogin === true && (
+        <button onClick={this.show}>aaa</button>
+        {this.props.statusLogin === true && this.state.ready === true && (
           <MoviesFavourite
             showMovie={this.props.showMovie}
-            movies={this.props.favourite}
+            movies={this.state.movies}
             favouriteRemove={this.props.favouriteRemove}
           />
         )}

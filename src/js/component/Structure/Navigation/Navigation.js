@@ -8,16 +8,21 @@ class Navigation extends React.Component {
         <ul>
           {this.props.pagesList.map(item => {
             var link = "/" + item;
-            return (
-              <Link
-                key={"id_navbar_" + item}
-                to={link}
-                name={item}
-                onClick={this.props.changePage}
-              >
-                <li>{item}</li>
-              </Link>
-            );
+
+            if (item === "register" && this.props.accessLv !== undefined) {
+              return null;
+            } else {
+              return (
+                <Link
+                  key={"id_navbar_" + item}
+                  to={link}
+                  name={item}
+                  onClick={this.props.changePage}
+                >
+                  <li>{item}</li>
+                </Link>
+              );
+            }
           })}
         </ul>
       </div>

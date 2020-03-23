@@ -1,0 +1,33 @@
+{
+  "user": [
+    {
+      "id": "bedzki@wp.pl",
+      "registryDate": 1584952785664,
+      "name": "Maciej",
+      "accessLv": "admin",
+      "lastName": "Łabędzki",
+      "mail": "bedzki@wp.pl",
+      "password": "aaaaaaaa",
+      "favourites": {}
+    },
+    {
+      "id": "aaa@wp.pl",
+      "accessLv": "user",
+      "registryDate": 1584963849352,
+      "name": "aaa",
+      "lastName": "aaa",
+      "mail": "aaa@wp.pl",
+      "password": "aaaaaaaa",
+      "favourites": {}
+    },
+    {
+      "id": "bedzki@wp.pl4234234",
+      "registryDate": 1584969235905,
+      "name": "Maciej",
+      "lastName": "Łabędzki",
+      "mail": "bedzki@wp.pl4234234",
+      "password": "NDPG3z3QU6sQRqn",
+      "favourites": {}
+    }
+  ]
+}

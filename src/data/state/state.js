@@ -58,7 +58,8 @@ const stateSetting = {
     lastName: "Łabędzki",
     mail: "bedzki@wp.pl",
     password: "aaaaaaaa",
-    favourite: "fav001"
+    favourite: "fav001",
+    userDetails: user
   },
   loginStatus: true,
 
@@ -72,7 +73,7 @@ const stateSetting = {
   },
   pagesList: ["home", "search", "register", "contact"],
   pagesListLogged: ["user", "favourite"],
-  pagesListAdmin: ["user", "favourite", "delete", "all users"],
+  pagesListAdmin: ["user", "favourite", "delete", "all users", "register"],
 
   comments: commentsJSON,
   // commentsReplay: {

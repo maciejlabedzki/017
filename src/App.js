@@ -507,6 +507,7 @@ class App extends React.Component {
 
               <Route path="/favourite">
                 <Favourite
+                  userID={this.state.userDataLogin}
                   statusLogin={this.state.loginStatus}
                   favourite={this.state.favourites}
                   favouriteRemove={this.favouriteRemove}
