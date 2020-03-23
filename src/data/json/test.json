@@ -58,108 +58,142 @@
   },
   "user": [
     {
-      "id": "bedzki@wp.pl3",
-      "registryDate": 1584952066241,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl3",
-      "password": "aaa2"
-    },
-    {
-      "id": "bedzki@wp.pl44",
-      "registryDate": 1584952127993,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl44",
-      "password": "222"
-    },
-    {
-      "id": "bedzki@wp.plww",
-      "registryDate": 1584952186965,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.plww",
-      "password": "qgzWUFkwGxfJn6c"
-    },
-    {
-      "id": "bedzki@wp.pl333",
-      "registryDate": 1584952261193,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl333",
-      "password": "444234"
-    },
-    {
-      "id": "bedzki@wp.pl3434",
-      "registryDate": 1584952320589,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl3434",
-      "password": "234234"
-    },
-    {
-      "id": "ASDi@wp.pl",
-      "registryDate": 1584952379866,
-      "name": "ASD",
-      "lastName": "ASD",
-      "mail": "ASDi@wp.pl",
-      "password": "ww"
-    },
-    {
-      "id": "bedzki@wp.pl444",
-      "registryDate": 1584952425339,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl444",
-      "password": "2"
-    },
-    {
-      "id": "bedzki@wp.pl33",
-      "registryDate": 1584952486420,
-      "name": "asf",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl33",
-      "password": "qWmDTCEb6QRFv5w"
-    },
-    {
-      "id": "bedzki@wp.plsss",
-      "registryDate": 1584952526181,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.plsss",
-      "password": "UdjQ76KeHj7S2Qf"
-    },
-    {
-      "id": "ASDi@wp.plsss",
-      "registryDate": 1584952556882,
-      "name": "ASD",
-      "lastName": "ASD",
-      "mail": "ASDi@wp.plsss",
-      "password": "9xEb6rWsScSMU8U"
-    },
-    {
-      "id": "ASDi@wp.plwww",
-      "registryDate": 1584952604771,
-      "name": "ASD",
-      "lastName": "ASD",
-      "mail": "ASDi@wp.plwww",
-      "password": "9xEb6rWsScSMU8U"
-    },
-    {
-      "id": "bedzki@wp.pl4234234",
-      "registryDate": 1584952739085,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl4234234",
-      "password": "NDPG3z3QU6sQRqn"
-    },
-    {
       "id": "bedzki@wp.pl",
       "registryDate": 1584952785664,
       "name": "Maciej",
+      "accessLv": "admin",
       "lastName": "Łabędzki",
       "mail": "bedzki@wp.pl",
-      "password": "NDPG3z3QU6sQRqn"
+      "password": "aaaaaaaa",
+      "favourites": {
+        "tt0800369": {
+          "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
+          "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+          "year": "2011"
+        },
+        "tt0449157": {
+          "title": ".1111 testimonio",
+          "poster": "N/A",
+          "year": "1999"
+        },
+        "tt0461316": {
+          "title": "Police Nr. 1111",
+          "poster": "N/A",
+          "year": "1915"
+        }
+      }
+    },
+    {
+      "id": "aaa@wp.pl",
+      "accessLv": "user",
+      "registryDate": 1584963849352,
+      "name": "aaa",
+      "lastName": "aaa",
+      "mail": "aaa@wp.pl",
+      "password": "aaaaaaaa",
+      "favourites": {
+        "tt0449157": {
+          "title": ".1111 testimonio",
+          "poster": "N/A",
+          "year": "1999"
+        },
+        "tt0461316": {
+          "title": "Police Nr. 1111",
+          "poster": "N/A",
+          "year": "1915"
+        }
+      }
+    }
+  ],
+  "userDetails": {
+    "bedzki@wp.pl": {
+      "gender": "aa",
+      "name": {
+        "title": "mr",
+        "first": "Maciej",
+        "last": "Łabędzki"
+      },
+      "location": {
+        "street": "9278 new road",
+        "city": "kilcoole",
+        "state": "waterford",
+        "postcode": "93027",
+        "coordinates": {
+          "latitude": "20.9267",
+          "longitude": "-7.9310"
+        },
+        "timezone": {
+          "offset": "-3:30",
+          "description": "Newfoundland"
+        }
+      },
+      "email": "brad.gibson@example.com",
+      "login": {
+        "uuid": "155e77ee-ba6d-486f-95ce-0e0c0fb4b919",
+        "username": "silverswan131",
+        "password": "firewall",
+        "salt": "TQA1Gz7x",
+        "md5": "dc523cb313b63dfe5be2140b0c05b3bc",
+        "sha1": "7a4aa07d1bedcc6bcf4b7f8856643492c191540d",
+        "sha256": "74364e96174afa7d17ee52dd2c9c7a4651fe1254f471a78bda0190135dcd3480"
+      },
+      "dob": {
+        "date": "1993-07-20T09:44:18.674Z",
+        "age": 26
+      },
+      "registered": {
+        "date": "2002-05-21T10:59:49.966Z",
+        "age": 17
+      },
+      "phone": "011-962-7516",
+      "cell": "081-454-0666",
+      "id": {
+        "name": "PPS",
+        "value": "0390511T"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/75.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/75.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+      },
+      "nat": "IE"
+    }
+  },
+  "favourites": [
+    {
+      "id": "bedzki@wp.pl",
+      "movies": {
+        "tt0800369": {
+          "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
+          "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+          "year": "2011"
+        },
+        "tt0449157": {
+          "title": ".1111 testimonio",
+          "poster": "N/A",
+          "year": "1999"
+        },
+        "tt0461316": {
+          "title": "Police Nr. 1111",
+          "poster": "N/A",
+          "year": "1915"
+        }
+      }
+    },
+    {
+      "id": "aaa@wp.pl",
+      "movies": {
+        "tt0449157": {
+          "title": ".1111 testimonio",
+          "poster": "N/A",
+          "year": "1999"
+        },
+        "tt0461316": {
+          "title": "Police Nr. 1111",
+          "poster": "N/A",
+          "year": "1915"
+        }
+      }
     }
   ],
   "posts": [

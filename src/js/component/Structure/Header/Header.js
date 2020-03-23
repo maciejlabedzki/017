@@ -11,7 +11,7 @@ class Header extends React.Component {
         </div>
         <Login
           logOut={this.props.logOut}
-          userData={this.props.userData}
+          userDataLogin={this.props.userDataLogin}
           signIn={this.props.signIn}
           loginStatus={this.props.loginStatus}
         />

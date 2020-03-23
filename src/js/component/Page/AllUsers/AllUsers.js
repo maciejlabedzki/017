@@ -7,14 +7,11 @@ class AllUsers extends React.Component {
     this.state = {
       alluser: {},
       build: false,
-      _url: process.env.REACT_APP_REGISTER_USER,
-      url: process.env.REACT_APP_REGISTER_USER_ONLINE
+      url: process.env.REACT_APP_REGISTER_USER
     };
   }
 
   jsonApiGet = async () => {
-    var CancelToken = axios.CancelToken;
-    var cancel = undefined;
     await axios
       .get(this.state.url)
       .then(response => {
@@ -64,6 +61,10 @@ class AllUsers extends React.Component {
                     <div className="cell">
                       <label className="title">password:</label>
                       <label className="content">{user["password"]}</label>
+                    </div>
+                    <div className="cell">
+                      <label className="title">favourite:</label>
+                      <label className="content">{user["favourite"]}</label>
                     </div>
                   </div>
                 );

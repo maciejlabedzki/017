@@ -355,20 +355,30 @@ class App extends React.Component {
     );
   };
 
-  signIn = props => {
-    //console.log("VALIDATE: sign in", props);
+  // signIn = props => {
+  //   //console.log("VALIDATE: sign in", props);
 
-    let userLogin = props.user;
-    let userPassword = props.password;
-    let signInStateUser = this.state.userData.login;
-    let signInStatePassword = this.state.userData.password;
-    if (userLogin === signInStateUser && userPassword === signInStatePassword) {
-      this.setState({ loginStatus: true });
-    }
+  //   let userLogin = props.user;
+  //   let userPassword = props.password;
+  //   let signInStateUser = this.state.userData.login;
+  //   let signInStatePassword = this.state.userData.password;
+  //   if (userLogin === signInStateUser && userPassword === signInStatePassword) {
+  //     this.setState({ loginStatus: true });
+  //   }
+  // };
+
+  signIn = props => {
+    console.log("SIGN", props);
+    this.setState({
+      loginStatus: true,
+      userDataLogin: props.userDataLogin,
+      favourites: props.favourites,
+      accessLv: props.accessLv
+    });
   };
 
   logOut = () => {
-    this.setState({ loginStatus: false });
+    this.setState({ loginStatus: false, userDataLogin: undefined });
   };
 
   changePage = e => {
@@ -406,7 +416,7 @@ class App extends React.Component {
           {/* APP : STRUCTURE : HEADER */}
           <Header
             logOut={this.logOut}
-            userData={this.state.userData}
+            userDataLogin={this.state.userDataLogin}
             signIn={this.signIn}
             loginStatus={this.state.loginStatus}
           />
@@ -415,16 +425,19 @@ class App extends React.Component {
             pagesList={this.state.pagesList}
             changePage={this.changePage}
             page={this.state.page}
+            accessLv={this.state.accessLv}
           />
           <NavigationLogged
             pagesListLogged={this.state.pagesListLogged}
             changePage={this.changePage}
             page={this.state.page}
+            accessLv={this.state.accessLv}
           />
           <NavigationAdmin
             pagesListAdmin={this.state.pagesListAdmin}
             changePage={this.changePage}
             page={this.state.page}
+            accessLv={this.state.accessLv}
           />
 
           <div className="app-wrapper-center">

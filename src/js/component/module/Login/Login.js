@@ -1,4 +1,5 @@
 import React from "react";
+import Axios from "axios";
 
 class Login extends React.Component {
   constructor(props) {
@@ -17,11 +18,34 @@ class Login extends React.Component {
     this.setState({ password: event.target.value });
   };
 
+  handleUserLogin = async () => {
+    console.log("TRY  ");
+    var url = process.env.REACT_APP_REGISTER_USER + "/" + this.state.user;
+    await Axios.get(url)
+      .then(response => {
+        if (response.data.password === this.state.password) {
+          console.log("TRY aaa", response);
+          this.props.signIn({
+            user: this.state.user,
+            password: this.state.password,
+            userDataLogin: response.data,
+            favourites: response.data.favourites,
+            accessLv: response.data.accessLv
+          });
+        }
+        console.log("TRY LOGIN", response.data.password);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   handleSubmit = event => {
-    this.props.signIn({
-      user: this.state.user,
-      password: this.state.password
-    });
+    this.handleUserLogin();
+    // this.props.signIn({
+    //   user: this.state.user,
+    //   password: this.state.password
+    // });
     event.preventDefault();
   };
 
@@ -31,6 +55,10 @@ class Login extends React.Component {
     event.preventDefault();
   };
 
+  componentDidMount() {
+    console.log("test", this.props.userDataLogin);
+  }
+
   render() {
     return (
       <div className="ahw_login-wrapper">
@@ -38,10 +66,10 @@ class Login extends React.Component {
           <div className="userLogged">
             <label className="userLogged-greeting">Welcome</label>
             <label className="userLogged-name">
-              {this.props.userData.name}
+              {this.props.userDataLogin.name}
             </label>
             <label className="userLogged-lastName">
-              {this.props.userData.lastName}
+              {this.props.userDataLogin.lastName}
             </label>
             <button className="signOut" onClick={this.handleLogOut}>
               Logout
@@ -56,6 +84,7 @@ class Login extends React.Component {
               <input
                 className="input_login"
                 name="user"
+                type="email"
                 defaultValue={this.state.value}
                 onChange={this.handleChangeUser}
               />
@@ -64,6 +93,7 @@ class Login extends React.Component {
               <label>Password:</label>
               <input
                 className="input_password"
+                minLength="8"
                 defaultValue={this.state.password}
                 onChange={this.handleChangePassword}
               />

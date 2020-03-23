@@ -5,6 +5,9 @@ import commentsJSON from "../json/comments.json";
 
 const stateSetting = {
   development: "production",
+  page: "register",
+  accessLv: "admin",
+
   json: movieLocalJsonData,
   jsonOffline: movieLocalJsonData,
   jsonValid: true,
@@ -47,9 +50,17 @@ const stateSetting = {
     name: "John",
     lastName: "Doe"
   },
+  userDataLogin: {
+    id: "bedzki@wp.pl",
+    accessLv: "admin",
+    registryDate: 1584952785664,
+    name: "Maciej",
+    lastName: "Łabędzki",
+    mail: "bedzki@wp.pl",
+    password: "aaaaaaaa",
+    favourite: "fav001"
+  },
   loginStatus: true,
-
-  page: "register",
 
   accountLv: {
     0: "admin",

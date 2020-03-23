@@ -11,8 +11,7 @@ class Register extends React.Component {
       removed: false,
       removedError: undefined,
       send: false,
-      _url: process.env.REACT_APP_REGISTER_USER,
-      url: process.env.REACT_APP_REGISTER_USER_ONLINE,
+      url: process.env.REACT_APP_REGISTER_USER,
       patternInputs:
         "[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+",
       user: {
@@ -21,7 +20,8 @@ class Register extends React.Component {
         name: "",
         lastName: "",
         mail: "",
-        password: ""
+        password: "",
+        favourites: undefined
       }
     };
   }
