@@ -18,20 +18,39 @@ class Login extends React.Component {
     this.setState({ password: event.target.value });
   };
 
+  handleUserFavourite = async () => {
+    console.log("TRY Fav ");
+
+    var url = process.env.REACT_APP_REGISTER_FAVOURITES + "/" + this.state.user;
+
+    await Axios.get(url)
+      .then(response => {
+        console.log("dadasdaddada", response);
+
+        this.props.updateFavourites({
+          favourites: response.data.movies
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   handleUserLogin = async () => {
     console.log("TRY  ");
+
     var url = process.env.REACT_APP_REGISTER_USER + "/" + this.state.user;
+
     await Axios.get(url)
       .then(response => {
         if (response.data.password === this.state.password) {
-          console.log("TRY aaa", response);
           this.props.signIn({
             user: this.state.user,
             password: this.state.password,
             userDataLogin: response.data,
-            favourites: response.data.favourites,
             accessLv: response.data.accessLv
           });
+          this.handleUserFavourite();
         }
         console.log("TRY LOGIN", response.data.password);
       })

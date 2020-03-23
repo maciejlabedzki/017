@@ -372,8 +372,14 @@ class App extends React.Component {
     this.setState({
       loginStatus: true,
       userDataLogin: props.userDataLogin,
-      favourites: props.favourites,
       accessLv: props.accessLv
+    });
+  };
+
+  updateFavourites = props => {
+    console.log("updateFavourites", props);
+    this.setState({
+      favourites: props.favourites
     });
   };
 
@@ -391,7 +397,7 @@ class App extends React.Component {
     });
   };
 
-  favouritesAdd = e => {
+  favouritesAdd = async e => {
     const id = e.target.getAttribute("movie-id");
     const title = e.target.getAttribute("movie-title");
     const year = e.target.getAttribute("movie-year");
@@ -401,13 +407,43 @@ class App extends React.Component {
     this.setState({
       favourites: favourites
     });
+
+    var url =
+      process.env.REACT_APP_REGISTER_FAVOURITES +
+      "/" +
+      this.state.userDataLogin.id;
+
+    var favNew = {
+      id: this.state.userDataLogin.id,
+      put: true,
+      movies: this.state.favourites
+    };
+
+    await axios.put(url, favNew).then(response => {
+      console.log("that one", response);
+    });
   };
 
-  favouriteRemove = e => {
+  favouriteRemove = async e => {
     const movieid = e.target.getAttribute("movieid");
     const favourites = this.state.favourites;
     delete favourites[movieid];
     this.setState({ favourites: favourites });
+
+    var url =
+      process.env.REACT_APP_REGISTER_FAVOURITES +
+      "/" +
+      this.state.userDataLogin.id;
+
+    var favNew = {
+      id: this.state.userDataLogin.id,
+      put: true,
+      movies: this.state.favourites
+    };
+
+    await axios.put(url, favNew).then(response => {
+      console.log("that one", response);
+    });
   };
 
   NoMatch = ({ location }) => (
@@ -430,6 +466,7 @@ class App extends React.Component {
             logOut={this.logOut}
             userDataLogin={this.state.userDataLogin}
             signIn={this.signIn}
+            updateFavourites={this.updateFavourites}
             loginStatus={this.state.loginStatus}
           />
           {/* APP : STRUCTURE : NAVIGATION */}

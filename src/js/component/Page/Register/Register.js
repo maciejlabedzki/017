@@ -21,7 +21,8 @@ class Register extends React.Component {
         lastName: "",
         mail: "",
         password: "",
-        favourites: undefined
+        favourites: undefined,
+        accessLv: "user"
       }
     };
   }
@@ -68,7 +69,8 @@ class Register extends React.Component {
       name: data.get("name"),
       lastName: data.get("lastName"),
       mail: data.get("mail"),
-      password: data.get("password")
+      password: data.get("password"),
+      accessLv: "user"
     };
 
     this.setState({ user }, () => {

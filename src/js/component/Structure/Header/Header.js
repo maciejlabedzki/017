@@ -10,6 +10,7 @@ class Header extends React.Component {
           <img alt="logo" src={logo} />
         </div>
         <Login
+          updateFavourites={this.props.updateFavourites}
           logOut={this.props.logOut}
           userDataLogin={this.props.userDataLogin}
           signIn={this.props.signIn}

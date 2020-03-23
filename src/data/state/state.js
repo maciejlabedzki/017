@@ -6,7 +6,8 @@ import commentsJSON from "../json/comments.json";
 const stateSetting = {
   development: "production",
   page: "register",
-  accessLv: "admin",
+  accessLv: undefined,
+  loginStatus: false,
 
   json: movieLocalJsonData,
   jsonOffline: movieLocalJsonData,
@@ -61,7 +62,6 @@ const stateSetting = {
     favourite: "fav001",
     userDetails: user
   },
-  loginStatus: true,
 
   accountLv: {
     0: "admin",

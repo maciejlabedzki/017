@@ -2,7 +2,7 @@ import React from "react";
 
 import imgNoPoster from "../../../../assets/img/no-poster.jpg";
 
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MoviesFavourite = props => {
   var moviesDB = props.movies;
@@ -24,9 +24,11 @@ const MoviesFavourite = props => {
       <div className="app-fav-page-wrapper app_container" key={randomKey}>
         <div className="app-fav-page afp-img">{img}</div>
         <div className="app-fav-page afp-desc">
-          <label id={id} onClick={props.showMovie} className="afp-desc-title">
-            {title}
-          </label>
+          <Link to="/search" onClick={props.showMovie}>
+            <label id={id} onClick={props.showMovie} className="afp-desc-title">
+              {title}
+            </label>
+          </Link>
           <label className="afp-desc-year">{year}</label>
         </div>
         <div className="app-fav-page afp-remove">
@@ -41,68 +43,14 @@ const MoviesFavourite = props => {
 };
 
 class Favourite extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: undefined,
-      movies: undefined,
-      ready: false,
-      url: process.env.REACT_APP_REGISTER_FAVOURITES
-    };
-  }
-
-  jsonApiGet = async () => {
-    console.log("ask");
-    if (this.state.id === undefined) {
-      return false;
-    }
-
-    console.log("ask");
-    var url = this.state.url + "/" + this.state.id;
-    await axios
-      .get(url)
-      .then(response => {
-        console.log(response.data);
-        console.log(response.status);
-        console.log(response.statusText);
-        console.log(response.headers);
-        console.log(response.config);
-
-        this.setState({ movies: response.data.movies, ready: true }, () => {});
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
-  componentDidMount() {
-    console.log("yes, favourite");
-
-    var id = this.props.userID["id"];
-    this.setState({ id: id }, () => {
-      this.jsonApiGet();
-    });
-  }
-  show = () => {
-    console.log(this.state);
-  };
-
-  componentWillUpdate() {
-    // var id = this.props.userID["id"];
-    // this.setState({ id: id }, () => {
-    //   this.jsonApiGet();
-    // });
-  }
-
   render() {
     return (
       <div className="app_container">
         Favourites
-        <button onClick={this.show}>aaa</button>
-        {this.props.statusLogin === true && this.state.ready === true && (
+        {this.props.statusLogin === true && (
           <MoviesFavourite
             showMovie={this.props.showMovie}
-            movies={this.state.movies}
+            movies={this.props.favourite}
             favouriteRemove={this.props.favouriteRemove}
           />
         )}
