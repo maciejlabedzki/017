@@ -269,7 +269,26 @@ class App extends React.Component {
     });
   };
 
-  updateCheckbox = e => {
+  handleSearchFormCheckboxUpdate = e => {
+    if (e.target.getAttribute("name") === "searchMatchTitleCheckbox") {
+      console.log("hhh");
+      this.setState(
+        prevState => ({
+          searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox,
+          searchMatchYearCheckbox: false,
+
+          searchMatchIdCheckbox: false,
+          searchMatchIdInput: "",
+
+          searchAllTitleCheckbox: false,
+          searchAllTitleInput: ""
+        }),
+        () => {
+          console.log(this.state);
+        }
+      );
+    }
+
     if (e.target.getAttribute("name") === "searchAllTitleCheckbox") {
       this.setState(prevState => ({
         searchAllTitleCheckbox: !prevState.searchAllTitleCheckbox,
@@ -283,16 +302,6 @@ class App extends React.Component {
 
         searchMatchIdInput: "",
         searchMatchIdCheckbox: false
-      }));
-    }
-
-    if (e.target.getAttribute("name") === "searchMatchTitleCheckbox") {
-      this.setState(prevState => ({
-        searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox,
-        searchMatchIdCheckbox: false,
-        searchMatchIdInput: "",
-        searchAllTitleInput: "",
-        searchAllTitleCheckbox: false
       }));
     }
 
@@ -548,7 +557,9 @@ class App extends React.Component {
                     state={this.state}
                     clearInputs={this.clearInputs}
                     updateInputs={this.updateInputs}
-                    updateCheckbox={this.updateCheckbox}
+                    handleSearchFormCheckboxUpdate={
+                      this.handleSearchFormCheckboxUpdate
+                    }
                     updateSearchMatchTitleCheckbox={
                       this.updateSearchMatchTitleCheckbox
                     }

@@ -12,14 +12,12 @@ const SearchForm = props => {
     document.getElementsByName(element)[0].value = "";
     document.getElementsByName(element)[0].innerHTML = "";
     document.getElementsByName(element)[0].placeholder = "";
-    document.getElementById("app-form__search-match").reset();
+    console.log(element);
+    // No for a year input
+    if (element !== "searchMatchYearInput") {
+      document.getElementById("app-form__search-match").reset();
+    }
   };
-
-  // handleValidataionYearCheckbox = () => {
-  //   let mustBeTitleCheckbox = props.state.searchAllTitleCheckbox;
-  //   if (mustBeTitleCheckbox === true) {
-  //   }
-  // };
 
   return (
     <div className="app-container app_search-form">
@@ -33,38 +31,43 @@ const SearchForm = props => {
               name="searchMatchTitleCheckbox"
               parent="searchMatchTitleInput"
               onClick={handleClearInput}
-              onChange={props.updateCheckbox}
+              onChange={props.handleSearchFormCheckboxUpdate}
               checked={props.state.searchMatchTitleCheckbox}
               type="checkbox"
             />
 
             <input
               name="searchMatchTitleInput"
-              placeholder={props.state.searchMatchTitleInput}
+              //placeholder={props.state.searchMatchTitleInput}
               onChange={props.updateInputs}
               disabled={!props.state.searchMatchTitleCheckbox}
             />
           </p>
 
-          <p className="app-container__search--match-year">
-            <label>with year:</label>
+          {props.state.searchMatchTitleCheckbox === true && (
+            <p className="app-container__search--match-year">
+              <label>with year:</label>
 
-            <input
-              name="searchMatchYearCheckbox"
-              parent="searchMatchYearInput"
-              onClick={handleClearInput}
-              onChange={props.updateCheckbox}
-              checked={props.state.searchMatchYearCheckbox}
-              type="checkbox"
-              disabled={props.state.searchDisableYearCheckbox}
-            />
-            <input
-              name="searchMatchYearInput"
-              placeholder={props.state.searchMatchYearInput}
-              onChange={props.updateInputs}
-              disabled={!props.state.searchMatchYearCheckbox}
-            />
-          </p>
+              <input
+                name="searchMatchYearCheckbox"
+                parent="searchMatchYearInput"
+                onClick={handleClearInput}
+                onChange={props.handleSearchFormCheckboxUpdate}
+                checked={props.state.searchMatchYearCheckbox}
+                type="checkbox"
+                disabled={!props.state.searchMatchTitleCheckbox}
+              />
+              <input
+                name="searchMatchYearInput"
+                type="number"
+                min="1800"
+                max="2020"
+                //placeholder={props.state.searchMatchYearInput}
+                onChange={props.updateInputs}
+                disabled={!props.state.searchMatchYearCheckbox}
+              />
+            </p>
+          )}
 
           <hr />
 
@@ -72,7 +75,7 @@ const SearchForm = props => {
             <label>Match ID:</label>
             <input
               name="searchMatchIdCheckbox"
-              onChange={props.updateCheckbox}
+              onChange={props.handleSearchFormCheckboxUpdate}
               parent="searchMatchIdInput"
               onClick={handleClearInput}
               checked={props.state.searchMatchIdCheckbox}
@@ -80,7 +83,7 @@ const SearchForm = props => {
             />
             <input
               name="searchMatchIdInput"
-              placeholder={props.state.searchMatchIdInput}
+              //placeholder={props.state.searchMatchIdInput}
               onChange={props.updateInputs}
               disabled={!props.state.searchMatchIdCheckbox}
             />
@@ -92,7 +95,7 @@ const SearchForm = props => {
             <label>Search:</label>
             <input
               name="searchAllTitleCheckbox"
-              onChange={props.updateCheckbox}
+              onChange={props.handleSearchFormCheckboxUpdate}
               parent="searchAllTitleInput"
               onClick={handleClearInput}
               checked={props.state.searchAllTitleCheckbox}
@@ -100,7 +103,7 @@ const SearchForm = props => {
             />
             <input
               name="searchAllTitleInput"
-              placeholder={props.state.searchAllTitleInput}
+              //placeholder={props.state.searchAllTitleInput}
               onChange={props.updateInputs}
               disabled={!props.state.searchAllTitleCheckbox}
             />
