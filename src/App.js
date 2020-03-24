@@ -215,6 +215,9 @@ class App extends React.Component {
     }
     if (e.target.getAttribute("name") === "searchMatchIdInput") {
       let value = e.target.value;
+      if (value.length === 7) {
+        value = "tt" + value;
+      }
       if (value.length === 6) {
         value = "tt0" + value;
       }
