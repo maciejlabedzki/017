@@ -36,11 +36,6 @@ class Register extends React.Component {
     await axios
       .post(this.state.url, this.state.user)
       .then(response => {
-        console.log("data", response.data);
-        console.log("status", response.status);
-        console.log("statusText", response.statusText);
-        console.log("headers", response.headers);
-        console.log("config", response.config);
         this.setState({
           send: true,
           error: undefined,
@@ -92,12 +87,7 @@ class Register extends React.Component {
     });
   };
 
-  handleShowState = () => {
-    console.log(this.state);
-  };
-
   handleOnChange = (newValue: string) => {
-    console.log(newValue);
     this.setState({ accessLv: newValue.value });
   };
 
@@ -105,7 +95,6 @@ class Register extends React.Component {
     return (
       <React.Fragment>
         <div className="app-container">
-          {/* <button onClick={this.handleShowState}>Show State</button> */}
           {this.state.send === false && (
             <React.Fragment>
               <form className="app-form" onSubmit={this.handleSubmit}>

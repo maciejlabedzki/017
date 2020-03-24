@@ -44,7 +44,6 @@ class Delete extends React.Component {
           this.setState({ removed: true, removedError: undefined });
         })
         .catch(error => {
-          console.log(error.toJSON());
           let errorStorage = error.toJSON();
           this.setState({
             removed: false,
@@ -52,7 +51,6 @@ class Delete extends React.Component {
           });
         });
     } else {
-      console.log("No user id");
     }
   };
 

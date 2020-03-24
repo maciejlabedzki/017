@@ -29,6 +29,7 @@ import User from "./js/component/Page/User/User";
 import Favourite from "./js/component/Page/Favourite/Favourite";
 import Register from "./js/component/Page/Register/Register";
 import Contact from "./js/component/Page/Contact/Contact";
+import Features from "./js/component/Page/Features/Features";
 
 // APP : PAGE : Logged
 
@@ -57,7 +58,6 @@ class App extends React.Component {
       e.preventDefault();
     }
 
-    console.log("yes i want to search");
     let matchTitle = "",
       searchAll = "",
       matchYear = "",
@@ -133,22 +133,15 @@ class App extends React.Component {
       }
     }
 
-    console.log(
-      "yes i want to search 2",
-      matchTitle,
-      searchAll,
-      matchYear,
-      matchId
-    );
     if (
       matchTitle === "" &&
       searchAll === "" &&
       matchYear === "" &&
       matchId === ""
     ) {
-      console.log("all are empty");
       return null;
     }
+
     await axios
       .get(domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey)
       .then(response => {
@@ -239,7 +232,6 @@ class App extends React.Component {
   };
 
   clearInputs = value => {
-    console.log("rules", value);
     this.setState({
       searchMatchTitleInput: "",
       searchMatchTitleCheckbox: false,
@@ -259,59 +251,70 @@ class App extends React.Component {
 
   handleSearchFormCheckboxUpdate = e => {
     if (e.target.getAttribute("name") === "searchMatchTitleCheckbox") {
-      console.log("hhh");
-      this.setState(
-        prevState => ({
-          searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox,
-          searchMatchYearCheckbox: false,
-
-          searchMatchIdCheckbox: false,
-          searchMatchIdInput: "",
-
-          searchAllTitleCheckbox: false,
-          searchAllTitleInput: ""
-        }),
-        () => {
-          console.log(this.state);
-        }
-      );
-    }
-
-    if (e.target.getAttribute("name") === "searchAllTitleCheckbox") {
       this.setState(prevState => ({
-        searchAllTitleCheckbox: !prevState.searchAllTitleCheckbox,
-        searchAllTitleInput: "",
-
+        // Title clear
+        searchMatchTitleCheckbox: !prevState.searchMatchTitleCheckbox,
         searchMatchTitleInput: "",
-        searchMatchTitleCheckbox: false,
-
-        searchMatchYearInput: "",
+        // Year clear
         searchMatchYearCheckbox: false,
-
+        searchMatchYearInput: "",
+        // Id clear
+        searchMatchIdCheckbox: false,
         searchMatchIdInput: "",
-        searchMatchIdCheckbox: false
+        // Search all clear
+        searchAllTitleCheckbox: false,
+        searchAllTitleInput: ""
       }));
     }
 
     if (e.target.getAttribute("name") === "searchMatchYearCheckbox") {
       this.setState(prevState => ({
+        // Title clear
+        //searchMatchTitleCheckbox: false,
+        //searchMatchTitleInput: "",
+        // Year clear
         searchMatchYearCheckbox: !prevState.searchMatchYearCheckbox,
+        searchMatchYearInput: "",
+        // Id clear
         searchMatchIdCheckbox: false,
         searchMatchIdInput: "",
-        searchAllTitleInput: "",
-        searchAllTitleCheckbox: false
+        // Search all clear
+        searchAllTitleCheckbox: false,
+        searchAllTitleInput: ""
       }));
     }
 
     if (e.target.getAttribute("name") === "searchMatchIdCheckbox") {
       this.setState(prevState => ({
-        searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox,
+        // Title clear
         searchMatchTitleCheckbox: false,
-        searchMatchYearCheckbox: false,
         searchMatchTitleInput: "",
+        // Year clear
+        searchMatchYearCheckbox: false,
         searchMatchYearInput: "",
-        searchAllTitleInput: "",
-        searchAllTitleCheckbox: false
+        // Id clear
+        searchMatchIdCheckbox: !prevState.searchMatchIdCheckbox,
+        searchMatchIdInput: "",
+        // Search all clear
+        searchAllTitleCheckbox: false,
+        searchAllTitleInput: ""
+      }));
+    }
+
+    if (e.target.getAttribute("name") === "searchAllTitleCheckbox") {
+      this.setState(prevState => ({
+        // Title clear
+        searchMatchTitleCheckbox: false,
+        searchMatchTitleInput: "",
+        // Year clear
+        searchMatchYearCheckbox: false,
+        searchMatchYearInput: "",
+        // Id clear
+        searchMatchIdCheckbox: false,
+        searchMatchIdInput: "",
+        // Search all clear
+        searchAllTitleCheckbox: !prevState.searchAllTitleCheckbox,
+        searchAllTitleInput: ""
       }));
     }
   };
@@ -363,18 +366,12 @@ class App extends React.Component {
       });
     }
 
-    this.setState(
-      prevState => ({
-        offlineJson: !prevState.offlineJson
-      }),
-      () => {
-        //console.log(this.state.offlineJson);
-      }
-    );
+    this.setState(prevState => ({
+      offlineJson: !prevState.offlineJson
+    }));
   };
 
   showMovie = e => {
-    //console.log("Show movie id:", e.target.getAttribute("id"));
     this.setState(
       {
         searchAllMovie: false,
@@ -388,20 +385,7 @@ class App extends React.Component {
     );
   };
 
-  // signIn = props => {
-  //   //console.log("VALIDATE: sign in", props);
-
-  //   let userLogin = props.user;
-  //   let userPassword = props.password;
-  //   let signInStateUser = this.state.userData.login;
-  //   let signInStatePassword = this.state.userData.password;
-  //   if (userLogin === signInStateUser && userPassword === signInStatePassword) {
-  //     this.setState({ loginStatus: true });
-  //   }
-  // };
-
   signIn = props => {
-    console.log("SIGN", props);
     this.setState({
       loginStatus: true,
       userDataLogin: props.userDataLogin,
@@ -410,7 +394,6 @@ class App extends React.Component {
   };
 
   updateFavourites = props => {
-    console.log("updateFavourites", props);
     this.setState({
       favourites: props.favourites
     });
@@ -425,7 +408,6 @@ class App extends React.Component {
   };
 
   changePage = e => {
-    console.log("change name", e.target);
     this.setState({
       page: e.target.getAttribute("name")
     });
@@ -453,9 +435,7 @@ class App extends React.Component {
       movies: this.state.favourites
     };
 
-    await axios.put(url, favNew).then(response => {
-      console.log("that one", response);
-    });
+    await axios.put(url, favNew);
   };
 
   favouriteRemove = async e => {
@@ -475,9 +455,7 @@ class App extends React.Component {
       movies: this.state.favourites
     };
 
-    await axios.put(url, favNew).then(response => {
-      console.log("that one", response);
-    });
+    await axios.put(url, favNew);
   };
 
   NoMatch = ({ location }) => (
@@ -539,9 +517,6 @@ class App extends React.Component {
                   </label>
                   <SearchForm
                     toggleOfflineJson={this.toggleOfflineJson}
-                    handleSearchDisableYearCheckbox={
-                      this.handleSearchDisableYearCheckbox
-                    }
                     state={this.state}
                     clearInputs={this.clearInputs}
                     handleSearchInputUpdate={this.handleSearchInputUpdate}
@@ -629,6 +604,13 @@ class App extends React.Component {
                   <span className="icon-user"> </span>All users:
                 </label>
                 <AllUsers />
+              </Route>
+
+              <Route path="/features">
+                <label className="app-container__title">
+                  <span className="icon-user"> </span>Features:
+                </label>
+                <Features />
               </Route>
 
               <Route component={this.NoMatch} />

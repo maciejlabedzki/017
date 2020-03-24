@@ -15,18 +15,11 @@ class AllUsers extends React.Component {
     await axios
       .get(this.state.url)
       .then(response => {
-        // console.log(response.data);
-        // console.log(response.status);
-        // console.log(response.statusText);
-        // console.log(response.headers);
-        // console.log(response.config);
         this.setState({ alluser: response.data }, () => {
           this.setState({ build: true });
         });
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => {});
   };
 
   render() {

@@ -21,21 +21,15 @@ class Login extends React.Component {
   };
 
   handleUserFavourite = async () => {
-    console.log("TRY Fav ");
-
     var url = process.env.REACT_APP_REGISTER_FAVOURITES + "/" + this.state.user;
 
     await Axios.get(url)
       .then(response => {
-        console.log("dadasdaddada", response);
-
         this.props.updateFavourites({
           favourites: response.data.movies
         });
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => {});
   };
 
   handleUserLogin = async () => {
@@ -66,16 +60,9 @@ class Login extends React.Component {
           this.handleMessage();
         } else {
           this.handleMessage();
-          console.log(
-            "TRY LOGIN",
-            response.data.password,
-            this.state.password,
-            response
-          );
         }
       })
       .catch(error => {
-        console.log(typeof error, error.toJSON(), error.toJSON()["message"]);
         this.setState({ message: error.toJSON()["message"] });
       });
   };
@@ -100,10 +87,6 @@ class Login extends React.Component {
       this.setState({ removeMessage: true });
     }, 5000);
   };
-
-  componentDidMount() {
-    console.log("test", this.props.userDataLogin);
-  }
 
   render() {
     return (

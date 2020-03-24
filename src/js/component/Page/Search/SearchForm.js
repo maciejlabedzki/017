@@ -12,8 +12,8 @@ const SearchForm = props => {
     document.getElementsByName(element)[0].value = "";
     document.getElementsByName(element)[0].innerHTML = "";
     document.getElementsByName(element)[0].placeholder = "";
-    console.log(element);
-    // No for a year input
+
+    // No for a Year Input we dont want to lose Title references
     if (element !== "searchMatchYearInput") {
       document.getElementById("app-form__search-match").reset();
     }
@@ -61,8 +61,9 @@ const SearchForm = props => {
                 name="searchMatchYearInput"
                 type="number"
                 min="1800"
-                max="2020"
-                //placeholder={props.state.searchMatchYearInput}
+                max="2050"
+                maxLength="4"
+                placeholder={props.state.searchMatchYearInput}
                 onChange={props.handleSearchInputUpdate}
                 disabled={!props.state.searchMatchYearCheckbox}
               />
@@ -83,7 +84,7 @@ const SearchForm = props => {
             />
             <input
               name="searchMatchIdInput"
-              //placeholder={props.state.searchMatchIdInput}
+              placeholder={props.state.searchMatchIdInput}
               onChange={props.handleSearchInputUpdate}
               disabled={!props.state.searchMatchIdCheckbox}
             />
@@ -103,7 +104,7 @@ const SearchForm = props => {
             />
             <input
               name="searchAllTitleInput"
-              //placeholder={props.state.searchAllTitleInput}
+              placeholder={props.state.searchAllTitleInput}
               onChange={props.handleSearchInputUpdate}
               disabled={!props.state.searchAllTitleCheckbox}
             />
@@ -138,7 +139,7 @@ const SearchForm = props => {
               name="search"
               onClick={props.jsonApi}
             >
-              Show Offline Example
+              {props.state.lang["show_offline_example"]}
             </button>
             <button
               className="app-button app-button__confirm"

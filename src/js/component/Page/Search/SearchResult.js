@@ -77,7 +77,6 @@ const SearchResult = ({
   }
 
   if (movieFound === false && movieDb !== undefined && catchError === "") {
-    console.log("movieDb", movieDb);
     return (
       <div className="app-container warning">
         No movies found: {movieDb["Error"]}
@@ -86,7 +85,6 @@ const SearchResult = ({
   }
 
   if (movieFound === false && movieDb !== undefined && catchError !== "") {
-    console.log("movieDb", movieDb);
     return (
       <div className="app-container warning">
         No movies found: {catchError["message"]}

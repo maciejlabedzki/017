@@ -2,8 +2,11 @@ import movieLocalJsonData from "../json/movieLocalJsonData";
 import user from "../json/user";
 import favouriteJSON from "../json/favourite.json";
 import commentsJSON from "../json/comments.json";
+import LanguageJSON from "./../language/language.json";
 
 const stateSetting = {
+  langCountry: "en",
+  lang: LanguageJSON["en"],
   development: "production",
   page: "register",
   accessLv: undefined,
@@ -27,15 +30,13 @@ const stateSetting = {
 
   searchAllTitleInput: "",
   searchAllTitleCheckbox: true,
-  searchAllTitle: "",
 
+  searchAllTitle: "",
   searchAllMovie: false,
 
   searchAllPage: 1,
   searchAllPages: 10,
   searchTotalResult: 0,
-
-  searchDisableYearCheckbox: true,
 
   movieFromSearch: false,
   movieFromSearchID: "",
@@ -74,7 +75,14 @@ const stateSetting = {
   },
   pagesList: ["home", "search", "register", "contact"],
   pagesListLogged: ["user", "favourite"],
-  pagesListAdmin: ["user", "favourite", "delete", "all users", "register"],
+  pagesListAdmin: [
+    "user",
+    "favourite",
+    "delete",
+    "all users",
+    "register",
+    "features"
+  ],
 
   comments: commentsJSON,
   // commentsReplay: {

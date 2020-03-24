@@ -4,6 +4,8 @@ import imgNoPoster from "../../../../assets/img/no-poster.jpg";
 
 import { Link } from "react-router-dom";
 
+import StarRating from "./../../../util/features/starRating";
+
 const MoviesFavourite = props => {
   var moviesDB = props.movies;
   var moviesList = [];
@@ -14,8 +16,8 @@ const MoviesFavourite = props => {
     let poster = moviesDB[key]["poster"];
     let year = moviesDB[key]["year"];
     let id = key;
-    //console.log(id);
     let img = <img src={imgNoPoster} alt="No Poster Movies" />;
+
     if (poster !== "N/A") {
       img = <img src={poster} alt="Movies" />;
     }
@@ -53,6 +55,7 @@ class Favourite extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <StarRating />
         Favourites <span className="icon-star-empty"> </span>{" "}
         <span className="icon-star-full"> </span>
         {this.props.statusLogin === true && (
