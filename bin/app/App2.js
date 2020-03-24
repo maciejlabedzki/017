@@ -179,7 +179,7 @@ class App extends React.Component {
       });
   };
 
-  updateInputs = e => {
+  handleSearchInputUpdate = e => {
     if (e.target.getAttribute("name") === "searchAllTitleInput") {
       this.setState({
         searchAllTitleInput: e.target.value
@@ -444,7 +444,7 @@ class App extends React.Component {
                 toggleOfflineJson={this.toggleOfflineJson}
                 state={this.state}
                 clearInputs={this.clearInputs}
-                updateInputs={this.updateInputs}
+                handleSearchInputUpdate={this.handleSearchInputUpdate}
                 handleSearchFormCheckboxUpdate={
                   this.handleSearchFormCheckboxUpdate
                 }

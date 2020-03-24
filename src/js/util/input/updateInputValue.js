@@ -1,4 +1,4 @@
-// const updateInputs = e => {
+// const  handleSearchInputUpdate = e => {
 //   if (e.target.getAttribute("name") === "searchMatchTitleInput") {
 //     this.setState({
 //       searchMatchTitleInput: e.target.value
@@ -38,4 +38,4 @@
 //   }
 // };
 
-// export default updateInputs;
+// export default  handleSearchInputUpdate;

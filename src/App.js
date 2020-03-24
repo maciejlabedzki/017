@@ -189,19 +189,7 @@ class App extends React.Component {
       });
   };
 
-  handleSearchDisableYearCheckbox = () => {
-    // if (this.state.searchMatchTitleCheckbox === true) {
-    //   this.setState({
-    //     searchDisableYearCheckbox: false
-    //   });
-    // } else {
-    //   this.setState({
-    //     searchDisableYearCheckbox: true
-    //   });
-    // }
-  };
-
-  updateInputs = e => {
+  handleSearchInputUpdate = e => {
     if (e.target.getAttribute("name") === "searchAllTitleInput") {
       this.setState({
         searchAllTitleInput: e.target.value
@@ -556,7 +544,7 @@ class App extends React.Component {
                     }
                     state={this.state}
                     clearInputs={this.clearInputs}
-                    updateInputs={this.updateInputs}
+                    handleSearchInputUpdate={this.handleSearchInputUpdate}
                     handleSearchFormCheckboxUpdate={
                       this.handleSearchFormCheckboxUpdate
                     }

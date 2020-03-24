@@ -39,7 +39,7 @@ const SearchForm = props => {
             <input
               name="searchMatchTitleInput"
               //placeholder={props.state.searchMatchTitleInput}
-              onChange={props.updateInputs}
+              onChange={props.handleSearchInputUpdate}
               disabled={!props.state.searchMatchTitleCheckbox}
             />
           </p>
@@ -63,7 +63,7 @@ const SearchForm = props => {
                 min="1800"
                 max="2020"
                 //placeholder={props.state.searchMatchYearInput}
-                onChange={props.updateInputs}
+                onChange={props.handleSearchInputUpdate}
                 disabled={!props.state.searchMatchYearCheckbox}
               />
             </p>
@@ -84,7 +84,7 @@ const SearchForm = props => {
             <input
               name="searchMatchIdInput"
               //placeholder={props.state.searchMatchIdInput}
-              onChange={props.updateInputs}
+              onChange={props.handleSearchInputUpdate}
               disabled={!props.state.searchMatchIdCheckbox}
             />
           </p>
@@ -104,7 +104,7 @@ const SearchForm = props => {
             <input
               name="searchAllTitleInput"
               //placeholder={props.state.searchAllTitleInput}
-              onChange={props.updateInputs}
+              onChange={props.handleSearchInputUpdate}
               disabled={!props.state.searchAllTitleCheckbox}
             />
           </p>
