@@ -68,31 +68,35 @@ class Delete extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="app_container">
-          Delete ID User:
+        <div className="app-container app-container__delete">
           <form onSubmit={this.setRemoveUserID}>
-            Delete User ID:
             <input
               name="removeID"
               type="email"
               placeholder="User ID to remove"
             />
-            <input type="submit" value="Submit" pattern="" />
+            <input
+              className="app-input app-input__submit"
+              type="submit"
+              value="Submit"
+            />
             {/* {this.state.removeUserID === undefined && (
               <div className="alert-warning">No user ID</div>
             )} */}
             {this.state.removeUserID !== undefined && (
-              <div className="alert-success">
+              <div className="app-container__alert fadeOut animated delay-5s">
                 User ID was set to: {this.state.removeUserID}
               </div>
             )}
             {this.state.removed === true && (
-              <div className="alert-success">
+              <div className="app-container__alert fadeOut animated delay-5s">
                 User ID: {this.state.removeUserID} was deleted
               </div>
             )}
             {this.state.removedError !== undefined && (
-              <div className="alert-warning">{this.state.removedError}</div>
+              <div className="app-container__alert alert-warning fadeOut animated delay-5s">
+                {this.state.removedError}
+              </div>
             )}
           </form>
         </div>

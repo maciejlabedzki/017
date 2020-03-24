@@ -433,7 +433,7 @@ class App extends React.Component {
           page={this.state.page}
         />
         {/* APP : STRUCTURE : CENTRUM */}
-        <div className="app-wrapper-center">
+        <div className="app-container__body">
           {/* APP : PAGE : HOME */}
           {this.state.page === "home" && <Home />}
 

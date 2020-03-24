@@ -3,13 +3,12 @@ import React from "react";
 const Contact = props => {
   return (
     <React.Fragment>
-      <div className="app_container app_contact">
-        <label className="icon-home">Contact</label>
+      <div className="app-container app_contact">
         <p>
           Lorem Ipsum Press is licensed by Bionetwork Ltd. Our office is located
           within the company's building.
         </p>
-        <p>
+        <p className="app-contact__map">
           <img
             src="https://d26d74ht2k6aj1.cloudfront.net/images/street-map-sample.png"
             alt="location"

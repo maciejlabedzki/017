@@ -43,7 +43,7 @@ const Register = props => {
 
   return (
     <React.Fragment>
-      <div className="app_container">
+      <div className="app-container">
         Register
         <p>
           <button className="app-button" onClick={jsonApiGet}>

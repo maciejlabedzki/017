@@ -121,15 +121,6 @@
       "mail": "ASDi@wp.pl",
       "password": "4KTqrNWTNj27Bai",
       "accessLv": "user"
-    },
-    {
-      "id": "aaaaaaaaaaaaa@wp.plaa",
-      "registryDate": 1584983010606,
-      "name": "aaaaaaaaaaaaaaaaaaaaa",
-      "lastName": "aaaaaaaaaaaaaaaaaaaa",
-      "mail": "aaaaaaaaaaaaa@wp.plaa",
-      "password": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "accessLv": "user"
     }
   ],
   "userDetails": {
@@ -226,25 +217,25 @@
       "id": "bedzki@wp.pl",
       "put": true,
       "movies": {
+        "tt0800369": {
+          "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
+          "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+          "year": "2011"
+        },
+        "tt0449157": {
+          "title": ".1111 testimonio",
+          "poster": "N/A",
+          "year": "1999"
+        },
         "tt0461316": {
           "title": "Police Nr. 1111",
           "poster": "N/A",
           "year": "1915"
         },
-        "tt5830284": {
-          "title": "33,333 The Odyssey of Nikos Kazantzakis",
-          "poster": "N/A",
-          "year": "2016"
-        },
-        "tt0296514": {
-          "title": "BBB",
-          "poster": "N/A",
-          "year": "1989"
-        },
-        "tt0063948": {
-          "title": "Room 222",
-          "poster": "https://m.media-amazon.com/images/M/MV5BMTI4MTU4NjgzNV5BMl5BanBnXkFtZTYwOTg0ODQ2._V1_SX300.jpg",
-          "year": "1969–1974"
+        "tt6599818": {
+          "title": "Team Thor: Part 2",
+          "poster": "https://m.media-amazon.com/images/M/MV5BOTJkYmFkM2ItOGIwMS00YWRhLTg5ZGQtNDA0ZjcwNzA3ZjQxXkEyXkFqcGdeQXVyNDQ5MDYzMTk@._V1_SX300.jpg",
+          "year": "2017"
         }
       }
     },

@@ -1,4 +1,4 @@
-.label_movie {
+.app-container__description {
   display: block;
   width: 100%;
   float: left;
@@ -8,7 +8,7 @@
     display: block;
     content: "";
   }
-  .lm_title {
+  .app-container__title {
     margin-bottom: 0px;
     margin: 0;
     float: left;
@@ -24,7 +24,7 @@
     background: #0e0e0e8c;
     box-shadow: 1px 1px 1px #000000;
   }
-  .lm_desc {
+  .app-container__desc {
     float: left;
     width: 100%;
     box-sizing: border-box;
@@ -41,107 +41,34 @@
   }
 }
 
-form#FormMatchSearch {
+#app-form__search-match {
   display: block;
   padding: 10px 10px;
-  margin: 10px 10px;
   border: 1px solid black;
   float: left;
-  width: calc(100% - 40px);
+  width: 100%;
+  margin-bottom: 10px;
   label {
     display: block;
     float: left;
     box-sizing: border-box;
     text-align: justify;
-    //width: calc(50% - 1px);
     min-width: 110px;
     min-height: 20px;
     margin: 0px 0px 2px 1px;
     padding: 5px 10px 5px 10px;
   }
-  button[attr-state="true"] {
-    background: rgba(210, 255, 82, 1);
-    background: -moz-linear-gradient(
-      top,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 100%
-    );
-    background: -webkit-gradient(
-      left top,
-      left bottom,
-      color-stop(0%, rgba(210, 255, 82, 1)),
-      color-stop(100%, rgba(145, 232, 66, 1))
-    );
-    background: -webkit-linear-gradient(
-      top,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 100%
-    );
-    background: -o-linear-gradient(
-      top,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 100%
-    );
-    background: -ms-linear-gradient(
-      top,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
-    color: black;
-    border: 1px solid #aaaaaa;
+  .app-button__confirm[attr-state="true"] {
     width: 100px;
-    height: 21px;
   }
 
-  button[attr-state="false"] {
-    background: rgba(255, 82, 84, 1);
-    background: -moz-linear-gradient(
-      top,
-      rgba(255, 82, 84, 1) 0%,
-      rgba(231, 103, 64, 1) 100%
-    );
-    background: -webkit-gradient(
-      left top,
-      left bottom,
-      color-stop(0%, rgba(255, 82, 84, 1)),
-      color-stop(100%, rgba(231, 103, 64, 1))
-    );
-    background: -webkit-linear-gradient(
-      top,
-      rgba(255, 82, 84, 1) 0%,
-      rgba(231, 103, 64, 1) 100%
-    );
-    background: -o-linear-gradient(
-      top,
-      rgba(255, 82, 84, 1) 0%,
-      rgba(231, 103, 64, 1) 100%
-    );
-    background: -ms-linear-gradient(
-      top,
-      rgba(255, 82, 84, 1) 0%,
-      rgba(231, 103, 64, 1) 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 82, 84, 1) 0%,
-      rgba(231, 103, 64, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5254', endColorstr='#e76740', GradientType=0 );
-    color: black;
-    border: 1px solid #aaaaaa;
+  .app-button__confirm[attr-state="false"] {
     width: 100px;
-    height: 21px;
   }
 }
 
 .lm_search_results {
-  .lm_title {
+  .app-container__title {
     display: block;
     float: left;
     box-sizing: border-box;
@@ -150,13 +77,7 @@ form#FormMatchSearch {
     width: 100%;
     min-height: 20px;
     margin: 0px 0px 0px 0px;
-    font-family: sans-serif;
     padding: 5px 10px 5px 10px;
-    font-size: large;
-    font-weight: bold;
-    text-transform: capitalize;
-    font-size: 12px;
-    color: green;
   }
 
   .lm_col_left {
@@ -188,7 +109,6 @@ form#FormMatchSearch {
       float: left;
       box-sizing: border-box;
       padding: 0px 0px 0px 10px;
-      background: white;
       border-bottom: 1px solid #aca6a6;
       font-size: 12px;
     }
@@ -198,7 +118,6 @@ form#FormMatchSearch {
       float: left;
       box-sizing: border-box;
       padding: 0px 0px 0px 10px;
-      background: white;
       border-bottom: 1px solid #aca6a6;
       font-size: 12px;
     }
@@ -208,7 +127,6 @@ form#FormMatchSearch {
       float: left;
       box-sizing: border-box;
       padding: 0px 0px 0px 10px;
-      background: white;
       border-bottom: 1px solid #aca6a6;
       font-size: 12px;
       width: 50%;
@@ -234,8 +152,17 @@ form#FormMatchSearch {
   }
 
   .lm_list {
-    background: white;
     padding: 5px 5px;
     min-height: 80px;
+    border: 1px solid black;
+  }
+
+  .lm_list:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .lm_list:nth-child(2n) {
+    background: #0000004d;
   }
 }

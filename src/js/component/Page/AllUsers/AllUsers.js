@@ -32,8 +32,7 @@ class AllUsers extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="app_container">
-          All Users:
+        <div className="app-container">
           <p>
             <button className="app-button" onClick={this.jsonApiGet}>
               Show All Users

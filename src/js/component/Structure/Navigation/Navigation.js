@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Navigation extends React.Component {
   render() {
     return (
-      <div className="app_container app_navigation">
+      <div className="app-container app-container__navigation">
         <ul>
           {this.props.pagesList.map(item => {
             var link = "/" + item;
@@ -16,10 +16,11 @@ class Navigation extends React.Component {
                 <Link
                   key={"id_navbar_" + item}
                   to={link}
-                  name={item}
                   onClick={this.props.changePage}
                 >
-                  <li className="app-button app_button__navigation">{item}</li>
+                  <li name={item} className="app-button app-button__navigation">
+                    {item}
+                  </li>
                 </Link>
               );
             }

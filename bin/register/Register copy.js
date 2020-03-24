@@ -128,9 +128,9 @@ class Register extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="app_container">
+        <div className="app-container">
           Register <button onClick={this.showState}>Show State</button>
-          <form className="app_form" onSubmit={this.handleSubmit}>
+          <form className="app-form" onSubmit={this.handleSubmit}>
             <div className="input_container">
               <label>Name:</label>
               <input
@@ -197,20 +197,24 @@ class Register extends React.Component {
             />
             <input type="submit" value="Submit" pattern="" />
             {this.state.removeUserID === undefined && (
-              <div className="alert-warning">No user ID</div>
+              <div className="app-container__alert alert-warning fadeOut animated delay-5s">
+                No user ID
+              </div>
             )}
             {this.state.removeUserID !== undefined && (
-              <div className="alert-success">
+              <div className="app-container__alert alert-success fadeOut animated delay-5s">
                 User ID was set to: {this.state.removeUserID}
               </div>
             )}
             {this.state.removed === true && (
-              <div className="alert-success">
+              <div className="app-container__alert alert-success fadeOut animated delay-5s">
                 User ID: {this.state.removeUserID} was deleted
               </div>
             )}
             {this.state.removedError !== undefined && (
-              <div className="alert-warning">{this.state.removedError}</div>
+              <div className="app-container__alert alert-warning fadeOut animated delay-5s">
+                {this.state.removedError}
+              </div>
             )}
           </form>
         </div>

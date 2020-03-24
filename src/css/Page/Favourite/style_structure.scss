@@ -13,8 +13,12 @@
   width: 80px;
 }
 
-.app-fav-page-wrapper.app_container {
-  background: white;
+.app-container__favourite--list {
+  border: 1px solid black;
+}
+
+.app-container__favourite--list:nth-child(2n) {
+  background: #0000005e;
 }
 
 .app-fav-page.afp-desc {

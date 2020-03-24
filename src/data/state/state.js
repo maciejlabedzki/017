@@ -8,7 +8,6 @@ const stateSetting = {
   page: "register",
   accessLv: undefined,
   loginStatus: false,
-
   json: movieLocalJsonData,
   jsonOffline: movieLocalJsonData,
   jsonValid: true,
@@ -35,6 +34,8 @@ const stateSetting = {
   searchAllPage: 1,
   searchAllPages: 10,
   searchTotalResult: 0,
+
+  searchDisableYearCheckbox: true,
 
   movieFromSearch: false,
   movieFromSearchID: "",

@@ -105,6 +105,10 @@
 @import "Page/AllUser/style_structure.scss";
 @import "Page/AllUser/style_theme.scss";
 
+// Page Delete
+@import "Page/Delete/style_structure.scss";
+@import "Page/Delete/style_theme.scss";
+
 /*
 ########################################
     Alerts  
@@ -112,3 +116,11 @@
 */
 
 @import "alerts/alerts.scss";
+
+/*
+########################################
+    Animation  
+########################################
+*/
+
+@import "vendor/animate.css";

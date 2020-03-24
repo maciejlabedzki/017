@@ -5,8 +5,8 @@ import Login from "../../module/Login/Login";
 class Header extends React.Component {
   render() {
     return (
-      <div className="app_container app_header">
-        <div className="ahw_logo">
+      <div className="app-container app-container__header">
+        <div className="app-container__header--logo">
           <img alt="logo" src={logo} />
         </div>
         <Login

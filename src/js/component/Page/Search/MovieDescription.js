@@ -5,7 +5,7 @@ import img_metacritics from "../../../../assets/img/ratings_metacritics.png";
 
 const BlockDescription = props => {
   let movieLabel = props.movieDb[props.category];
-  let fullClass = "label_movie " + props.category;
+  let fullClass = "app-container__description " + props.category;
 
   if (movieLabel === "N/A" || movieLabel === undefined) {
     return null;
@@ -30,7 +30,7 @@ const BlockDescription = props => {
       blockStorage.push(
         <label
           key={randomKey}
-          className="lm_desc lm_ratings"
+          className="app-container__desc lm_ratings"
           attr-img={ratingName}
         >
           <img className="ratings_img" src={imgSrc} alt="Rating Images" />
@@ -40,7 +40,7 @@ const BlockDescription = props => {
     }
     return (
       <div className={fullClass}>
-        <label className="lm_title">{props.category}:</label>
+        <label className="app-container__title">{props.category}:</label>
         {blockStorage}
       </div>
     );
@@ -49,8 +49,8 @@ const BlockDescription = props => {
   if (props.type === "text") {
     return (
       <div className={fullClass}>
-        <label className="lm_title">{props.category}:</label>
-        <label className="lm_desc">{movieLabel}</label>
+        <label className="app-container__title">{props.category}:</label>
+        <label className="app-container__desc">{movieLabel}</label>
       </div>
     );
   }
@@ -58,9 +58,9 @@ const BlockDescription = props => {
   if (props.type === "img") {
     return (
       <div className={fullClass}>
-        <label className="lm_title">{props.category}:</label>
-        <label className="lm_desc">
-          <img src={movieLabel} alt="Movie Poster" />
+        <label className="app-container__title">{props.category}:</label>
+        <label className="app-container__desc">
+          <img className="movie-poster" src={movieLabel} alt="Movie Poster" />
         </label>
       </div>
     );
@@ -82,7 +82,11 @@ const MovieDescription = ({
   }
 
   if (movieFound !== true) {
-    return "No movie found";
+    return (
+      <div className="app-container app-container__alert alert-warning fadeOut animated delay-5s">
+        No movie found
+      </div>
+    );
   }
   if (jsonValid !== true) {
     return "No valid JSON";
@@ -91,20 +95,22 @@ const MovieDescription = ({
   if (searchAllMovie === false) {
     return (
       <>
-        <div className="app_container ">
-          <p className="app_container favourite">
-            <label>Favourite:</label>
-            <button
-              className="app-button"
-              movie-id={movieDb["imdbID"]}
-              movie-title={movieDb["Title"]}
-              movie-year={movieDb["Year"]}
-              movie-poster={movieDb["Poster"]}
-              onClick={favouritesAdd}
-            >
-              add
-            </button>
-          </p>
+        <div className="app-container ">
+          {movieFound === true && (
+            <div className="app-container app-container__favourite">
+              <label>Favourite:</label>
+              <button
+                className="app-button"
+                movie-id={movieDb["imdbID"]}
+                movie-title={movieDb["Title"]}
+                movie-year={movieDb["Year"]}
+                movie-poster={movieDb["Poster"]}
+                onClick={favouritesAdd}
+              >
+                add
+              </button>
+            </div>
+          )}
           <BlockDescription
             inf="14"
             movieDb={movieDb}

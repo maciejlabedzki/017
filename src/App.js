@@ -57,6 +57,7 @@ class App extends React.Component {
       e.preventDefault();
     }
 
+    console.log("yes i want to search");
     let matchTitle = "",
       searchAll = "",
       matchYear = "",
@@ -132,6 +133,22 @@ class App extends React.Component {
       }
     }
 
+    console.log(
+      "yes i want to search 2",
+      matchTitle,
+      searchAll,
+      matchYear,
+      matchId
+    );
+    if (
+      matchTitle === "" &&
+      searchAll === "" &&
+      matchYear === "" &&
+      matchId === ""
+    ) {
+      console.log("all are empty");
+      return null;
+    }
     await axios
       .get(domain + "/" + searchAll + matchTitle + matchId + matchYear + apikey)
       .then(response => {
@@ -170,6 +187,18 @@ class App extends React.Component {
           catchError: error.toJSON()
         });
       });
+  };
+
+  handleSearchDisableYearCheckbox = () => {
+    // if (this.state.searchMatchTitleCheckbox === true) {
+    //   this.setState({
+    //     searchDisableYearCheckbox: false
+    //   });
+    // } else {
+    //   this.setState({
+    //     searchDisableYearCheckbox: true
+    //   });
+    // }
   };
 
   updateInputs = e => {
@@ -218,7 +247,8 @@ class App extends React.Component {
     }
   };
 
-  clearInputs = () => {
+  clearInputs = value => {
+    console.log("rules", value);
     this.setState({
       searchMatchTitleInput: "",
       searchMatchTitleCheckbox: false,
@@ -303,7 +333,6 @@ class App extends React.Component {
   };
 
   toggleOfflineJson = e => {
-    e.preventDefault();
     if (this.state.offlineJson === false) {
       this.setState({
         json: {},
@@ -320,13 +349,17 @@ class App extends React.Component {
         searchAllTitleCheckbox: true,
         searchAllTitle: "",
 
-        searchAllMovie: false
+        searchAllMovie: false,
+        movieFound: false
       });
+
+      e.preventDefault();
     }
 
     if (this.state.offlineJson === true) {
       this.setState({
-        json: {}
+        json: {},
+        movieFound: false
       });
     }
 
@@ -392,6 +425,7 @@ class App extends React.Component {
   };
 
   changePage = e => {
+    console.log("change name", e.target);
     this.setState({
       page: e.target.getAttribute("name")
     });
@@ -457,7 +491,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div id="app-movie-db">
+        <div id="app-wrapper">
           {/* DEV: TOOL : HELPER */}
           <Helper state={this.state} />
 
@@ -489,16 +523,25 @@ class App extends React.Component {
             accessLv={this.state.accessLv}
           />
 
-          <div className="app-wrapper-center">
+          <div className="app-container__body">
             <Switch>
               <Route path="/home">
+                <label className="app-container__title">
+                  <span className="icon-home"> </span>Home:
+                </label>
                 <Home />
               </Route>
 
               <Route path="/search">
                 <React.Fragment>
+                  <label className="app-container__title">
+                    <span className="icon-search"> </span>Search:
+                  </label>
                   <SearchForm
                     toggleOfflineJson={this.toggleOfflineJson}
+                    handleSearchDisableYearCheckbox={
+                      this.handleSearchDisableYearCheckbox
+                    }
                     state={this.state}
                     clearInputs={this.clearInputs}
                     updateInputs={this.updateInputs}
@@ -536,6 +579,9 @@ class App extends React.Component {
               </Route>
 
               <Route path="/user">
+                <label className="app-container__title">
+                  <span className="icon-search"> </span>User:
+                </label>
                 <User
                   statusLogin={this.state.loginStatus}
                   user={this.state.user}
@@ -543,6 +589,9 @@ class App extends React.Component {
               </Route>
 
               <Route path="/favourite">
+                <label className="app-container__title">
+                  <span className="icon-search"> </span>Favourite:
+                </label>
                 <Favourite
                   userID={this.state.userDataLogin}
                   statusLogin={this.state.loginStatus}
@@ -553,18 +602,30 @@ class App extends React.Component {
               </Route>
 
               <Route path="/register">
+                <label className="app-container__title">
+                  <span className="icon-search"> </span>Register:
+                </label>
                 <Register message={this.message} />
               </Route>
 
               <Route path="/contact">
+                <label className="app-container__title">
+                  <span className="icon-search"> </span>Contact:
+                </label>
                 <Contact />
               </Route>
 
               <Route path="/delete">
+                <label className="app-container__title">
+                  <span className="icon-search"> </span>Delete:
+                </label>
                 <Delete />
               </Route>
 
               <Route path="/all_users">
+                <label className="app-container__title">
+                  <span className="icon-user"> </span>All users:
+                </label>
                 <AllUsers />
               </Route>
 

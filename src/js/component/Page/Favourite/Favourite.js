@@ -21,7 +21,10 @@ const MoviesFavourite = props => {
     }
 
     moviesList.push(
-      <div className="app-fav-page-wrapper app_container" key={randomKey}>
+      <div
+        className="app-container__favourite--list app-container"
+        key={randomKey}
+      >
         <div className="app-fav-page afp-img">{img}</div>
         <div className="app-fav-page afp-desc">
           <Link to="/search" onClick={props.showMovie}>
@@ -32,7 +35,11 @@ const MoviesFavourite = props => {
           <label className="afp-desc-year">{year}</label>
         </div>
         <div className="app-fav-page afp-remove">
-          <button movieid={id} onClick={props.favouriteRemove}>
+          <button
+            className="app-button"
+            movieid={id}
+            onClick={props.favouriteRemove}
+          >
             Remove
           </button>
         </div>
@@ -45,8 +52,9 @@ const MoviesFavourite = props => {
 class Favourite extends React.Component {
   render() {
     return (
-      <div className="app_container">
-        Favourites
+      <div className="app-container">
+        Favourites <span className="icon-star-empty"> </span>{" "}
+        <span className="icon-star-full"> </span>
         {this.props.statusLogin === true && (
           <MoviesFavourite
             showMovie={this.props.showMovie}

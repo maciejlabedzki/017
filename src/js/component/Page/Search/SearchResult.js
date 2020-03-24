@@ -29,14 +29,17 @@ const BlockDescription = ({
     }
     let imdbID = movieDatabase[i]["imdbID"];
     movieArr.push(
-      <div key={randomKey} className="app_container lm_list">
+      <div
+        key={randomKey}
+        className="app-container lm_list"
+        id={imdbID}
+        onClick={showMovie}
+      >
         <div className="lm_col_left">
           <label className="lm_list-poster">{img}</label>
         </div>
         <div className="lm_col_right">
-          <label className="lm_list-title" id={imdbID} onClick={showMovie}>
-            {movieDatabase[i]["Title"]}
-          </label>
+          <label className="lm_list-title">{movieDatabase[i]["Title"]}</label>
           <label className="lm_list-year">
             Year: {movieDatabase[i]["Year"]}
           </label>
@@ -51,7 +54,7 @@ const BlockDescription = ({
 
   return (
     <div className="lm_search_results">
-      <label className="lm_title">
+      <label className="app-container__title">
         Found [ {searchTotalResult} ] records about "{searchAllTitle}"
       </label>
       {movieArr}
@@ -76,7 +79,7 @@ const SearchResult = ({
   if (movieFound === false && movieDb !== undefined && catchError === "") {
     console.log("movieDb", movieDb);
     return (
-      <div className="app_container warning">
+      <div className="app-container warning">
         No movies found: {movieDb["Error"]}
       </div>
     );
@@ -85,7 +88,7 @@ const SearchResult = ({
   if (movieFound === false && movieDb !== undefined && catchError !== "") {
     console.log("movieDb", movieDb);
     return (
-      <div className="app_container warning">
+      <div className="app-container warning">
         No movies found: {catchError["message"]}
       </div>
     );
@@ -97,7 +100,7 @@ const SearchResult = ({
 
   if (searchAllMovie === true) {
     return (
-      <div className="app_container">
+      <div className="app-container">
         <BlockDescription
           movieDb={movieDb}
           searchAllTitle={searchAllTitle}

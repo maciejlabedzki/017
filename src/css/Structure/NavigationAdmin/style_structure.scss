@@ -1,3 +1,6 @@
-.app_container.app_navigation.app_logged.app_admin {
-  background: #b3b3b3;
+.app-container {
+  &.app-container__navigation {
+    &.app_logged.app_admin {
+    }
+  }
 }

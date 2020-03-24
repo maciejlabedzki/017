@@ -12,8 +12,6 @@
     float: left;
     display: block;
     padding: 0px 0px 0px 10px;
-    background: white;
-    width: calc(99% / 4);
     height: 30px;
     border: 1px solid black;
     box-sizing: border-box;
@@ -23,13 +21,15 @@
     margin-bottom: 1px;
     overflow: hidden;
     width: 100%;
+    background: #1b1b1b;
     .title {
       float: left;
-      background: #6b6b6b;
       width: 100px;
       padding: 0 5px;
       color: white;
       margin-right: 10px;
+      background: #0e0e0e8c;
+      box-shadow: 1px 1px 1px #000000;
     }
   }
 

@@ -7,7 +7,7 @@ class NavigationLogged extends React.Component {
     return (
       <React.Fragment>
         {this.props.accessLv === "user" && (
-          <div className="app_container app_navigation app_logged">
+          <div className="app-container app-container__navigation app_logged">
             <ul>
               {this.props.pagesListLogged.map(item => {
                 var replaced = item.split(" ").join("_");
@@ -16,10 +16,11 @@ class NavigationLogged extends React.Component {
                   <Link
                     key={"id_navbar_logged_" + item}
                     to={link}
-                    name={item}
                     onClick={this.props.changePage}
                   >
-                    <li>{item}</li>
+                    <li name={item} className="app-button">
+                      {item}
+                    </li>
                   </Link>
                 );
               })}

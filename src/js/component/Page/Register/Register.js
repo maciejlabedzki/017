@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Select from "react-select";
 
 class Register extends React.Component {
   constructor(props) {
@@ -11,6 +12,10 @@ class Register extends React.Component {
       removed: false,
       removedError: undefined,
       send: false,
+      options: [
+        { value: "user", label: "User" },
+        { value: "admin", label: "Admin" }
+      ],
       url: process.env.REACT_APP_REGISTER_USER,
       patternInputs:
         "[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+",
@@ -70,7 +75,7 @@ class Register extends React.Component {
       lastName: data.get("lastName"),
       mail: data.get("mail"),
       password: data.get("password"),
-      accessLv: "user"
+      accessLv: this.state.accessLv
     };
 
     this.setState({ user }, () => {
@@ -87,19 +92,36 @@ class Register extends React.Component {
     });
   };
 
-  showState = () => {
+  handleShowState = () => {
     console.log(this.state);
+  };
+
+  handleOnChange = (newValue: string) => {
+    console.log(newValue);
+    this.setState({ accessLv: newValue.value });
   };
 
   render() {
     return (
       <React.Fragment>
-        <div className="app_container">
-          Register
-          {/* <button onClick={this.showState}>Show State</button> */}
+        <div className="app-container">
+          {/* <button onClick={this.handleShowState}>Show State</button> */}
           {this.state.send === false && (
             <React.Fragment>
-              <form className="app_form" onSubmit={this.handleSubmit}>
+              <form className="app-form" onSubmit={this.handleSubmit}>
+                <div className="input_container">
+                  <label>
+                    Access:
+                    <span className="app-button__information--required">*</span>
+                    :
+                  </label>
+                  <Select
+                    className="app-button__select"
+                    options={this.state.options}
+                    onChange={this.handleOnChange}
+                  />
+                </div>
+
                 <div className="input_container">
                   <label>
                     Name
@@ -109,11 +131,13 @@ class Register extends React.Component {
                   <input
                     name="name"
                     placeholder="Name"
+                    autoComplete="given-name"
                     type="text"
                     pattern={this.state.patternInputs}
                     required
                   ></input>
                 </div>
+
                 <div className="input_container">
                   <label>
                     Last Name
@@ -124,6 +148,7 @@ class Register extends React.Component {
                     name="lastName"
                     type="text"
                     placeholder="Last Name"
+                    autoComplete="family-name"
                     pattern={this.state.patternInputs}
                     required
                   ></input>
@@ -157,13 +182,17 @@ class Register extends React.Component {
                     required
                   ></input>
                 </div>
-                <input type="submit" value="Send"></input>
+                <input
+                  className="app-button app-input__submit"
+                  type="submit"
+                  value="Send"
+                ></input>
               </form>
             </React.Fragment>
           )}
           {this.state.message !== undefined && (
             <React.Fragment>
-              <div className="app_container alert-success">
+              <div className="app-container alert-success">
                 {/* {this.state.message}.  */}
                 <p>
                   Welcome{" "}
@@ -182,7 +211,7 @@ class Register extends React.Component {
           )}
           {this.state.error !== undefined && (
             <React.Fragment>
-              <div className="app_container alert-warning">
+              <div className="app-container alert-warning fadeOut animated delay-5s">
                 {this.state.error}
               </div>
             </React.Fragment>

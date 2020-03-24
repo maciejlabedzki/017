@@ -3,8 +3,7 @@ import React from "react";
 const Home = props => {
   return (
     <React.Fragment>
-      <div className="app_container app_home">
-        <label className="icon-home">Home</label>
+      <div className="app-container app_home">
         <ul>
           <li>
             Search

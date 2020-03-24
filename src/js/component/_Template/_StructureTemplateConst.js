@@ -3,7 +3,7 @@ import React from "react";
 const StructureTempleteConst = props => {
   return (
     <React.Fragment>
-      <div className="app_container"></div>
+      <div className="app-container"></div>
     </React.Fragment>
   );
 };

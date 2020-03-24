@@ -15,3 +15,20 @@
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
+
+.app-container__alert {
+  float: left;
+  width: 100%;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  margin-bottom: 1px;
+}
+
+.app_container__alert.alert-danger {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 4px 0px;
+  padding: 1px 0px;
+  font-size: 10px;
+}

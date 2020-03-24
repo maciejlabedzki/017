@@ -4,7 +4,7 @@ class StructureTemplete extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="app_container"></div>
+        <div className="app-container"></div>
       </React.Fragment>
     );
   }

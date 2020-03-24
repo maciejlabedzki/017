@@ -5,6 +5,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      message: undefined,
+      removeMessage: false,
       user: "",
       password: ""
     };
@@ -37,13 +39,12 @@ class Login extends React.Component {
   };
 
   handleUserLogin = async () => {
-    console.log("TRY  ");
-
     var url = process.env.REACT_APP_REGISTER_USER + "/" + this.state.user;
 
     await Axios.get(url)
       .then(response => {
         if (response.data.password === this.state.password) {
+          this.setState({ message: undefined });
           this.props.signIn({
             user: this.state.user,
             password: this.state.password,
@@ -51,11 +52,31 @@ class Login extends React.Component {
             accessLv: response.data.accessLv
           });
           this.handleUserFavourite();
+        } else if (response.data.password !== this.state.password) {
+          this.setState({
+            message: "Error: Wrong password",
+            removeMessage: false
+          });
+          this.handleMessage();
+        } else if (response.data.password === undefined) {
+          this.setState({
+            message: "Error: There is no password.",
+            removeMessage: false
+          });
+          this.handleMessage();
+        } else {
+          this.handleMessage();
+          console.log(
+            "TRY LOGIN",
+            response.data.password,
+            this.state.password,
+            response
+          );
         }
-        console.log("TRY LOGIN", response.data.password);
       })
       .catch(error => {
-        console.log(error);
+        console.log(typeof error, error.toJSON(), error.toJSON()["message"]);
+        this.setState({ message: error.toJSON()["message"] });
       });
   };
 
@@ -74,13 +95,19 @@ class Login extends React.Component {
     event.preventDefault();
   };
 
+  handleMessage = event => {
+    setTimeout(() => {
+      this.setState({ removeMessage: true });
+    }, 5000);
+  };
+
   componentDidMount() {
     console.log("test", this.props.userDataLogin);
   }
 
   render() {
     return (
-      <div className="ahw_login-wrapper">
+      <div className="app-container__header--login">
         {this.props.loginStatus === true && (
           <div className="userLogged">
             <label className="userLogged-greeting">Welcome</label>
@@ -101,28 +128,40 @@ class Login extends React.Component {
 
         {!this.props.loginStatus === true && (
           <form onSubmit={this.handleSubmit}>
-            <div className="login_wrapper login">
+            <div className="app-container__header-form--login login">
               <label>Login:</label>
               <input
-                className="input_login"
+                className="app-input__login"
                 name="user"
                 type="email"
+                autoComplete="email"
                 defaultValue={this.state.value}
                 onChange={this.handleChangeUser}
               />
             </div>
-            <div className="login_wrapper login">
+            <div className="app-container__header-form--login login">
               <label>Password:</label>
               <input
-                className="input_password"
+                className="app-input__password"
                 minLength="8"
+                autoComplete="current-password"
                 defaultValue={this.state.password}
                 onChange={this.handleChangePassword}
               />
             </div>
-            <input type="submit" value="Sign in" />
+            <input
+              className="app-button app-input__submit"
+              type="submit"
+              value="Sign in"
+            />
           </form>
         )}
+        {this.state.message !== undefined &&
+          this.state.removeMessage === false && (
+            <div className="app_container__alert alert-danger fadeOut animated delay-5s ">
+              {this.state.message}
+            </div>
+          )}
       </div>
     );
   }

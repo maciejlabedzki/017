@@ -5,24 +5,20 @@
   border: 1px solid red;
 }
 
-.label_movie.Poster label.lm_desc img {
+.app-container__desc img.movie-poster {
   display: block;
   margin: 0 auto;
   background: beige;
 }
 
-.app_container.warning {
+.app-container.warning {
   text-align: center;
   background: #ffb0b0;
   color: red;
   border: 1px solid red;
 }
 
-.ahw_login-wrapper {
-  width: calc(100% - 100px);
-}
-
-.app_header_wrapper .userLogged {
+.app-container__header_wrapper .userLogged {
   display: block;
   float: right;
   font-size: 20px;
@@ -45,7 +41,13 @@
 
 .afp-desc-title {
   float: left;
-  color: #8e1f1f;
+  color: #ffffff;
+  background: #404040;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 13px;
+  padding: 3px 5px;
+  cursor: pointer;
 }
 
 .afp-desc-year {
@@ -55,26 +57,13 @@
   display: block;
 }
 
-#app-movie-db {
-  overflow: hidden;
-  min-width: 320px;
-}
-
 .app_center {
   display: block;
   float: left;
   width: 100%;
 }
 
-.app_container.app_header {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  background-color: rgba(42, 42, 42, 0.9);
-  box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
-
-  padding: 20px;
-}
-
-.app-wrapper-center {
+.app-container__body {
   border: 1px solid rgba(0, 0, 0, 0.3);
   background-color: rgba(42, 42, 42, 0.9);
   box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
@@ -82,7 +71,7 @@
   overflow: hidden;
 }
 
-input.input_login {
+input.app-input__login {
   box-sizing: border-box;
   user-select: none;
   font-size: 15px;
@@ -91,7 +80,7 @@ input.input_login {
   font-family: Varela, sans-serif;
 }
 
-input.input_login {
+input.app-input__login {
   box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0,
     rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
   background: rgba(0, 0, 0, 0.3);
@@ -102,7 +91,7 @@ input.input_login {
   color: white;
 }
 
-input.input_password {
+input.app-input__password {
   box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0,
     rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
   background: rgba(0, 0, 0, 0.3);
@@ -123,10 +112,6 @@ input[type="submit"] {
   color: white;
 }
 
-div#app-movie-db {
-  padding: 5px;
-}
-
 input[type="submit"] {
   background: rgba(19, 19, 19, 1);
   background: -moz-linear-gradient(
@@ -181,94 +166,17 @@ input[type="submit"] {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#000000', GradientType=0 );
 }
 
-.app_container.app_navigation ul li {
-  background: rgba(19, 19, 19, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(17, 17, 17, 1) 42%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(19, 19, 19, 1)),
-    color-stop(9%, rgba(28, 28, 28, 1)),
-    color-stop(24%, rgba(43, 43, 43, 1)),
-    color-stop(42%, rgba(17, 17, 17, 1)),
-    color-stop(100%, rgba(0, 0, 0, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(17, 17, 17, 1) 42%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(17, 17, 17, 1) 42%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(17, 17, 17, 1) 42%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(17, 17, 17, 1) 42%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#000000', GradientType=0 );
-  color: white;
-  font-size: 12px;
-
-  height: 20px;
-  padding: 0;
-  line-height: 20px;
-  padding: 0 10px;
-}
-
-.app_container.app_developer {
+.app-container.app-container__developer {
   background-color: rgba(42, 42, 42, 0.9);
   box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
 }
 
-.ahw_login-wrapper {
-}
-
-.app_container.app_header {
-  overflow: hidden;
-}
-
-.app_container.app_header .ahw_login-wrapper {
-  width: auto;
-}
-
-.app_container.app_copyright {
+.app-container.app_copyright {
   background-color: rgba(42, 42, 42, 0.9);
   box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
 }
 
-.app_container.app_navigation {
-  background-color: rgba(42, 42, 42, 0.89);
-  box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
-}
-
-.app_container.app_user {
+.app-container.app_user {
   background: none;
   border: none;
   box-shadow: none;
@@ -276,12 +184,7 @@ input[type="submit"] {
   font-size: 12px;
 }
 
-.app_container.app_home {
+.app-container.app_home {
   background: none;
   color: white;
-}
-
-input:-internal-autofill-selected {
-  background-color: transparent !important;
-  background-image: none !important;
 }

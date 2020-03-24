@@ -1,0 +1,97 @@
+input.app-button.app-input__submit {
+  margin-top: 17px;
+  float: left;
+  display: block;
+  min-width: 50px;
+  padding: 0 10px;
+  box-shadow: none;
+}
+
+.app-form .input_container input {
+  padding: 0 10px;
+  position: relative;
+  height: 25px;
+  line-height: 25px;
+}
+
+.input_container label {
+  height: 25px;
+  line-height: 25px;
+}
+
+.app-button__select {
+  float: left;
+  width: 168px;
+  height: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 0px;
+  [class*="-IndicatorsContainer"] {
+    padding: 0px;
+  }
+  [class*="-indicatorContainer"] {
+    padding: 0px;
+    path {
+      color: grey;
+    }
+  }
+
+  [class*="-indicatorSeparator"] {
+    padding: 0px;
+    color: grey;
+  }
+
+  [class*="-control"] {
+    height: 20px;
+    // box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0,
+    //   rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+    color: white;
+    min-height: 25px;
+    &:hover {
+      //border: none;
+      border-color: black;
+    }
+  }
+  [class*="-placeholder"] {
+    // padding-top: 10px;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  [class*="-MenuList"] {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+  [class*="-option"] {
+    background-color: transparent;
+    &:hover {
+      background: grey;
+    }
+  }
+  [class*="-singleValue"] {
+    color: white;
+    // padding-left: 10px;
+    // padding-top: 10px;
+  }
+  [class*="-ValueContainer"] {
+    height: 25px;
+    color: white;
+  }
+  [class*="-menu"] {
+    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0,
+      rgba(0, 0, 0, 0.8) 0 1px 7px 0 inset;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
+    color: white;
+  }
+  [class*="-Input"] {
+    position: absolute;
+    [id*="react-select-"][id*="-input"] {
+      opacity: 0 !important;
+    }
+  }
+}

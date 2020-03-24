@@ -1,23 +1,24 @@
-.app_container {
-  &.app_header {
+.app-container {
+  &.app-container__header {
     float: left;
     width: 100%;
     display: block;
-    height: auto;
-    min-height: 60px;
     margin-bottom: 1px;
-    font-size: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgba(42, 42, 42, 0.9);
+    box-shadow: 0 5px 13px 0 rgba(0, 0, 5, 0.3);
+    overflow: hidden;
+    padding: 5px;
     &:after {
       clear: both;
       display: block;
       content: "";
       width: 100%;
     }
-    .ahw_login-wrapper {
+    .app-container__header--login {
       float: right;
       padding: 5px 5px;
-      width: 320px;
-      .login_wrapper {
+      .app-container__header-form--login {
         float: left;
         width: 100%;
         &.login {
@@ -36,31 +37,31 @@
           input {
             width: 100%;
             box-sizing: border-box;
+            text-shadow: none;
           }
         }
       }
       input[type="submit"] {
-        margin-top: 20px;
+        margin-top: 17px;
         float: left;
         display: block;
+        min-width: 50px;
+        padding: 0 10px;
+        box-shadow: none;
       }
       .userLogged {
         float: right;
         display: block;
         .userLogged-lastName,
         .userLogged-name {
-          font-size: 12px;
           margin: 0;
           padding: 0 0px 0 5px;
           display: inline-block;
-          font-size: large;
         }
         .userLogged-greeting {
-          font-size: 20px;
         }
         .signOut {
           margin-right: 5px;
-          margin-top: 3px;
           margin-left: 10px;
         }
         label {
@@ -72,9 +73,9 @@
         }
       }
     }
-    .ahw_logo {
+    .app-container__header--logo {
       float: left;
-      width: 80px;
+      width: 50px;
       overflow: hidden;
       height: auto;
       img {
