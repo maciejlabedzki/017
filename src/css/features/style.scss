@@ -122,17 +122,259 @@
 }
 
 // tab menu
+.tab-menu {
+  .tab-view {
+    background: black;
+    padding: 10px;
+    border: none;
+  }
+  .focus {
+    background: black;
+  }
+  & > button {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: none;
+    line-height: 1;
+    outline: none;
+  }
+  & > button.focus {
+    text-align: center;
+    line-height: 1;
+    border-bottom: 2px solid white;
+  }
+  & > button:hover {
+    border-bottom: 2px solid white;
+    background: black;
+  }
+}
 
-.tab-menu > button {
-  cursor: pointer;
-  padding: 8px 16px;
-  border: 0;
-  border-bottom: 2px solid transparent;
+// modal
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation-name: appear;
+  animation-duration: 300ms;
+  .modal-dialog {
+    width: 100%;
+    max-width: 550px;
+    background: #232323;
+    position: relative;
+    margin: 0 20px;
+    max-height: calc(100vh - 40px);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+  }
+
+  .modal-header,
+  .modal-footer {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  .modal-header {
+    border-bottom: 1px solid #000000;
+    justify-content: space-between;
+  }
+  .modal-footer {
+    border-top: 1px solid #000000;
+    justify-content: flex-end;
+  }
+  .modal-close {
+    cursor: pointer;
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+  }
+  .modal-body {
+    overflow: auto;
+  }
+  .modal-content {
+    padding: 1rem;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(-150px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+// Limited Word Textarea
+
+.app-textarea {
+  textarea {
+    width: 100%;
+    background: black;
+    border: 1px solid #2f2f2f;
+  }
+}
+
+// tag
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 48px;
+  padding: 0 8px;
+  border: 1px solid #232323;
+  border-radius: 6px;
+  input {
+    flex: 1;
+    border: none;
+    height: 46px;
+    font-size: 14px;
+    padding: 4px 10px 0;
+    &:focus {
+      outline: transparent;
+    }
+  }
+  #tags {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 8px 0 0;
+    .tag {
+      width: auto;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 0 8px;
+      font-size: 14px;
+      list-style: none;
+      border-radius: 6px;
+      margin: 0 8px 8px 0;
+      background: #000000;
+      .tag-title {
+        margin-top: 3px;
+      }
+      .tag-close-icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        font-size: 14px;
+        margin-left: 8px;
+        color: #0052cc;
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// notyfication
+
+@keyframes leave {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.app-notification {
+  .alert {
+    padding: 0.75rem 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    padding-right: 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .alert.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+
+  .alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .alert.leaving {
+    animation: leave 0.5s forwards;
+  }
+
+  .alert .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0.75rem;
+    color: #333;
+    border: 0;
+    height: 100%;
+    cursor: pointer;
+    background: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .alert .close:after {
+    content: "x";
+  }
+}
+
+.app-notification.alert.info {
+  position: fixed;
+  top: 10px;
+  left: 10%;
+  width: 80%;
+  height: auto;
+  z-index: 99;
+  background: #ffffff;
+  padding: 10px;
+  color: black;
+  line-height: 1;
+}
+
+.app-notification.alert.info button.close {
+  position: absolute;
+  right: 0;
   background: none;
-}
-.tab-menu > button.focus {
-  border-bottom: 2px solid #007bef;
-}
-.tab-menu > button:hover {
-  border-bottom: 2px solid #007bef;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  background: black;
+  display: block;
+  min-width: 10px;
+  border-radius: 10px;
+  top: 3px;
 }

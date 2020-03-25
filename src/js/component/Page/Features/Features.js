@@ -15,9 +15,43 @@ import img_3 from "./../../../../assets/img/carousel/img_3.jpg";
 import Collapse from "./../../../util/features/collapse";
 
 // Tabs
-import Tabs, { TabItem } from "./../../../util/features/tabs";
+import Tabs, { TabItem } from "../../../util/features/tabs/tabs";
 
-class StructureTemplete extends React.Component {
+// Modal
+import Modal from "../../../util/features/modal";
+
+// Counter
+import Counter from "../../../util/features/counter";
+
+// LimitedWordTextarea
+import LimitedWordTextarea from "../../../util/features/limitedWordTextarea";
+
+import LimitedTextarea from "../../../util/features/limitedTextarea";
+
+// TagInput
+import TagInput from "../../../util/features/tag";
+
+// Accordion
+import Accordion, { AccordionItem } from "../../../util/features/accordion";
+
+// ClickBox
+import ClickBox from "../../../util/features/clickInside";
+
+// Notification
+import Notification from "../../../util/features/notification";
+
+// ResponsiveText
+//import ResponsiveText from "../../../util/features/mediaQuery";
+
+class Features extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isModal: "",
+      sendNotification: false
+    };
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -86,7 +120,87 @@ class StructureTemplete extends React.Component {
                 </TabItem>
               </Tabs>
             </li>
-            <li></li>
+            <li>
+              <label className="app-container__title">Modal</label>
+              <button
+                className="app-button"
+                onClick={() =>
+                  this.setState({ isModal: true }, () => {
+                    console.log(this.state);
+                  })
+                }
+              >
+                Click Here
+              </button>
+              <Modal
+                isVisible={this.state.isModal}
+                title="Modal Title"
+                content={<p>Add your content here</p>}
+                footer={
+                  <button
+                    onClick={() => {
+                      alert("Nothing to do yet.");
+                    }}
+                  >
+                    Cancel
+                  </button>
+                }
+                onClose={() => this.setState({ isModal: false })}
+              />
+            </li>
+            <li>
+              <label className="app-container__title">Counter</label>
+              <Counter />
+            </li>
+
+            <li>
+              <label className="app-container__title">
+                Limited Word Textarea
+              </label>
+              <LimitedWordTextarea limit={5} value="Hello there!" />
+              <label className="app-container__title">Limited Textarea</label>
+              <LimitedTextarea limit={32} value="Hello!" />
+            </li>
+            <li>
+              <label className="app-container__title">Tag Input</label>
+              <TagInput tags={["Action", "S-f"]} />
+            </li>
+
+            <li>
+              <label className="app-container__title">Accordion</label>
+              <Accordion defaultIndex="1" onItemClick={console.log}>
+                <AccordionItem label="A" index="1">
+                  Lorem ipsum
+                </AccordionItem>
+                <AccordionItem label="B" index="2">
+                  Dolor sit amet
+                </AccordionItem>
+              </Accordion>
+            </li>
+
+            <li>
+              <label className="app-container__title">ClickBox</label>
+              <ClickBox onClickInside={() => alert("click inside")} />
+            </li>
+            <li>
+              <label className="app-container__title">Notification</label>
+              {this.state.sendNotification === false && (
+                <button
+                  onClick={() => this.setState({ sendNotification: true })}
+                >
+                  send notification
+                </button>
+              )}
+              {this.state.sendNotification === true && (
+                <Notification type="info" message="This is info" />
+              )}
+            </li>
+            <li>
+              <label className="app-container__title">
+                Responsive Text By media query
+              </label>
+              {/* <ResponsiveText /> */}
+            </li>
             <li></li>
             <li></li>
             <li></li>
@@ -98,4 +212,4 @@ class StructureTemplete extends React.Component {
   }
 }
 
-export default StructureTemplete;
+export default Features;
