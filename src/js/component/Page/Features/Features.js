@@ -24,9 +24,9 @@ import Modal from "../../../util/features/modal";
 import Counter from "../../../util/features/counter";
 
 // LimitedWordTextarea
-import LimitedWordTextarea from "../../../util/features/limitedWordTextarea";
+// import LimitedWordTextarea from "../../../util/features/limitedWordTextarea";
 
-import LimitedTextarea from "../../../util/features/limitedTextarea";
+// import LimitedTextarea from "../../../util/features/limitedTextarea";
 
 // TagInput
 import TagInput from "../../../util/features/tag";
@@ -154,12 +154,12 @@ class Features extends React.Component {
             </li>
 
             <li>
-              <label className="app-container__title">
+              {/* <label className="app-container__title">
                 Limited Word Textarea
               </label>
               <LimitedWordTextarea limit={5} value="Hello there!" />
               <label className="app-container__title">Limited Textarea</label>
-              <LimitedTextarea limit={32} value="Hello!" />
+              <LimitedTextarea limit={32} value="Hello!" /> */}
             </li>
             <li>
               <label className="app-container__title">Tag Input</label>

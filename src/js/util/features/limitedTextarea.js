@@ -26,4 +26,44 @@ function LimitedTextarea({ rows, cols, value, limit }) {
   );
 }
 
+// class LimitedTextarea extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       content: props.value
+//     };
+//   }
+
+//   setFormattedContent = e => {
+//     let text = e.target.value;
+//     console.log(e.target.value, text, text.length, this.props.limit);
+//     if (text.length > this.props.limit) {
+//       this.setState({ content: text.slice(0, 11) });
+//       console.log("11");
+//     } else {
+//       this.setState({ content: text });
+//       console.log("22");
+//     }
+//   };
+
+//   render() {
+//     return (
+//       <div className="app-textarea">
+//         <textarea
+//           rows={this.props.rows}
+//           cols={this.props.cols}
+//           onChange={this.setFormattedContent}
+//           maxLength={this.props.limit}
+//           value={this.props.content}
+//           placeholder={this.props.content}
+//         />
+//         <p>
+//           {this.state.content}
+//           {this.state.content.length}/{this.props.limit}
+//         </p>
+//       </div>
+//     );
+//   }
+// }
+
 export default LimitedTextarea;

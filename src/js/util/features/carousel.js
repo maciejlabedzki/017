@@ -1,8 +1,8 @@
 import React from "react";
 
 function Carousel(props) {
+  console.log("car", props, props.ref);
   const [active, setActive] = React.useState(0);
-  let scrollInterval = null;
 
   const style = {
     carousel: {
@@ -18,11 +18,14 @@ function Carousel(props) {
   };
 
   React.useEffect(() => {
-    scrollInterval = setTimeout(() => {
+    let scrollInterval = setTimeout(() => {
       const { carouselItems } = props;
       setActive((active + 1) % carouselItems.length);
     }, 2000);
-    return () => clearTimeout(scrollInterval);
+    return () => {
+      clearTimeout(scrollInterval);
+      console.log("was unmounted");
+    };
   });
 
   const { carouselItems, ...rest } = props;
