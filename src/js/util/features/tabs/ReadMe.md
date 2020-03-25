@@ -1,6 +1,9 @@
 Tabs
+
 React, Components, State, Children, Intermediate
+
 View on [GitHub](https://github.com/30-seconds/30-seconds-of-react/blob/master/snippets/Tabs.md)
+
 Renders a tabbed menu and view component.
 
 Define a TabItem component, pass it to the Tab and remove unnecessary nodes expect for TabItem by identifying the function's name in props.children.
