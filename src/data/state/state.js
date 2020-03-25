@@ -8,7 +8,7 @@ const stateSetting = {
   langCountry: "en",
   lang: LanguageJSON["en"],
   development: "production",
-  page: "register",
+  page: "features",
   accessLv: undefined,
   loginStatus: false,
   json: movieLocalJsonData,

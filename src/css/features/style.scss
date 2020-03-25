@@ -1,0 +1,138 @@
+// features
+.app-container-features__list {
+  list-style: decimal-leading-zero;
+  padding-left: 20px;
+  li {
+    margin-bottom: 10px;
+    background: #353535;
+    padding: 10px;
+    &:after {
+      clear: both;
+      display: block;
+      content: "";
+    }
+  }
+}
+
+//collapse
+
+.app-collapse {
+  .app-button-toggle {
+    position: relative;
+    .app-icon__toggle {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+    }
+  }
+}
+
+//carousel
+
+.app-container-carousel {
+  float: left;
+  width: 100%;
+  display: block;
+  height: 490px;
+  background: #252525;
+  text-align: center;
+  .app-carousel__item {
+    float: left;
+    width: 100%;
+    display: block;
+    background: #191919;
+    text-align: center;
+    line-height: 40px;
+    img {
+      width: 300px;
+      height: 450px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+// file drop
+
+.filedrop {
+  min-height: 120px;
+  border: 3px solid #d3d3d3;
+  text-align: center;
+  font-size: 24px;
+  padding: 32px;
+  border-radius: 4px;
+  float: left;
+  width: 100%;
+  &.drag {
+    border: 3px dashed #1e90ff;
+  }
+
+  &.ready {
+    border: 3px solid #32cd32;
+  }
+}
+
+// loader
+.loader {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader circle {
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+// tooltip
+
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  visibility: hidden;
+  padding: 5px;
+  border-radius: 5px;
+}
+.tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.7) transparent transparent;
+}
+
+// tab menu
+
+.tab-menu > button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+}
+.tab-menu > button.focus {
+  border-bottom: 2px solid #007bef;
+}
+.tab-menu > button:hover {
+  border-bottom: 2px solid #007bef;
+}
