@@ -73,7 +73,7 @@ const stateSetting = {
     4: "marketing",
     5: "affiliate"
   },
-  pagesList: ["home", "search", "register", "contact"],
+  pagesList: ["home", "search", "register", "contact", "features"],
   pagesListLogged: ["user", "favourite"],
   pagesListAdmin: [
     "user",
