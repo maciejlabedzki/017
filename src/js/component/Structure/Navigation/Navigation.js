@@ -7,7 +7,7 @@ class Navigation extends React.Component {
       <div className="app-container app-container__navigation">
         <ul>
           {this.props.pagesList.map(item => {
-            var link = "/" + item;
+            var link = this.props.pathName + "/" + item;
 
             if (item === "register" && this.props.accessLv !== undefined) {
               return null;

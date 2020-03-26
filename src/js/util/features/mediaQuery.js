@@ -1,31 +1,34 @@
 import React from "react";
 
-const useMediaQuery = (query, whenTrue, whenFalse) => {
-  if (typeof window === "undefined" || typeof window.matchMedia === "undefined")
-    return whenFalse;
+class useMediaQuery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      match: "",
+      mediaQuery: this.props.query
+    };
+  }
 
-  const mediaQuery = window.matchMedia(query);
-  const [match, setMatch] = React.useState(!!mediaQuery.matches);
+  validateWindow = () => {
+    if (
+      typeof window === "undefined" ||
+      typeof window.matchMedia === "undefined"
+    ) {
+      this.setState({ match: "Error: Not posible to say." });
+    } else {
+      window.matchMedia("(max-width: 400px)").matches
+        ? this.setState({ match: this.props.whenTrue })
+        : this.setState({ match: this.props.whenFalse });
+    }
+  };
 
-  React.useEffect(() => {
-    const handler = () => setMatch(!!mediaQuery.matches);
-    mediaQuery.addListener(handler);
-    return () => mediaQuery.removeListener(handler);
-  }, []);
+  componentDidMount() {
+    this.validateWindow();
+  }
 
-  return match ? whenTrue : whenFalse;
-};
+  render() {
+    return <>Responsive text: {this.state.match}</>;
+  }
+}
 
-const ResponsiveText = () => {
-  const text = useMediaQuery(
-    "(max-width: 400px)",
-    "Less than 400px wide",
-    "More than 400px wide"
-  );
-
-  return <span>{text}</span>;
-};
-
-export default ResponsiveText;
-
-// Line 8:29:  React Hook "React.useState" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?
+export default useMediaQuery;

@@ -414,6 +414,9 @@ class App extends React.Component {
   };
 
   favouritesAdd = async e => {
+    if (this.state.loginStatus === false) {
+      return false;
+    }
     const id = e.target.getAttribute("movie-id");
     const title = e.target.getAttribute("movie-title");
     const year = e.target.getAttribute("movie-year");
@@ -439,6 +442,9 @@ class App extends React.Component {
   };
 
   favouriteRemove = async e => {
+    if (this.state.loginStatus === false) {
+      return false;
+    }
     const movieid = e.target.getAttribute("movieid");
     const favourites = this.state.favourites;
     delete favourites[movieid];
@@ -483,18 +489,21 @@ class App extends React.Component {
           />
           {/* APP : STRUCTURE : NAVIGATION */}
           <Navigation
+            pathName={this.state.pathName}
             pagesList={this.state.pagesList}
             changePage={this.changePage}
             page={this.state.page}
             accessLv={this.state.accessLv}
           />
           <NavigationLogged
+            pathName={this.state.pathName}
             pagesListLogged={this.state.pagesListLogged}
             changePage={this.changePage}
             page={this.state.page}
             accessLv={this.state.accessLv}
           />
           <NavigationAdmin
+            pathName={this.state.pathName}
             pagesListAdmin={this.state.pagesListAdmin}
             changePage={this.changePage}
             page={this.state.page}
@@ -503,14 +512,27 @@ class App extends React.Component {
 
           <div className="app-container__body">
             <Switch>
-              <Route path="/home">
+              <Route exact path={this.state.pathName}>
+                <label className="app-container__title">
+                  <span className="icon-home"> </span>Home page path name
+                  localisation
+                </label>
+              </Route>
+
+              <Route exact path={this.state.pathName + "/"}>
+                <label className="app-container__title">
+                  <span className="icon-home"> </span>Landing Page:
+                </label>
+              </Route>
+
+              <Route path={this.state.pathName + "/home"}>
                 <label className="app-container__title">
                   <span className="icon-home"> </span>Home:
                 </label>
                 <Home />
               </Route>
 
-              <Route path="/search">
+              <Route path={this.state.pathName + "/search"}>
                 <React.Fragment>
                   <label className="app-container__title">
                     <span className="icon-search"> </span>Search:
@@ -535,6 +557,7 @@ class App extends React.Component {
                     jsonApi={this.jsonApi}
                   />
                   <MovieDescription
+                    loginStatus={this.state.loginStatus}
                     favouritesAdd={this.favouritesAdd}
                     favouritesRemove={this.favouritesRemove}
                     movieDb={this.state.json}
@@ -555,7 +578,7 @@ class App extends React.Component {
                 </React.Fragment>
               </Route>
 
-              <Route path="/user">
+              <Route path={this.state.pathName + "/user"}>
                 <label className="app-container__title">
                   <span className="icon-search"> </span>User:
                 </label>
@@ -565,7 +588,7 @@ class App extends React.Component {
                 />
               </Route>
 
-              <Route path="/favourite">
+              <Route path={this.state.pathName + "/favourite"}>
                 <label className="app-container__title">
                   <span className="icon-search"> </span>Favourite:
                 </label>
@@ -578,35 +601,35 @@ class App extends React.Component {
                 />
               </Route>
 
-              <Route path="/register">
+              <Route path={this.state.pathName + "/register"}>
                 <label className="app-container__title">
                   <span className="icon-search"> </span>Register:
                 </label>
                 <Register message={this.message} />
               </Route>
 
-              <Route path="/contact">
+              <Route path={this.state.pathName + "/contact"}>
                 <label className="app-container__title">
                   <span className="icon-search"> </span>Contact:
                 </label>
                 <Contact />
               </Route>
 
-              <Route path="/delete">
+              <Route path={this.state.pathName + "/delete"}>
                 <label className="app-container__title">
                   <span className="icon-search"> </span>Delete:
                 </label>
                 <Delete />
               </Route>
 
-              <Route path="/all_users">
+              <Route path={this.state.pathName + "/all_users"}>
                 <label className="app-container__title">
                   <span className="icon-user"> </span>All users:
                 </label>
                 <AllUsers />
               </Route>
 
-              <Route path="/features">
+              <Route path={this.state.pathName + "/features"}>
                 <label className="app-container__title">
                   <span className="icon-user"> </span>Features:
                 </label>

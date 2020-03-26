@@ -6,12 +6,9 @@ class User extends React.Component {
     return (
       <React.Fragment>
         <div className="app-container app_user ">
-          User Page
           {this.props.statusLogin === false && (
             <>
-              <p>Please login to see that page</p>
-              <p>Login: admin</p>
-              <p>Password: admin</p>
+              <p>Page visible for sign in users.</p>
             </>
           )}
           {this.props.statusLogin === true && (

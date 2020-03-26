@@ -1,7 +1,6 @@
 import React from "react";
 
 function Carousel(props) {
-  console.log("car", props, props.ref);
   const [active, setActive] = React.useState(0);
 
   const style = {
@@ -24,7 +23,6 @@ function Carousel(props) {
     }, 2000);
     return () => {
       clearTimeout(scrollInterval);
-      console.log("was unmounted");
     };
   });
 

@@ -11,7 +11,8 @@ class NavigationAdmin extends React.Component {
             <ul>
               {this.props.pagesListAdmin.map(item => {
                 var replaced = item.split(" ").join("_");
-                var link = "/" + replaced;
+                var link = this.props.pathName + "/" + replaced;
+
                 return (
                   <Link
                     key={"id_navbar_logged_" + item}

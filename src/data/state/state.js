@@ -1,18 +1,24 @@
-import movieLocalJsonData from "../json/movieLocalJsonData";
-import user from "../json/user";
-import favouriteJSON from "../json/favourite.json";
-import commentsJSON from "../json/comments.json";
+import movieJSON from "../json/offline/movie";
+import user from "../json/users/user";
+import favouriteJSON from "../json/favourites/favourites.json";
+import commentsJSON from "../json/comments/comments.json";
 import LanguageJSON from "./../language/language.json";
 
 const stateSetting = {
+  homepageUrl: "http://maciejlabedzki.pl/0_projects/017/build/",
+  pathName: "/0_projects/017/build",
   langCountry: "en",
+  route: {
+    home: "http://maciejlabedzki.pl/0_projects/017/build/home",
+    landing: "http://maciejlabedzki.pl/0_projects/017/build/"
+  },
   lang: LanguageJSON["en"],
   development: "production",
   page: "features",
   accessLv: undefined,
   loginStatus: false,
-  json: movieLocalJsonData,
-  jsonOffline: movieLocalJsonData,
+  json: movieJSON,
+  jsonOffline: movieJSON,
   jsonValid: true,
   jsonResponse: "",
   jsonError: "",
@@ -47,23 +53,24 @@ const stateSetting = {
   searchMatchButton: false,
 
   user: user,
-  userData: {
-    login: "admin",
-    password: "admin",
-    name: "John",
-    lastName: "Doe"
-  },
-  userDataLogin: {
-    id: "bedzki@wp.pl",
-    accessLv: "admin",
-    registryDate: 1584952785664,
-    name: "Maciej",
-    lastName: "Łabędzki",
-    mail: "bedzki@wp.pl",
-    password: "aaaaaaaa",
-    favourite: "fav001",
-    userDetails: user
-  },
+  // userData: {
+  //   login: "admin",
+  //   password: "admin",
+  //   name: "John",
+  //   lastName: "Doe"
+  // },
+  userDataLogin: undefined,
+  // userDataLogin: {
+  //   id: "bedzki@wp.pl",
+  //   accessLv: "admin",
+  //   registryDate: 1584952785664,
+  //   name: "Maciej",
+  //   lastName: "Łabędzki",
+  //   mail: "bedzki@wp.pl",
+  //   password: "aaaaaaaa",
+  //   favourite: "fav001",
+  //   userDetails: user
+  // },
 
   accountLv: {
     0: "admin",
@@ -85,31 +92,7 @@ const stateSetting = {
   ],
 
   comments: commentsJSON,
-  // commentsReplay: {
-  //   "comments-ucid-1": [
-  //     {
-  //       title: "I like this movie also",
-  //       describe: "Lorem ipsum",
-  //       commentsUID: "comments-ucid-1",
-  //       autor: "admin",
-  //       date: "12:13:11 13.03.2020",
-  //       autorUUID: "1"
-  //     }
-  //   ]
-  // },
-
   favourites: favouriteJSON
-  //edit: { long: { a: 1, b: 2, c: 3, d: 4 }, short: { a: 1 }, medium: { c: 1 } },
-  // favourites: {
-  //   tt00000001: {
-  //     title: "aaa",
-  //     src:
-  //       "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-  //   }
-  // }
-  // user: "admin",
-  // password: "Aa123456",
-  // loginStatus: false
 };
 
 export default stateSetting;

@@ -75,6 +75,7 @@ const MovieDescription = ({
   jsonValid,
   searchAllMovie,
   favouritesAdd,
+  loginStatus,
   favouritesRemove
 }) => {
   if (searchAllMovie === true) {
@@ -96,7 +97,7 @@ const MovieDescription = ({
     return (
       <>
         <div className="app-container ">
-          {movieFound === true && (
+          {movieFound === true && loginStatus === true && (
             <div className="app-container app-container__favourite">
               <label>Favourite:</label>
               <button

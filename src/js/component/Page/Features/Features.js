@@ -24,9 +24,9 @@ import Modal from "../../../util/features/modal";
 import Counter from "../../../util/features/counter";
 
 // LimitedWordTextarea
-// import LimitedWordTextarea from "../../../util/features/limitedWordTextarea";
+import LimitedWordTextarea from "../../../util/features/limitedWordTextarea";
 
-// import LimitedTextarea from "../../../util/features/limitedTextarea";
+import LimitedTextarea from "../../../util/features/limitedTextarea";
 
 // TagInput
 import TagInput from "../../../util/features/tag";
@@ -41,7 +41,19 @@ import ClickBox from "../../../util/features/clickInside";
 import Notification from "../../../util/features/notification";
 
 // ResponsiveText
-//import ResponsiveText from "../../../util/features/mediaQuery";
+import MediaQuery from "../../../util/features/mediaQuery";
+
+// Timer
+import Timer from "../../../util/features/timer";
+
+// Online
+import Online from "../../../util/features/online";
+
+// ImageFetch
+import ImageFetch from "../../../util/features/imageFetch";
+
+// SSR Checker
+import SSRChecker from "../../../util/features/useSSR";
 
 class Features extends React.Component {
   constructor(props) {
@@ -154,12 +166,12 @@ class Features extends React.Component {
             </li>
 
             <li>
-              {/* <label className="app-container__title">
+              <label className="app-container__title">
                 Limited Word Textarea
               </label>
               <LimitedWordTextarea limit={5} value="Hello there!" />
               <label className="app-container__title">Limited Textarea</label>
-              <LimitedTextarea limit={32} value="Hello!" /> */}
+              <LimitedTextarea limit={32} value="Hello!" />
             </li>
             <li>
               <label className="app-container__title">Tag Input</label>
@@ -199,8 +211,34 @@ class Features extends React.Component {
               <label className="app-container__title">
                 Responsive Text By media query
               </label>
-              {/* <ResponsiveText /> */}
+              <MediaQuery
+                query="(max-width: 400px)"
+                whenTrue="Less than 400px wide"
+                whenFalse="More than 400px wide"
+              />
             </li>
+            <li>
+              <label className="app-container__title">Timer</label>
+              <Timer />
+            </li>
+            <li>
+              <label className="app-container__title">Online</label>
+              <Online />
+            </li>
+            <li>
+              <label className="app-container__title">Image Fetch</label>
+              <ImageFetch />
+            </li>
+            <li>
+              <label className="app-container__title">
+                A hook that checks if the code is running on the browser or the
+                server.
+              </label>
+              <SSRChecker />
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
             <li></li>
             <li></li>
             <li></li>
