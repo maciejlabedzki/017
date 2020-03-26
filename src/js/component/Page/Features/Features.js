@@ -55,6 +55,18 @@ import ImageFetch from "../../../util/features/imageFetch";
 // SSR Checker
 import SSRChecker from "../../../util/features/useSSR";
 
+// Use Async
+import RandomImage from "../../../util/features/useAsync";
+
+// Time out one second
+import OneSecondTimer from "../../../util/features/timeout";
+
+// Check if mounted
+import Mounter from "../../../util/features/useMounted";
+
+// Check if unmounted
+import Unmounter from "../../../util/features/useUnmounted";
+
 class Features extends React.Component {
   constructor(props) {
     super(props);
@@ -236,10 +248,24 @@ class Features extends React.Component {
               </label>
               <SSRChecker />
             </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+              <label className="app-container__title">
+                Fetch random images
+              </label>
+              <RandomImage />
+            </li>
+            <li>
+              <label className="app-container__title">Timer 1 sec</label>
+              <OneSecondTimer />
+            </li>
+            <li>
+              <label className="app-container__title">Check if mounted</label>
+              <Mounter />
+            </li>
+            <li>
+              <label className="app-container__title">Check if unmounted</label>
+              <Unmounter />
+            </li>
             <li></li>
             <li></li>
             <li></li>
