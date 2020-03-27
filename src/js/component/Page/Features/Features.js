@@ -91,6 +91,9 @@ import ControlledInput from "../../../util/features/inputControlled";
 // Controlled Input
 import AutoLink from "../../../util/features/autoLink";
 
+// Mongo Sample
+import MongoSample from "../../../util/features/mongoDB";
+
 class Features extends React.Component {
   constructor(props) {
     super(props);
@@ -360,6 +363,10 @@ class Features extends React.Component {
             <li>
               <label className="app-container__title">Auto Link</label>
               <AutoLink text="foo bar baz http://example.org bar" />
+            </li>
+            <li>
+              <label className="app-container__title">Mongo DB</label>
+              <MongoSample />
             </li>
           </ul>
         </div>
