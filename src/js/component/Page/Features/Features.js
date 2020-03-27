@@ -88,6 +88,9 @@ import TreeView from "../../../util/features/treeView";
 // Controlled Input
 import ControlledInput from "../../../util/features/inputControlled";
 
+// Controlled Input
+import AutoLink from "../../../util/features/autoLink";
+
 class Features extends React.Component {
   constructor(props) {
     super(props);
@@ -354,6 +357,10 @@ class Features extends React.Component {
                 callback={val => console.log(val)}
               />{" "}
               [inspect console]
+            </li>
+            <li>
+              <label className="app-container__title">Auto Link</label>
+              <AutoLink text="foo bar baz http://example.org bar" />
             </li>
           </ul>
         </div>
