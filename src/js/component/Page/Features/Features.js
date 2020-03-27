@@ -355,11 +355,6 @@ class Features extends React.Component {
               />{" "}
               [inspect console]
             </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
           </ul>
         </div>
       </React.Fragment>
