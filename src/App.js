@@ -514,16 +514,15 @@ class App extends React.Component {
             <Switch>
               <Route exact path={this.state.pathName}>
                 <label className="app-container__title">
-                  <span className="icon-home"> </span>Home page path name
-                  localisation
+                  <span className="icon-home"> </span>Landing Page:
                 </label>
               </Route>
-
+              {/* 
               <Route exact path={this.state.pathName + "/"}>
                 <label className="app-container__title">
                   <span className="icon-home"> </span>Landing Page:
                 </label>
-              </Route>
+              </Route> */}
 
               <Route path={this.state.pathName + "/home"}>
                 <label className="app-container__title">

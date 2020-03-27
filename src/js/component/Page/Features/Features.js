@@ -67,12 +67,55 @@ import Mounter from "../../../util/features/useMounted";
 // Check if unmounted
 import Unmounter from "../../../util/features/useUnmounted";
 
+// Mailto
+import Mailto from "../../../util/features/mailto";
+
+// Data Table
+import DataTable from "../../../util/features/dataTable";
+
+// Data List
+import DataList from "../../../util/features/dataList";
+
+// Password Revealer
+import PasswordRevealer from "../../../util/features/passwordRevealer";
+
+// Count Down
+import CountDown from "../../../util/features/countDown";
+
+// Tree View
+import TreeView from "../../../util/features/treeView";
+
+// Controlled Input
+import ControlledInput from "../../../util/features/inputControlled";
+
 class Features extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isModal: "",
-      sendNotification: false
+      sendNotification: false,
+      treeViewData: {
+        lorem: {
+          ipsum: "dolor sit",
+          amet: {
+            consectetur: "adipiscing",
+            elit: [
+              "duis",
+              "vitae",
+              {
+                semper: "orci"
+              },
+              {
+                est: "sed ornare"
+              },
+              "etiam",
+              ["laoreet", "tincidunt"],
+              ["vestibulum", "ante"]
+            ]
+          },
+          ipsum: "primis"
+        }
+      }
     };
   }
 
@@ -266,6 +309,54 @@ class Features extends React.Component {
               <label className="app-container__title">Check if unmounted</label>
               <Unmounter />
             </li>
+            <li>
+              <label className="app-container__title">Mailto</label>
+              <Mailto
+                email="foo@bar.baz"
+                subject="Hello & Welcome"
+                body="Hello world!"
+              >
+                Mail me!
+              </Mailto>
+            </li>
+            <li>
+              <label className="app-container__title">Data Table</label>
+              <DataTable data={["John", "Jesse"]} />
+            </li>
+
+            <li>
+              <label className="app-container__title">Data List</label>
+              <DataList data={["John", "Paul", "Mary"]} />
+            </li>
+            <li>
+              <label className="app-container__title">
+                Data List - ordered
+              </label>
+              <DataList data={["John", "Paul", "Mary"]} isOrdered />
+            </li>
+            <li>
+              <label className="app-container__title">Password Revealer</label>
+              <PasswordRevealer />
+            </li>
+            <li>
+              <label className="app-container__title">CountDown</label>
+              <CountDown hours="1" minutes="45" />
+            </li>
+            <li>
+              <label className="app-container__title">Tree View</label>
+              <TreeView data={this.state.treeViewData} name="data" />
+            </li>
+            <li>
+              <label className="app-container__title">Controlled Input</label>
+              <ControlledInput
+                type="text"
+                placeholder="Insert some text here..."
+                callback={val => console.log(val)}
+              />{" "}
+              [inspect console]
+            </li>
+            <li></li>
+            <li></li>
             <li></li>
             <li></li>
             <li></li>
