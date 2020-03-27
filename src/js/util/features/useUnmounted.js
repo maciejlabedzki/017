@@ -5,7 +5,7 @@ const useComponentWillUnmount = onUnmountHandler => {
     () => () => {
       onUnmountHandler();
     },
-    []
+    [onUnmountHandler]
   );
 };
 

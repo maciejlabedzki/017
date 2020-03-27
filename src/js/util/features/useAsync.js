@@ -10,6 +10,8 @@ const useAsync = fn => {
         return { loading: false, error: null, value: action.value };
       case "error":
         return { loading: false, error: action.error, value: null };
+      default:
+        return null;
     }
   };
 

@@ -22,7 +22,7 @@ function LimitedWordTextarea({ rows, cols, value, limit }) {
 
   React.useEffect(() => {
     setFormattedContent(content);
-  }, []);
+  });
 
   return (
     <div className="app-textarea">

@@ -14,7 +14,7 @@ const useSSR = (callback, delay) => {
     return () => {
       setInBrowser(false);
     };
-  }, []);
+  }, [inBrowser]);
 
   const useSSRObject = React.useMemo(
     () => ({
@@ -29,12 +29,12 @@ const useSSR = (callback, delay) => {
 
   return React.useMemo(
     () => Object.assign(Object.values(useSSRObject), useSSRObject),
-    [inBrowser]
+    [useSSRObject]
   );
 };
 
 const SSRChecker = props => {
-  let { isBrowser, isServer } = useSSR();
+  let { isBrowser } = useSSR();
 
   return <p>{isBrowser ? "Running on browser" : "Running on server"}</p>;
 };

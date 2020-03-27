@@ -11,15 +11,15 @@ function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
 
   const tick = () => {
     if (paused || over) return;
-    if (time.hours == 0 && time.minutes == 0 && time.seconds == 0)
+    if (time.hours === 0 && time.minutes === 0 && time.seconds === 0)
       setOver(true);
-    else if (time.minutes == 0 && time.seconds == 0)
+    else if (time.minutes === 0 && time.seconds === 0)
       setTime({
         hours: time.hours - 1,
         minutes: 59,
         seconds: 59
       });
-    else if (time.seconds == 0)
+    else if (time.seconds === 0)
       setTime({
         hours: time.hours,
         minutes: time.minutes - 1,
