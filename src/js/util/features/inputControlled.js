@@ -12,7 +12,7 @@ function ControlledInput({
 
   React.useEffect(() => {
     callback(value);
-  }, [value]);
+  });
 
   return (
     <input

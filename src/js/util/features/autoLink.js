@@ -10,7 +10,12 @@ function AutoLink({ text }) {
         if (match) {
           let url = match[0];
           return (
-            <a href={url.startsWith("http") ? url : `http://${url}`}>{url}</a>
+            <a
+              key="id_autolink"
+              href={url.startsWith("http") ? url : `http://${url}`}
+            >
+              {url}
+            </a>
           );
         }
         return word;

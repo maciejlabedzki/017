@@ -115,8 +115,7 @@ class Features extends React.Component {
               ["laoreet", "tincidunt"],
               ["vestibulum", "ante"]
             ]
-          },
-          ipsum: "primis"
+          }
         }
       }
     };

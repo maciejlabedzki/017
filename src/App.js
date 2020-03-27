@@ -481,6 +481,7 @@ class App extends React.Component {
 
           {/* APP : STRUCTURE : HEADER */}
           <Header
+            pathName={this.state.pathName}
             logOut={this.logOut}
             userDataLogin={this.state.userDataLogin}
             signIn={this.signIn}
