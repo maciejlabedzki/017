@@ -19,6 +19,10 @@ const Landing = props => {
 
         <ul>
           <li>
+            Go to page all users[ Allow: - , - , Admin ]
+            <img src={img_Landing_1} alt="page 1" />
+          </li>
+          <li>
             Register new user [ Allow: Guest , User , Admin ]
             <img src={img_Landing_2} alt="page 2" />
           </li>

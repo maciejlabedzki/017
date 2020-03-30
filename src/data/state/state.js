@@ -6,7 +6,8 @@ import LanguageJSON from "./../language/language.json";
 
 const stateSetting = {
   homepageUrl: "http://maciejlabedzki.pl/0_projects/017/build/",
-  pathName: "/0_projects/017/build",
+  _pathName: "/0_projects/017/build",
+  pathName: "/017",
   langCountry: "en",
   route: {
     home: "http://maciejlabedzki.pl/0_projects/017/build/home",
