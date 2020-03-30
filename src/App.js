@@ -31,6 +31,7 @@ import Favourite from "./js/component/Page/Favourite/Favourite";
 import Register from "./js/component/Page/Register/Register";
 import Contact from "./js/component/Page/Contact/Contact";
 import Features from "./js/component/Page/Features/Features";
+import PageNotFound from "./js/component/Page/PageNotFound/PageNotFound";
 
 // APP : PAGE : Logged
 
@@ -468,7 +469,10 @@ class App extends React.Component {
   NoMatch = ({ location }) => (
     <div>
       <h3>
-        404 : No match for <code>{location.pathname}</code>
+        <p className="app-page-not-found alert-danger">
+          Wrong path: {location.pathname}
+        </p>
+        <PageNotFound />
       </h3>
     </div>
   );

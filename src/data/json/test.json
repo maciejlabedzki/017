@@ -103,6 +103,15 @@
           "year": "1915"
         }
       }
+    },
+    {
+      "id": "bedzki@wp.pl",
+      "registryDate": 1585567602960,
+      "name": "aaa",
+      "lastName": "Łabędzki",
+      "mail": "bedzki@wp.pl",
+      "password": "YAu6wi3JYCK2teG",
+      "accessLv": "user"
     }
   ],
   "userDetails": {

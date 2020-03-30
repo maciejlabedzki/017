@@ -5,14 +5,10 @@ import commentsJSON from "../json/comments/comments.json";
 import LanguageJSON from "./../language/language.json";
 
 const stateSetting = {
-  homepageUrl: "http://maciejlabedzki.pl/0_projects/017/build/",
-  _pathName: "/0_projects/017/build",
-  pathName: "/017",
+  __pathName: "/0_projects/017/build",
+  pathName: "/moviedb",
+  _pathName: "/017",
   langCountry: "en",
-  route: {
-    home: "http://maciejlabedzki.pl/0_projects/017/build/home",
-    landing: "http://maciejlabedzki.pl/0_projects/017/build/"
-  },
   lang: LanguageJSON["en"],
   development: "production",
   page: "features",
@@ -54,33 +50,16 @@ const stateSetting = {
   searchMatchButton: false,
 
   user: user,
-  // userData: {
-  //   login: "admin",
-  //   password: "admin",
-  //   name: "John",
-  //   lastName: "Doe"
-  // },
   userDataLogin: undefined,
-  // userDataLogin: {
-  //   id: "bedzki@wp.pl",
-  //   accessLv: "admin",
-  //   registryDate: 1584952785664,
-  //   name: "Maciej",
-  //   lastName: "Łabędzki",
-  //   mail: "bedzki@wp.pl",
-  //   password: "aaaaaaaa",
-  //   favourite: "fav001",
-  //   userDetails: user
-  // },
 
-  accountLv: {
-    0: "admin",
-    1: "guest",
-    2: "user",
-    3: "manager",
-    4: "marketing",
-    5: "affiliate"
-  },
+  // accountLv: {
+  //   0: "admin",
+  //   1: "guest",
+  //   2: "user",
+  //   3: "manager",
+  //   4: "marketing",
+  //   5: "affiliate"
+  // },
   pagesList: ["home", "search", "register", "contact", "features"],
   pagesListLogged: ["user", "favourite"],
   pagesListAdmin: [
@@ -94,6 +73,32 @@ const stateSetting = {
 
   comments: commentsJSON,
   favourites: favouriteJSON
+
+  // userData: {
+  //   login: "admin",
+  //   password: "admin",
+  //   name: "John",
+  //   lastName: "Doe"
+  // },
+
+  // userDataLogin: {
+  //   id: "bedzki@wp.pl",
+  //   accessLv: "admin",
+  //   registryDate: 1584952785664,
+  //   name: "Maciej",
+  //   lastName: "Łabędzki",
+  //   mail: "bedzki@wp.pl",
+  //   password: "aaaaaaaa",
+  //   favourite: "fav001",
+  //   userDetails: user
+  // },
+
+  // homepageUrl: "http://maciejlabedzki.pl/0_projects/017/build/",
+
+  // route: {
+  //   home: "http://maciejlabedzki.pl/0_projects/017/build/home",
+  //   landing: "http://maciejlabedzki.pl/0_projects/017/build/"
+  // }
 };
 
 export default stateSetting;

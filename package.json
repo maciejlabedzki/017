@@ -61,6 +61,7 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.13.0",
     "react-app-polyfill": "^1.0.6",
+    "react-app-rewired": "^2.1.5",
     "react-dev-utils": "^10.2.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
@@ -71,6 +72,7 @@
     "semver": "6.3.0",
     "sitemap": "^6.1.0",
     "style-loader": "0.23.1",
+    "stylelint-webpack-plugin": "^1.2.3",
     "terser-webpack-plugin": "2.3.4",
     "ts-pnp": "1.1.5",
     "url-loader": "2.3.0",
@@ -107,7 +109,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://maciejlabedzki.github.io/017/",
+  "homepage": "http://maciejlabedzki.pl/moviedb/",
+  "__homepage": "http://maciejlabedzki.pl/0_projects/017/build/",
+  "_homepage": "https://maciejlabedzki.github.io/017/",
   "devDependencies": {
     "concurrently": "^5.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",

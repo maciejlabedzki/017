@@ -205,3 +205,16 @@ input[type="submit"] {
 #root {
   overflow: hidden;
 }
+
+.app-page-not-found.alert-danger {
+  padding: 10px;
+}
+
+.app-container.app-page-not-found {
+  text-align: center;
+}
+
+.app-container.app-page-not-found .icon-warning {
+  font-size: 50px;
+  color: red;
+}
