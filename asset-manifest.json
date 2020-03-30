@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/017/static/css/main.cea63f42.chunk.css",
+    "main.js": "/017/static/js/main.7a95965a.chunk.js",
+    "runtime-main.js": "/017/static/js/runtime-main.ba5848cc.js",
+    "static/js/2.7663b384.chunk.js": "/017/static/js/2.7663b384.chunk.js",
+    "index.html": "/017/index.html",
+    "precache-manifest.e92fa0243f73a36c08c8937fbde139e8.js": "/017/precache-manifest.e92fa0243f73a36c08c8937fbde139e8.js",
+    "service-worker.js": "/017/service-worker.js",
+    "static/js/2.7663b384.chunk.js.LICENSE.txt": "/017/static/js/2.7663b384.chunk.js.LICENSE.txt",
+    "static/media/1.png": "/017/static/media/1.c0a379fc.png",
+    "static/media/10.png": "/017/static/media/10.cfe5006c.png",
+    "static/media/2.png": "/017/static/media/2.bdb7dee0.png",
+    "static/media/3.png": "/017/static/media/3.6e93dc0b.png",
+    "static/media/4.png": "/017/static/media/4.c1329bca.png",
+    "static/media/5.png": "/017/static/media/5.815d7bc7.png",
+    "static/media/6.png": "/017/static/media/6.b9b40dbf.png",
+    "static/media/7.png": "/017/static/media/7.4462a04b.png",
+    "static/media/8.png": "/017/static/media/8.1ed7a048.png",
+    "static/media/9.png": "/017/static/media/9.0f825567.png",
+    "static/media/style.scss": "/017/static/media/icomoon.93f003ec.ttf",
+    "static/media/img_1.jpg": "/017/static/media/img_1.124892ba.jpg",
+    "static/media/img_2.jpg": "/017/static/media/img_2.6b69ae3a.jpg",
+    "static/media/img_3.jpg": "/017/static/media/img_3.a8efeccb.jpg",
+    "static/media/no-poster.jpg": "/017/static/media/no-poster.990a45c6.jpg",
+    "static/media/ratings_metacritics.png": "/017/static/media/ratings_metacritics.ffbf8027.png",
+    "static/media/rotten_tomatoes.jpg": "/017/static/media/rotten_tomatoes.325ad745.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba5848cc.js",
+    "static/js/2.7663b384.chunk.js",
+    "static/css/main.cea63f42.chunk.css",
+    "static/js/main.7a95965a.chunk.js"
+  ]
+}
