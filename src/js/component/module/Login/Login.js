@@ -94,6 +94,9 @@ class Login extends React.Component {
         {this.props.loginStatus === true && (
           <div className="userLogged">
             <label className="userLogged-greeting">Welcome</label>
+            <label className="userLogged-accessLv">
+              ({this.props.userDataLogin.accessLv})
+            </label>
             <label className="userLogged-name">
               {this.props.userDataLogin.name}
             </label>

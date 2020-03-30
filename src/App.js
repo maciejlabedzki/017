@@ -22,7 +22,8 @@ import NavigationLogged from "./js/component/Structure/NavigationLogged/Navigati
 import NavigationAdmin from "./js/component/Structure/NavigationAdmin/NavigationAdmin";
 import Footer from "./js/component/Structure/Footer/Footer";
 
-// APP : PAGE
+// APP :
+import Landing from "./js/component/Page/Landing/Landing";
 import Home from "./js/component/Page/Home/Home";
 import SearchResult from "./js/component/Page/Search/SearchResult";
 import User from "./js/component/Page/User/User";
@@ -477,7 +478,7 @@ class App extends React.Component {
       <Router>
         <div id="app-wrapper">
           {/* DEV: TOOL : HELPER */}
-          <Helper state={this.state} />
+          {this.state.accessLv === "admin" && <Helper state={this.state} />}
 
           {/* APP : STRUCTURE : HEADER */}
           <Header
@@ -517,6 +518,7 @@ class App extends React.Component {
                 <label className="app-container__title">
                   <span className="icon-home"> </span>Landing Page:
                 </label>
+                <Landing />
               </Route>
               {/* 
               <Route exact path={this.state.pathName + "/"}>
@@ -593,6 +595,7 @@ class App extends React.Component {
                   <span className="icon-search"> </span>Favourite:
                 </label>
                 <Favourite
+                  pathName={this.state.pathName}
                   userID={this.state.userDataLogin}
                   statusLogin={this.state.loginStatus}
                   favourite={this.state.favourites}

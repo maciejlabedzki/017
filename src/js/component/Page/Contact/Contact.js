@@ -14,8 +14,8 @@ const Contact = props => {
             alt="location"
           />
         </p>
-        <p>
-          <label>Address: </label>
+        <p className="app-contact__adress">
+          <label className="app-container__title">Address: </label>
           <label>Keas 69 Str.</label>
           <label>15234, Chalandri</label>
           <label>Athens,</label>

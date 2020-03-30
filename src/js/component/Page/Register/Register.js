@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Select from "react-select";
+import Select from "react-select"; // eslint-disable-line
 
 class Register extends React.Component {
   constructor(props) {
@@ -70,7 +70,8 @@ class Register extends React.Component {
       lastName: data.get("lastName"),
       mail: data.get("mail"),
       password: data.get("password"),
-      accessLv: this.state.accessLv
+      accessLv: "user"
+      //accessLv: this.state.accessLv
     };
 
     this.setState({ user }, () => {
@@ -98,7 +99,7 @@ class Register extends React.Component {
           {this.state.send === false && (
             <React.Fragment>
               <form className="app-form" onSubmit={this.handleSubmit}>
-                <div className="input_container">
+                {/* <div className="input_container">
                   <label>
                     Access:
                     <span className="app-button__information--required">*</span>
@@ -109,7 +110,7 @@ class Register extends React.Component {
                     options={this.state.options}
                     onChange={this.handleOnChange}
                   />
-                </div>
+                </div> */}
 
                 <div className="input_container">
                   <label>

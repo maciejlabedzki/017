@@ -27,7 +27,7 @@ const MoviesFavourite = props => {
       >
         <div className="app-fav-page afp-img">{img}</div>
         <div className="app-fav-page afp-desc">
-          <Link to="/search" onClick={props.showMovie}>
+          <Link to={props.pathName + "/search"} onClick={props.showMovie}>
             <label id={id} onClick={props.showMovie} className="afp-desc-title">
               {title}
             </label>
@@ -57,6 +57,7 @@ class Favourite extends React.Component {
         <span className="icon-star-full"> </span>
         {this.props.statusLogin === true && (
           <MoviesFavourite
+            pathName={this.props.pathName}
             showMovie={this.props.showMovie}
             movies={this.props.favourite}
             favouriteRemove={this.props.favouriteRemove}
@@ -65,8 +66,14 @@ class Favourite extends React.Component {
         {this.props.statusLogin === false && (
           <>
             <p>Please login to see that page</p>
-            <p>Login: admin</p>
-            <p>Password: admin</p>
+
+            <p>Login: admin@admin.com</p>
+            <p>Password: AdminTest</p>
+
+            <p>or</p>
+
+            <p>Login: user@user.com</p>
+            <p>Password: UserTest</p>
           </>
         )}
         {/* <button onClick={this.props.favouriteRemove}>del</button> */}

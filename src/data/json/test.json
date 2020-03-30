@@ -58,13 +58,13 @@
   },
   "user": [
     {
-      "id": "bedzki@wp.pl",
-      "registryDate": 1584952785664,
-      "name": "Maciej",
+      "id": "admin@admin.com",
       "accessLv": "admin",
-      "lastName": "Łabędzki",
-      "mail": "bedzki@wp.pl",
-      "password": "aaaaaaaa",
+      "registryDate": 1584952785664,
+      "name": "Admin",
+      "lastName": "Test",
+      "mail": "admin@admin.com",
+      "password": "AdminTest",
       "favourites": {
         "tt0800369": {
           "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
@@ -84,13 +84,13 @@
       }
     },
     {
-      "id": "aaa@wp.pl",
+      "id": "user@user.com",
       "accessLv": "user",
       "registryDate": 1584963849352,
-      "name": "aaa",
-      "lastName": "aaa",
-      "mail": "aaa@wp.pl",
-      "password": "aaaaaaaa",
+      "name": "User",
+      "lastName": "Test",
+      "mail": "user@user.com",
+      "password": "UserTest",
       "favourites": {
         "tt0449157": {
           "title": ".1111 testimonio",
@@ -103,24 +103,6 @@
           "year": "1915"
         }
       }
-    },
-    {
-      "id": "oferta.artswan@gmail.com",
-      "registryDate": 1584976903473,
-      "name": "Maciej",
-      "lastName": "Łabędzki",
-      "mail": "oferta.artswan@gmail.com",
-      "password": "aaaaaaaa",
-      "accessLv": "user"
-    },
-    {
-      "id": "ASDi@wp.pl",
-      "registryDate": 1584977936293,
-      "name": "ASD",
-      "lastName": "ASD",
-      "mail": "ASDi@wp.pl",
-      "password": "4KTqrNWTNj27Bai",
-      "accessLv": "user"
     }
   ],
   "userDetails": {
@@ -179,8 +161,19 @@
   },
   "favourites": [
     {
-      "id": "bedzki@wp.pl2",
+      "id": "admin@admin.com",
+      "put": true,
       "movies": {
+        "tt0461316": {
+          "title": "Police Nr. 1111",
+          "poster": "N/A",
+          "year": "1915"
+        },
+        "tt0000222": {
+          "title": "Au cabaret",
+          "poster": "https://m.media-amazon.com/images/M/MV5BMDQ0OWZjZGQtYmQ3NC00NWMzLTlmZWUtYzQxYmEwNDIwMWU2XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+          "year": "1899"
+        },
         "tt0800369": {
           "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
           "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
@@ -191,30 +184,20 @@
           "poster": "N/A",
           "year": "1999"
         },
-        "tt0461314": {
-          "title": "Police Nr. 1111",
+        "tt4667116": {
+          "title": "Ddd",
           "poster": "N/A",
-          "year": "1915"
+          "year": "2015"
         },
-        "tt0800365": {
-          "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
-          "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
-          "year": "2011"
-        },
-        "tt0449188": {
-          "title": ".1111 testimonio",
-          "poster": "N/A",
-          "year": "1999"
-        },
-        "tt0461999": {
-          "title": "Police Nr. 1111",
-          "poster": "N/A",
-          "year": "1915"
+        "tt0000003": {
+          "title": "Poor Pierrot",
+          "poster": "https://m.media-amazon.com/images/M/MV5BNGRkODFmNjYtYjU2Yy00YTI1LWFlYzgtNGE0YTdmNjI0ZDk0XkEyXkFqcGdeQXVyNDk0MDg4NDk@._V1_SX300.jpg",
+          "year": "1892"
         }
       }
     },
     {
-      "id": "bedzki@wp.pl",
+      "id": "user@user.com",
       "put": true,
       "movies": {
         "tt0449157": {
@@ -231,26 +214,6 @@
           "title": "Au cabaret",
           "poster": "https://m.media-amazon.com/images/M/MV5BMDQ0OWZjZGQtYmQ3NC00NWMzLTlmZWUtYzQxYmEwNDIwMWU2XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
           "year": "1899"
-        },
-        "tt0800369": {
-          "title": "Thor ::OFFLINE SEARCH RESULT SAMPLE::",
-          "poster": "https://m.media-amazon.com/images/M/MV5BOGE4NzU1YTAtNzA3Mi00ZTA2LTg2YmYtMDJmMThiMjlkYjg2XkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
-          "year": "2011"
-        }
-      }
-    },
-    {
-      "id": "aaa@wp.pl",
-      "movies": {
-        "tt0449157": {
-          "title": ".1111 testimonio",
-          "poster": "N/A",
-          "year": "1999"
-        },
-        "tt0461316": {
-          "title": "Police Nr. 1111",
-          "poster": "N/A",
-          "year": "1915"
         }
       }
     }

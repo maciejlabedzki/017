@@ -79,6 +79,7 @@ const MovieDescription = ({
   favouritesRemove
 }) => {
   if (searchAllMovie === true) {
+    console.log("search all movie test true");
     return null;
   }
 

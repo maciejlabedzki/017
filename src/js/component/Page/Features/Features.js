@@ -92,7 +92,7 @@ import ControlledInput from "../../../util/features/inputControlled";
 import AutoLink from "../../../util/features/autoLink";
 
 // Mongo Sample
-import MongoSample from "../../../util/features/mongoDB";
+// import MongoSample from "../../../util/features/mongoDB";
 
 class Features extends React.Component {
   constructor(props) {
@@ -182,17 +182,6 @@ class Features extends React.Component {
               </Collapse>
             </li>
             <li>
-              <label className="app-container__title">Tabs</label>
-              <Tabs defaultIndex="1" onTabClick={console.log}>
-                <TabItem label="A" index="1">
-                  Lorem ipsum
-                </TabItem>
-                <TabItem label="B" index="2">
-                  Dolor sit amet
-                </TabItem>
-              </Tabs>
-            </li>
-            <li>
               <label className="app-container__title">Modal</label>
               <button
                 className="app-button"
@@ -236,18 +225,6 @@ class Features extends React.Component {
             <li>
               <label className="app-container__title">Tag Input</label>
               <TagInput tags={["Action", "S-f"]} />
-            </li>
-
-            <li>
-              <label className="app-container__title">Accordion</label>
-              <Accordion defaultIndex="1" onItemClick={console.log}>
-                <AccordionItem label="A" index="1">
-                  Lorem ipsum
-                </AccordionItem>
-                <AccordionItem label="B" index="2">
-                  Dolor sit amet
-                </AccordionItem>
-              </Accordion>
             </li>
 
             <li>
@@ -357,16 +334,40 @@ class Features extends React.Component {
                 type="text"
                 placeholder="Insert some text here..."
                 callback={val => console.log(val)}
-              />{" "}
+              />
               [inspect console]
             </li>
             <li>
               <label className="app-container__title">Auto Link</label>
               <AutoLink text="foo bar baz http://example.org bar" />
             </li>
-            <li>
+            {/* <li>
               <label className="app-container__title">Mongo DB</label>
               <MongoSample />
+            </li> */}
+
+            <li>
+              <label className="app-container__title">Accordion</label>
+              <Accordion defaultIndex="1" onItemClick={console.log}>
+                <AccordionItem label="A" index="1">
+                  Lorem ipsum
+                </AccordionItem>
+                <AccordionItem label="B" index="2">
+                  Dolor sit amet
+                </AccordionItem>
+              </Accordion>
+            </li>
+
+            <li>
+              <label className="app-container__title">Tabs</label>
+              <Tabs defaultIndex="1" onTabClick={console.log}>
+                <TabItem label="A" index="1">
+                  Lorem ipsum
+                </TabItem>
+                <TabItem label="B" index="2">
+                  Dolor sit amet
+                </TabItem>
+              </Tabs>
             </li>
           </ul>
         </div>
