@@ -2,7 +2,7 @@
 
 This is testing site. Go to git repository:
 
-[link](https://github.com/maciejlabedzki/017)
+[Reposytory Git Link](https://github.com/maciejlabedzki/017)
 
 Clone and install. Run testing server:
 
