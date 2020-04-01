@@ -218,3 +218,16 @@ input[type="submit"] {
   font-size: 50px;
   color: red;
 }
+
+code {
+  background: grey;
+  padding: 10px;
+  display: block;
+}
+
+.app-container__landing p {
+  display: block;
+  max-width: 750px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}

@@ -144,7 +144,7 @@ class Login extends React.Component {
         )}
         {this.state.message !== undefined &&
           this.state.removeMessage === false && (
-            <div className="app_container__alert alert-danger fadeOut animated delay-5s ">
+            <div className="app_container__alert alert-danger   ">
               {this.state.message}
             </div>
           )}
