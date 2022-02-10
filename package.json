@@ -116,7 +116,7 @@
     "concurrently": "^5.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "jscrambler": "^5.4.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.2",
     "sass-loader": "^8.0.2"
   },
